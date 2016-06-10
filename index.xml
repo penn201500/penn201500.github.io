@@ -541,8 +541,7 @@ hello hugo! I am test.md
     var gcse = document.createElement(&#39;script&#39;);
     gcse.type = &#39;text/javascript&#39;;
     gcse.async = true;
-    gcse.src = (document.location.protocol == &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) +
-        &#39;//cse.google.com/cse.js?cx=&#39; + cx;
+    gcse.src = &#39;https://cse.google.com/cse.js?cx=&#39; + cx;
     var s = document.getElementsByTagName(&#39;script&#39;)[0];
     s.parentNode.insertBefore(gcse, s);
   })();
