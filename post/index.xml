@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on learn better， learn more</title>
+    <link>http://learnbetter.club/post/</link>
+    <description>Recent content in Posts on learn better， learn more</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>penn201500@gmail.com (penn)</managingEditor>
+    <webMaster>penn201500@gmail.com (penn)</webMaster>
+    <lastBuildDate>Mon, 06 Jun 2016 05:04:40 +0000</lastBuildDate>
+    <atom:link href="http://learnbetter.club/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go is cool</title>
+      <link>http://learnbetter.club/2016/06/go_is_cool/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/go_is_cool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>如何使用hugo搭建个人博客（一）：在win7上使用hugo</title>
+      <link>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B8%80%E5%9C%A8win7%E4%B8%8A%E4%BD%BF%E7%94%A8hugo/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B8%80%E5%9C%A8win7%E4%B8%8A%E4%BD%BF%E7%94%A8hugo/</guid>
+      <description>
+
+&lt;p&gt;如何使用hugo搭建个人博客？
+按照创建步骤有：
+1. 在win7上使用hugo，能够本地预览（就是本文了）
+2. 修改主题：颜色，字体，布局（后续）
+3. 添加follow与修改share的方式（后续）
+3. 添加评论系统disqus（后续）
+4. 添加站内搜索（后续）
+5. 放到个人vps或者推到第三方托管（推荐阅读）&lt;/p&gt;
+
+&lt;p&gt;Hugo 是一个用 Go 语言编写的静态网站生成器，简单易用。类似的静态网站生成器还有&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; 。&lt;/p&gt;
+
+&lt;p&gt;Hugo在windows 7上的使用如下：&lt;/p&gt;
+
+&lt;h2 id=&#34;1-安装hugo:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;1. 安装hugo&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-1-安装go:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;1.1 安装go&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;可以在go github上下载 &lt;a href=&#34;https://golang.org/dl/&#34;&gt;go 1.6&lt;/a&gt;
+双击exe文件，一路next安装。安装完成之后，查看go安装结果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/go_valid.jpg&#34; alt=&#34;go&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-2-安装hugo:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;1.2 安装hugo&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://download.csdn.net/detail/justheretobe/9529014&#34;&gt;hugo for win64&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;或者官网下载：&lt;a href=&#34;https://gohugo.io/&#34;&gt;https://gohugo.io/&lt;/a&gt;
+下载后双击exe，一路next即可。查看安装结果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo_install_ok.jpg&#34; alt=&#34;hugo install ok&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-3-安装git-用来下载主题和管理博客文件的修改信息:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;1.3. 安装git（用来下载主题和管理博客文件的修改信息）&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;博客文件中的修改可以使用git进行版本管理，快速使用教程见: [廖雪峰 git教程]（&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）&#34;&gt;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;2-创建站点:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;2. 创建站点&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;创建一个目录，用来存放站点文件，然后使用hugo命令生成新站点：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-hugo&#34;&gt;mkdir my_logs
+hugo new site  mysite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg&#34; alt=&#34;hugo new site mysite&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;文件结构的含义是：
+原文解释见 &lt;a href=&#34;https://gohugo.io/content/&#34;&gt;https://gohugo.io/content/&lt;/a&gt;
+|- archetypes           ：存放default.md，头文件格式
+|- content                ：content目录存放博客文章（markdown文件）
+|- data                     ：存放自定义模版，导入的toml文件（或json，yaml）
+|- layouts                ：layouts目录存放的是网站的模板文件
+|- static                   ：static目录存放图片，css等静态资源
+|- config.toml         ：config.toml是网站的配置文件&lt;/p&gt;
+
+&lt;h2 id=&#34;3-选择主题:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;3. 选择主题&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;在mysite目录下新建一个themes文件夹，存放主题文件。
+本例选择使用crisp主题，可以直接下载crisp主题：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-hugo&#34;&gt;mkdir themes
+cd themes
+git clone https://github.com/Zenithar/hugo-theme-crisp.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载完成后：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20download%20crisp%20theme.jpg&#34; alt=&#34;hugo download crisp theme&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;4-本地预览:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;4. 本地预览&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;在cmd中启动hugo server：
+hugo server &amp;ndash;theme=hugo-theme-crisp &amp;ndash;buildDrafts &amp;ndash;watch&lt;/p&gt;
+
+&lt;p&gt;启动命令说明：
+&amp;ndash;theme 用于选择主题
+&amp;ndash;watch 用于实时监控博客文件（配置文件和博客内容）的变化，方便调试&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20start%20local%20server.jpg&#34; alt=&#34;hugo start local server&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后在浏览器中打开 &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20local%20server.jpg&#34; alt=&#34;hugo local server view&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;5-编写博客内容:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;5. 编写博客内容&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;在content目录中创建和编写test.md：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20.jpg&#34; alt=&#34;hugo new post test.md file&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以在localserver:1313中看到效果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view1.jpg&#34; alt=&#34;localserver view test.md&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;打开test ：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view2.jpg&#34; alt=&#34;localserver view test.md  2&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;6-查看更多themes以及主题demo:32ab2ae98403baa2de73e234673f41cc&#34;&gt;&lt;strong&gt;6. 查看更多themes以及主题Demo&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;查看更多主题可以访问：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20themes%20view--crisp.jpg&#34; alt=&#34;hugo themes&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;查看crisp主题的Demo：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/crisp%20demo%20site%20with%20blogs.jpg&#34; alt=&#34;huto crisp theme demo&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何使用hugo搭建个人博客（三）：添加follow与修改share的方式</title>
+      <link>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B8%89%E6%B7%BB%E5%8A%A0follow%E4%B8%8E%E4%BF%AE%E6%94%B9share%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B8%89%E6%B7%BB%E5%8A%A0follow%E4%B8%8E%E4%BF%AE%E6%94%B9share%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
+      <description>
+
+&lt;p&gt;本文继续介绍如何添加follow方式与修改share的方式。&lt;/p&gt;
+
+&lt;h2 id=&#34;添加mailto的功能:134f38b1b24fd44a57ae632b11fd82b1&#34;&gt;&lt;strong&gt;添加mailto的功能&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;在侧边栏的follow方式中，只留下了github follow。现增加mail to 的follow方式，便于读者使用邮件方式与博主沟通。&lt;/p&gt;
+
+&lt;p&gt;follow方式添加mail to邮箱follow方式中也可以添加mail，图标使用fontawesome的fa fa-envelope-o。
+fontqwesome的图标可以调整大小和颜色，具体讨论见：
+&lt;a href=&#34;http://stackoverflow.com/questions/12272372/how-to-style-icon-color-size-and-shadow-of-font-awesome-icons&#34;&gt;http://stackoverflow.com/questions/12272372/how-to-style-icon-color-size-and-shadow-of-font-awesome-icons&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;修改  E:\github_projects\hugo-crisp-theme-for-blog\mysite\themes\crisp\layouts\partials\follow.html文件如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;follow-icons&amp;quot;&amp;gt;
+    &amp;lt;a href=&amp;quot;https://github.com/penn201500&amp;quot; rel=&amp;quot;me&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;fa fa-github-square fa-2x&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;
+    &amp;lt;a href=&amp;quot;mailto:penn201500@gmail.com&amp;quot; title=&amp;quot;Gmail&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;fa fa-envelope-o fa-2x&amp;quot; style=&amp;quot;color:green&amp;quot; style=&amp;quot;font-size: 13px;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;    &amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;提醒：&lt;/strong&gt;请将mail地址和github地址修改为自己的帐号&lt;/p&gt;
+
+&lt;p&gt;显示效果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20mailto%20follow%20method.jpg&#34; alt=&#34;add mail to&#34; /&gt;
+&lt;p/&gt;
+&lt;p/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;修改share方式:134f38b1b24fd44a57ae632b11fd82b1&#34;&gt;&lt;strong&gt;修改share方式&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;test.md内容修改为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+++
+Categories = [&amp;quot;test&amp;quot;]
+Description = &amp;quot;test&amp;quot;
+Tags = [&amp;quot;test&amp;quot;]
+menu = &amp;quot;main&amp;quot;
+title = &amp;quot;test hugo&amp;quot;
+comments = true
+date = 2014-08-09T05:04:40Z
++++
+
+
+hello hugo! I am test.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;默认的crisp主题在博文后面都有share方式，如红色框线部分：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20post%20share%20method.jpg&#34; alt=&#34;hugo post share method&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果想要删除这些share方式，可以删除header.html同目录下的share.html文件（或者注释）。删除share.html之后的显示结果为：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20delete%20share.jpg&#34; alt=&#34;hugo delete share&#34; /&gt;&lt;p/&gt;
+&lt;p/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;删除author信息:134f38b1b24fd44a57ae632b11fd82b1&#34;&gt;&lt;strong&gt;删除author信息&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;删除share之后，博文后面还有author信息，可以注释或删除掉header.html同目录下的author.html文件。删除author.html之后的效果为：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20delete%20author%20info%20after%20deleting%20share.jpg&#34; alt=&#34;hugo delete author&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</title>
+      <link>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BA%8C%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BA%8C%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93%E5%B8%83%E5%B1%80/</guid>
+      <description>
+
+&lt;p&gt;上一篇博文中谈到了如何在本地使用hugo预览特定主题crisp，本文介绍主题的颜色，字体，布局的修改。&lt;/p&gt;
+
+&lt;h2 id=&#34;修改主题侧边栏颜色:60ca620960ab64ee8b0927307b3cb98b&#34;&gt;&lt;strong&gt;修改主题侧边栏颜色&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;crisp主题的侧边栏默认是白色，如果想改个颜色咋办？
+到github仓库 &lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/&lt;/a&gt; 获取 hugo-crisp-theme-for-blog/mysite/themes/crisp/layouts/partials/criticalpath.html  文件，替换本地themes目录下的同名文件，如
+ E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials\criticalpath.html
+ 替换之后效果：
+ &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20bgcolor.jpg&#34; alt=&#34;hugo update sidebar bgcolor&#34; /&gt;
+&lt;p/&gt;
+&lt;p/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;修改主题字体:60ca620960ab64ee8b0927307b3cb98b&#34;&gt;&lt;strong&gt;修改主题字体&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;在criticalpath.html文件中，查找font-family。然后修改字体类型，大小，颜色等&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;body,html
+{
+    font-size: 1em;
+    line-height: 1.65em;
+    font-family:&amp;quot;Open Sans&amp;quot;,sans-serif;
+    font-weight:300;color:#444
+    background-color: #ecf0f1;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p/&gt;
+&lt;p/&gt;
+## **修改侧边栏布局**
+侧边栏不想要头像？想添加links？只要github follow？ 
+下面介绍如何实现这些需求
+
+**1.去掉头像**
+编辑layouts/partial目录下的header.html文件：
+如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials
+
+```
+        &lt;header id=&#34;header&#34;&gt;
+            &lt;a id=&#34;logo&#34; href=&#34;{{ .Site.BaseURL }}&#34;&gt;&lt;img src=&#34;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&#34; alt=&#34;{{ .Site.Title }}&#34; /&gt;&lt;/a&gt;
+            &lt;h1&gt;&lt;a href=&#34;{{.Site.BaseURL}}&#34;&gt;{{.Site.Title}}&lt;/a&gt;&lt;/h1&gt;
+            &lt;p&gt;{{.Description}}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        {{ partial &amp;quot;follow.html&amp;quot; . }}
+        {{ partial &amp;quot;navigation.html&amp;quot; . }}
+    &amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;id = &amp;quot;logo&amp;quot;的这一行既是图片信息，替换图片，则将 imgsrc 连接替换。 取消图片则将这行注释或者删除。注释后效果如下：
+![delete logo](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg)
+&amp;lt;p/&amp;gt;
+&amp;lt;p/&amp;gt;
+**2. 添加links**
+可以参考配置文件：https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html
+将与header.html同目录的navigation.html文件修改为：
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr class=&#34;nav-site-separator&#34;&gt;
+
+&lt;p&gt;&lt;h6&gt;Links&lt;/h6&gt;
+&lt;nav class=&#34;nav&#34;&gt;
+      &lt;ul class=&#34;nav-list&#34;&gt;
+        &lt;font size=&#34;3&#34;&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;       &amp;lt;li class=&amp;quot;nav-site&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://lilydjwg.is-programmer.com/&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;依云的博客&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+       &amp;lt;li class=&amp;quot;nav-site&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://evilbinary.org/&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;邪恶二进制&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+       &amp;lt;li class=&amp;quot;nav-site&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://www.wlman.cc/&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Consec &#39;s Blog&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+       &amp;lt;li class=&amp;quot;nav-site&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://www.linuxzen.com/&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;cold&#39;s world&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;/font&amp;gt;
+  &amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/nav&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+```&amp;lt;li class=&amp;quot;nav-site&amp;quot;&amp;gt; ``` 这一行可以编辑一个链接。
+修改后效果如下：
+![add links](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg)
+&amp;lt;p/&amp;gt;
+&amp;lt;p/&amp;gt;
+**3. 只需要github follow**
+crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
+下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）
+将同目录下的follow.html修改如下：
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div id=&#34;follow-icons&#34;&gt;
+    &lt;a href=&#34;https://github.com/penn201500&#34; rel=&#34;me&#34;&gt;&lt;i class=&#34;fa fa-github-square fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;图标使用的是fontawesome，可以从github fork：
+https://github.com/penn201500/Font-Awesome.git
+或者访问fontawesome：
+http://fontawesome.io/icons/
+
+修改follow.html的效果：
+![update follow method](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20follow%20method.jpg)
+&amp;lt;p/&amp;gt;
+&amp;lt;p/&amp;gt;
+**4.增加tags和修改title**
+4.1 修改title
+将E:\github_projects\my_blogs\mysite目录下的config.toml文件修改为：
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;baseurl = &amp;ldquo;&lt;a href=&#34;http://www.learnbetter.club&amp;quot;&#34;&gt;http://www.learnbetter.club&amp;quot;&lt;/a&gt;
+languageCode = &amp;ldquo;en-us&amp;rdquo;
+title = &amp;ldquo;My Blog&amp;rdquo;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;4.2 add tags
+1.增加tags.html文件到header.html文件所在的目录。tags.html文件的内容为：
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;h6 class=&#34;sitetaglisttitle&#34;&gt;Tags&lt;/h6&gt;
+&lt;ul class=&#34;sitetaglist&#34;&gt;
+    {{ range first 10 .Site.Taxonomies.tags.ByCount }}
+        {{ if ge .Count 1 }}
+            &lt;li&gt;&lt;a href=&#34;http://learnbetter.club/tags/{{ .Name | urlize }}&#34;&gt;{{ .Name }} ({{ .Count }})&lt;/a&gt;&lt;/li&gt;
+        {{ end }}
+    {{ end }}
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2.并修改header.html：
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;header id=&amp;quot;header&amp;quot;&amp;gt;
+       &amp;lt;!--
+        &amp;lt;a id=&amp;quot;logo&amp;quot; href=&amp;quot;{{ .Site.BaseURL }}&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&amp;quot; alt=&amp;quot;{{ .Site.Title }}&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt;
+        --&amp;gt;
+        &amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{.Site.BaseURL}}&amp;quot;&amp;gt;{{.Site.Title}}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+        &amp;lt;p&amp;gt;{{.Description}}&amp;lt;/p&amp;gt;
+
+        {{ partial &amp;quot;follow.html&amp;quot; . }}
+        {{ partial &amp;quot;navigation.html&amp;quot; . }}
+        {{ partial &amp;quot;tags.html&amp;quot; . }}  &amp;lt;!--增加tags--&amp;gt;
+    &amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;3.修改E:\github_projects\my_blogs\mysite\content\content\test.md文件为：
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;+++
+date = &amp;ldquo;2016-05-29T23:56:41+08:00&amp;rdquo;
+draft = true
+title = &amp;ldquo;test&amp;rdquo;
+tags = &amp;ldquo;test&amp;rdquo;
++++&lt;/p&gt;
+
+&lt;p&gt;hello hugo! I am test.md
+```
+显示效果为：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20title%20add%20tags.jpg&#34; alt=&#34;add tags and update title&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;如果有其他好的博客主题，且托管在github上，可以clone到本地进行修改尝试&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）</title>
+      <link>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BA%94%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2gcse/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BA%94%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2gcse/</guid>
+      <description>
+
+&lt;p&gt;站内搜索推荐使用google custom search engine(gsce)。
+gcse的使用方法强烈推荐阅读：&lt;a href=&#34;http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/&#34;&gt;Hexo博客优化配置之&amp;ndash;为自己博客添加站内搜索&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;关键部分:df88166ce4a0edbe954f0e2e1bcaa702&#34;&gt;&lt;strong&gt;关键部分：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%202.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%203.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;p/&gt;
+下面介绍如何在crisp的侧边栏中添加search box。&lt;/p&gt;
+
+&lt;h2 id=&#34;获取search-thml:df88166ce4a0edbe954f0e2e1bcaa702&#34;&gt;&lt;strong&gt;获取search.thml&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。
+&lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;修改hearder-html:df88166ce4a0edbe954f0e2e1bcaa702&#34;&gt;&lt;strong&gt;修改hearder.html：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;        &amp;lt;header id=&amp;quot;header&amp;quot;&amp;gt;
+           &amp;lt;!--
+            &amp;lt;a id=&amp;quot;logo&amp;quot; href=&amp;quot;{{ .Site.BaseURL }}&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&amp;quot; alt=&amp;quot;{{ .Site.Title }}&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt;
+            --&amp;gt;
+            &amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{.Site.BaseURL}}&amp;quot;&amp;gt;{{.Site.Title}}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+            &amp;lt;p&amp;gt;{{.Description}}&amp;lt;/p&amp;gt;
+
+            {{ partial &amp;quot;follow.html&amp;quot; . }}
+            {{ partial &amp;quot;navigation.html&amp;quot; . }}
+            {{ partial &amp;quot;tags.html&amp;quot; . }}
+            {{ partial &amp;quot;search.html&amp;quot; . }}     &amp;lt;!--这里添加search box--&amp;gt;       
+        &amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;3-在crisp主题下新建search文件夹:df88166ce4a0edbe954f0e2e1bcaa702&#34;&gt;3. 在crisp主题下新建search文件夹&lt;/h2&gt;
+
+&lt;p&gt;从&lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html&lt;/a&gt; 获取index.html放到search文件夹中。
+将从google search engine中得到的搜索结果代码粘贴到index.html中的script部分：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;h1 class=&amp;quot;post-title&amp;quot;&amp;gt;Search Results&amp;lt;/h1&amp;gt;
+    &amp;lt;script&amp;gt;
+  (function() {
+    var cx = &#39;009059558632698478175:4wpqidijmx4&#39;;
+    var gcse = document.createElement(&#39;script&#39;);
+    gcse.type = &#39;text/javascript&#39;;
+    gcse.async = true;
+    gcse.src = &#39;https://cse.google.com/cse.js?cx=&#39; + cx;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+&amp;lt;/script&amp;gt;
+&amp;lt;gcse:searchresults-only&amp;gt;&amp;lt;/gcse:searchresults-only&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时在侧边栏能看到search box但是不能搜索到结果:
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20blog%20add%20gcse.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;4-生成public并发布到服务器:df88166ce4a0edbe954f0e2e1bcaa702&#34;&gt;4. 生成public并发布到服务器&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo -t crisp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在mysite目录执行以上命令，生成public目录。将public目录发布到服务器即可。
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20published%20and%20can%20search%20in%20site.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果是发布到github-pages，可以参考：
+&lt;a href=&#34;http://www.liuhaihua.cn/archives/133615.html&#34;&gt;http://www.liuhaihua.cn/archives/133615.html&lt;/a&gt;
+&lt;a href=&#34;https://www.zhihu.com/question/20962496&#34;&gt;https://www.zhihu.com/question/20962496&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;参考：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/&#34;&gt;Hexo博客优化配置之&amp;ndash;为自己博客添加站内搜索&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/&#34;&gt;Hexo博客第四站：搜索引擎+小插件+配置结构分析&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://kb.iu.edu/d/bckj&#34;&gt;How do I use Google Custom Search on my website?&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何使用hugo搭建个人博客（四）：添加评论系统disqus</title>
+      <link>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%9B%9B%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9Fdisqus/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%9B%9B%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9Fdisqus/</guid>
+      <description>&lt;p&gt;按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.注册disqus&lt;/strong&gt;
+官网注册帐号 &lt;a href=&#34;https://disqus.com/&#34;&gt;https://disqus.com/&lt;/a&gt;
+使用方式可以参考 &lt;a href=&#34;http://alfred-sun.github.io/blog/2014/12/05/github-pages/&#34;&gt;http://alfred-sun.github.io/blog/2014/12/05/github-pages/&lt;/a&gt;
+&lt;p/&gt;
+&lt;strong&gt;2.使用disqus&lt;/strong&gt;
+这里使用universal code的方式，将生成的code放到新文件comments.html中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;disqus_thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page&#39;s canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable
+};
+*/
+(function() { // DON&#39;T EDIT BELOW THIS LINE
+var d = document, s = d.createElement(&#39;script&#39;);
+
+s.src = &#39;//wwwlearnbetterclub.disqus.com/embed.js&#39;;
+
+s.setAttribute(&#39;data-timestamp&#39;, +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&amp;quot;https://disqus.com/?ref_noscript&amp;quot; rel=&amp;quot;nofollow&amp;quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;s.src请修改为自己的帐号信息
+comments.html与header.html在同一个目录。&lt;/p&gt;
+
+&lt;p&gt;显示效果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg&#34; alt=&#34;hugo add disqus&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p/&gt;
+&lt;strong&gt;3.博文中的comments可以关闭disqus功能&lt;/strong&gt;
+可以对某篇博文单独关闭disqus功能。如test.md&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+++
+Categories = [&amp;quot;test&amp;quot;]
+Description = &amp;quot;test&amp;quot;
+Tags = [&amp;quot;test&amp;quot;]
+menu = &amp;quot;main&amp;quot;
+title = &amp;quot;test hugo&amp;quot;
+comments = false      #这里的comments取值为false，disqus则不可见
+date = 2014-08-09T05:04:40Z
++++
+
+
+hello hugo! I am test.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;comments取值为false的显示效果为：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg&#34; alt=&#34;hugo blog comments is false and disqus no display&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;如果使用多说评论，请参考 &lt;a href=&#34;http://tonybai.com/2015/09/23/intro-of-gohugo/&#34;&gt;http://tonybai.com/2015/09/23/intro-of-gohugo/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

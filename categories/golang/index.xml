@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on learn better， learn more</title>
+    <link>http://learnbetter.club/categories/golang/</link>
+    <description>Recent content in Golang on learn better， learn more</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>penn201500@gmail.com (penn)</managingEditor>
+    <webMaster>penn201500@gmail.com (penn)</webMaster>
+    <lastBuildDate>Mon, 06 Jun 2016 05:04:40 +0000</lastBuildDate>
+    <atom:link href="http://learnbetter.club/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go is cool</title>
+      <link>http://learnbetter.club/2016/06/go_is_cool/</link>
+      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/go_is_cool/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
