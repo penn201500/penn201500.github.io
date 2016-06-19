@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python3 on learn better， learn more</title>
+    <link>http://learnbetter.club/tags/python3/</link>
+    <description>Recent content in Python3 on learn better， learn more</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>penn201500@gmail.com (penn)</managingEditor>
+    <webMaster>penn201500@gmail.com (penn)</webMaster>
+    <lastBuildDate>Sun, 19 Jun 2016 19:20:40 +0000</lastBuildDate>
+    <atom:link href="http://learnbetter.club/tags/python3/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python3 sorted的用法</title>
+      <link>http://learnbetter.club/2016/06/python3-sorted/</link>
+      <pubDate>Sun, 19 Jun 2016 19:20:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/python3-sorted/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;例题:55447a98b04e184bd08bcb4f57ca58c1&#34;&gt;&lt;strong&gt;例题：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;先来看一个例题：
+给你一个其中包含不同的英文字母和标点符号的文本，你要找到其中出现最多的字母，返回的字母必须是小写形式，
+当检查最想要的字母时，不区分大小写，所以在你的搜索中 &amp;quot;A&amp;quot; == &amp;quot;a&amp;quot;。 请确保你不计算标点符号，数字和空格，只计算字母。
+如果你找到 两个或两个以上的具有相同的频率的字母， 返回那个先出现在字母表中的字母。 例如 -- “one”包含“o”，“n”，“e”每个字母一次，因此我们选择“e”。
+**输入:** 用于分析的文本 (str, unicode).
+**输出:** 最常见的字母的小写形式。
+**前提::**
+密码只包含ASCII码符号
+0 &amp;lt; len(text) ≤ 105
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用sorted的解法如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def checkio(text):
+    #filter out not-alphebet char
+    if text.isalpha():  text = text.lower()
+    else:  text = &#39;&#39;.join([x.lower() for x in text if x.isalpha()])
+    #print(text)
+    
+    from collections import Counter
+    str_count = Counter(text)
+    #print(str_count)
+    #sorted with two parameters, the first parameter is the count of every char,the second is alphabet
+    str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))
+    #print(str_sorted)
+    #get the most wanted chars
+    most_wanted_letters = [item for item in str_sorted if item[1] == str_sorted[len(str_sorted) - 1][1]]
+    return most_wanted_letters[0][0]
+
+if __name__ == &#39;__main__&#39;:
+    #These &amp;quot;asserts&amp;quot; using only for self-checking and not necessary for auto-testing
+    assert checkio(&amp;quot;Hello World!&amp;quot;) == &amp;quot;l&amp;quot;, &amp;quot;Hello test&amp;quot;
+    assert checkio(&amp;quot;How do you do?&amp;quot;) == &amp;quot;o&amp;quot;, &amp;quot;O is most wanted&amp;quot;
+    assert checkio(&amp;quot;One&amp;quot;) == &amp;quot;e&amp;quot;, &amp;quot;All letter only once.&amp;quot;
+    assert checkio(&amp;quot;Oops!&amp;quot;) == &amp;quot;o&amp;quot;, &amp;quot;Don&#39;t forget about lower case.&amp;quot;
+    assert checkio(&amp;quot;AAaooo!!!!&amp;quot;) == &amp;quot;a&amp;quot;, &amp;quot;Only letters.&amp;quot;
+    assert checkio(&amp;quot;abe&amp;quot;) == &amp;quot;a&amp;quot;, &amp;quot;The First.&amp;quot;
+    print(&amp;quot;Start the long test&amp;quot;)
+    assert checkio(&amp;quot;a&amp;quot; * 9000 + &amp;quot;b&amp;quot; * 1000) == &amp;quot;a&amp;quot;, &amp;quot;Long.&amp;quot;
+    print(&amp;quot;The local tests are done.&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;测试结果如下：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/checkio%20most%20wanted%20letter.jpg&#34; alt=&#34;the most wanted letter&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sorted的用法:55447a98b04e184bd08bcb4f57ca58c1&#34;&gt;&lt;strong&gt;sorted的用法：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析解法的关键代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;增加print测试:
+#print(text)
+&amp;gt;&amp;gt;&amp;gt;checkio(&amp;quot;Lorem ipsum dolor sit amet&amp;quot;)
+loremipsumdolorsitamet
+&amp;lt;&amp;lt;&amp;lt; &#39;m&#39;
+#print(str_sorted)
+&amp;gt;&amp;gt;&amp;gt;checkio(&amp;quot;Lorem ipsum dolor sit amet&amp;quot;)
+loremipsumdolorsitamet
+Counter({&#39;m&#39;: 3, &#39;o&#39;: 3, &#39;i&#39;: 2, &#39;l&#39;: 2, &#39;s&#39;: 2, &#39;e&#39;: 2, &#39;t&#39;: 2, &#39;r&#39;: 2, &#39;d&#39;: 1, &#39;p&#39;: 1, &#39;a&#39;: 1, &#39;u&#39;: 1})
+&amp;lt;&amp;lt;&amp;lt; &#39;m&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里sorted使用&lt;strong&gt;两个关键字&lt;/strong&gt;进行排序：
+先按照每个字母出现的次数k[1]进行排序，然后安装字母表顺序对测试text中的内容k[0]进行排序.&lt;/p&gt;
+
+&lt;p&gt;python3手册对sorted的用法描述如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sorted(iterable[, key][, reverse])
+
+Return a new sorted list from the items in iterable.
+
+Has two optional arguments which must be specified as keyword arguments.
+
+key specifies a function of one argument that is used to extract a comparison key from each list element: key=str.lower. The default value is None (compare the elements directly).
+
+reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.
+
+Use functools.cmp_to_key() to convert an old-style cmp function to a key function.
+
+The built-in sorted() function is guaranteed to be stable. A sort is stable if it guarantees not to change the relative order of elements that compare equal — this is helpful for sorting in multiple passes (for example, sort by department, then by salary grade).
+
+For sorting examples and a brief sorting tutorial, see Sorting HOW TO.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sorted的第一个参数是一个迭代器，第二个参数是用来排序的key，第三个参数的排序数序：正序还是倒序
+如：
+第一个参数是迭代器&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第二个参数是用来排序的key&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
+list = [36, 5, -12, 9, -21]
+keys = [36, 5,  12, 9,  21]
+然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素：
+keys排序结果 =&amp;gt; [5, 9,  12,  21, 36]
+最终结果     ====&amp;gt; [5, 9, -12, -21, 36]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第三个参数决定正向还是反向排序：
+要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
+[&#39;Zoo&#39;, &#39;Credit&#39;, &#39;bob&#39;, &#39;about&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;例题解法来自 &lt;a href=&#34;https://checkio.org/user/penn201500/&#34;&gt;https://checkio.org/user/penn201500/&lt;/a&gt;
+更优解法为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import string
+​
+def checkio(text):
+    &amp;quot;&amp;quot;&amp;quot;
+    We iterate through latyn alphabet and count each letter in the text.
+    Then &#39;max&#39; selects the most frequent letter.
+    For the case when we have several equal letter,
+    &#39;max&#39; selects the first from they.
+    &amp;quot;&amp;quot;&amp;quot;
+    text = text.lower()
+    return max(string.ascii_lowercase, key=text.count)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;参考：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000&#34;&gt;廖雪峰官网 sorted方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://checkio.org/mission/most-wanted-letter/&#34;&gt;checkio: most wanted letter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000&#34;&gt;sorted()函数&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>python3 zip的用法</title>
+      <link>http://learnbetter.club/2016/06/python3-zip/</link>
+      <pubDate>Sun, 19 Jun 2016 19:19:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/python3-zip/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;例子:3a2916a882b53bf4714c682a2b069b9a&#34;&gt;&lt;strong&gt;例子：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;井字游戏，有时也被称为“进攻和防守”，是一个两人玩家（X和O）轮流标志着3×3的网格的空间的连珠游戏。最先在任意一条直线（水平线，垂直线或对角线）上成功连接三个标记的一方获胜。&lt;/p&gt;
+
+&lt;p&gt;但我们不去玩这个游戏。你将是这个游戏的裁判。你被赋予游戏的结果，以及你必须判断游戏是平局还是有人胜出，以及谁将会成为最后的赢家。如果X玩家获胜，返回“X”。如果O玩家获胜，返回“O”。如果比赛是平局，返回“D”。&lt;/p&gt;
+
+&lt;p&gt;x-o-referee&lt;/p&gt;
+
+&lt;p&gt;游戏的结果是作为字符串形式的列表，其中“X”和“O”是玩家的标志，“.”是空格。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;输入:&lt;/strong&gt; 游戏结果作为字符串形式的列表(Unicode)。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;输出:&lt;/strong&gt; “X”，“O”或“D”作为字符串形式。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;范例:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;checkio([
+    &amp;ldquo;X.O&amp;rdquo;,
+    &amp;ldquo;XX.&amp;rdquo;,
+    &amp;ldquo;XOO&amp;rdquo;]) == &amp;ldquo;X&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;checkio([
+    &amp;ldquo;OO.&amp;rdquo;,
+    &amp;ldquo;XOX&amp;rdquo;,
+    &amp;ldquo;XOX&amp;rdquo;]) == &amp;ldquo;O&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;checkio([
+    &amp;ldquo;OOX&amp;rdquo;,
+    &amp;ldquo;XXO&amp;rdquo;,
+    &amp;ldquo;OXX&amp;rdquo;]) == &amp;ldquo;D&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;如何使用：&lt;/strong&gt; 此任务中的概念将有助于您遍历数据类型。这还可以用在游戏的算法上，让你知道如何去检查结果。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;最多推荐的解法：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def checkio(result):
+    rows = result
+    cols = map(&#39;&#39;.join, zip(*rows))
+    diags = map(&#39;&#39;.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
+    lines = rows + list(cols) + list(diags)
+​
+    return &#39;X&#39; if (&#39;XXX&#39; in lines) else &#39;O&#39; if (&#39;OOO&#39; in lines) else &#39;D&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面的最多推荐的解法，步骤是：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.将列表result中的3个元素拆开成3个tuple（tuple是列的元素组合）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt; result = [
+&amp;hellip;     &amp;ldquo;OOX&amp;rdquo;,
+&amp;hellip;     &amp;ldquo;XXO&amp;rdquo;,
+&amp;hellip;     &amp;ldquo;OXX&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt; rows = result&lt;/p&gt;
+
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt; for i in zip(*rows):&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;   print(i)&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;(&amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;, &amp;lsquo;O&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;(&amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;, &amp;lsquo;X&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;(&amp;lsquo;X&amp;rsquo;, &amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;2.获取对角线上的元素组合&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3.行上的元素组合+列上的元素组合+对角线元素组合，然后判断胜利方&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;zip的用法:3a2916a882b53bf4714c682a2b069b9a&#34;&gt;&lt;strong&gt;zip的用法：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;help(zip)
+
+Help on class zip in module builtins:
+
+class zip(object)
+
+ |  zip(iter1 [,iter2 [...]]) --&amp;gt; zip object
+ |
+ |  Return a zip object whose .__next__() method returns a tuple where
+ |  the i-th element comes from the i-th iterable argument.  The .__next__()
+ |  method continues until the shortest iterable in the argument sequence
+ |  is exhausted and then it raises StopIteration.
+ |
+ |  Methods defined here:
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  __next__(self, /)
+ |      Implement next(self).
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;zip输入参数是一些迭代器，执行完成之后返回zip object（迭代器 ,tuple list）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;zip用法中需要注意的是：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.zip是将每个可迭代对象的对应位置元素打包成一个tuple组，例如：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;二维矩阵变换（矩阵的行列互换）
+比如我们有一个由列表描述的二维矩阵
+a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+利用zip函数：
+&amp;gt;&amp;gt;&amp;gt; a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+&amp;gt;&amp;gt;&amp;gt; zip(*a)
+[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+&amp;gt;&amp;gt;&amp;gt; map(list,zip(*a))
+[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;2.(*)操作符与zip函数配合可以实现与zip相反的功能,即将合并的序列拆成多个tuple，如解法中的zip(*rows)。如：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;x=[1,2,3],y=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+&amp;gt;&amp;gt;&amp;gt;zip(*zip(x,y))
+[(1,2,3),(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;3.新的序列的长度以参数中最短的序列为准.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;x=[1,2],y=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+&amp;gt;&amp;gt;&amp;gt;zip(x,y)
+[(1,&#39;a&#39;),(2,&#39;b&#39;)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;zip另有一些高级用法：&lt;/strong&gt;
+&lt;strong&gt;1.python列表相邻元素压缩：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;强烈推荐阅读：&lt;a href=&#34;https://segmentfault.com/q/1010000000612945&#34;&gt;https://segmentfault.com/q/1010000000612945&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;关键摘录：
+iter() 能把一个序列生成为一个和迭代器，迭代器的特点是可以用 for in 语句迭代，原理是迭代器对象有一个next方法，可以每次移动迭代的指针，一旦迭代完，没有下一个元素的时候，会应发一个 StopIteration 异常。&lt;/p&gt;
+
+&lt;p&gt;迭代器的特点就是，迭代了一次之后，指针就移动了，不会自动回溯。例如可以用 for in 列表 a 无数次，却只能for in 迭代器 x 一次。&lt;/p&gt;
+
+&lt;p&gt;如果不用迭代器？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; a = [1, 2, 3, 4, 5, 6]
+&amp;gt;&amp;gt;&amp;gt; x = iter(a)
+&amp;gt;&amp;gt;&amp;gt; t = [a, a]
+&amp;gt;&amp;gt;&amp;gt; zip(*t)                 # 1
+[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)]  
+&amp;gt;&amp;gt;&amp;gt; tx = [x, x]                                   
+&amp;gt;&amp;gt;&amp;gt; zip(*tx)                # 2
+[(1, 2), (3, 4), (5, 6)]
+&amp;gt;&amp;gt;&amp;gt; 
+
+#1 这里的含义表示zip 传了两个参数a，a1 a2 都是a，所以就打包了这两个序列。
+#2 这里面因为 x 是迭代器对象，迭代就调用 next 方法，之后就不会有了。也就是 zip 执行打包的过程先调用第一个参数的 x 的 next 方法得 1，然后调用第二个参数的 x 的next，因为这两个x对象实际上是一样的，调用第二个 x 的 next 方法的时候，迭代的指针已经移动，实际得到的时2，以次类推，过程模拟如下表示
+     x.next -&amp;gt; 1
+     x.next -&amp;gt; 2
+     zip(x.next(), x.next()) ---&amp;gt; zip(1, 2)
+     x.next -&amp;gt; 3
+     x.next -&amp;gt; 4
+     zip(x.next(), x.next()) ---&amp;gt; zip(3, 4)
+    ....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等价于下面的方式&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;zip([1, 3, 5], [2, 4, 6])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;表示定义一个匿名函数，参数是 a和k，并绑定变量 group_adjacent。匿名函数的主体内容是，用iter将序列迭代化，然后用zip打包这个迭代器对象。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.使用zip反转字典&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; m = {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}
+&amp;gt;&amp;gt;&amp;gt; m.items()
+[(&#39;a&#39;, 1), (&#39;c&#39;, 3), (&#39;b&#39;, 2), (&#39;d&#39;, 4)]
+&amp;gt;&amp;gt;&amp;gt; zip(m.values(), m.keys())
+[(1, &#39;a&#39;), (3, &#39;c&#39;), (2, &#39;b&#39;), (4, &#39;d&#39;)]
+&amp;gt;&amp;gt;&amp;gt; mi = dict(zip(m.values(), m.keys()))
+&amp;gt;&amp;gt;&amp;gt; mi
+{1: &#39;a&#39;, 2: &#39;b&#39;, 3: &#39;c&#39;, 4: &#39;d&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;3.使用zip和iterators生成滑动窗口 (n -grams)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from itertools import islice
+&amp;gt;&amp;gt;&amp;gt; def n_grams(a, n):
+...     z = (islice(a, i, None) for i in range(n))
+...     return zip(*z)
+...
+&amp;gt;&amp;gt;&amp;gt; a = [1, 2, 3, 4, 5, 6]
+&amp;gt;&amp;gt;&amp;gt; n_grams(a, 3)
+[(1, 2, 3), (2, 3, 4), (3, 4, 5), (4, 5, 6)]
+&amp;gt;&amp;gt;&amp;gt; n_grams(a, 2)
+[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+&amp;gt;&amp;gt;&amp;gt; n_grams(a, 4)
+[(1, 2, 3, 4), (2, 3, 4, 5), (3, 4, 5, 6)]
+#
+islice的用法：
+islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  islice(&#39;ABCDEFG&#39;, 2, None) --&amp;gt; C D E F G
+测试islice：
+&amp;gt;&amp;gt;&amp;gt; a = [1, 2, 3, 4, 5, 6]
+&amp;gt;&amp;gt;&amp;gt; for x in islice(a,0,None):
+...   print(x)
+...
+1
+2
+3
+4
+5
+6
+&amp;gt;&amp;gt;&amp;gt; a = [1, 2, 3, 4, 5, 6]
+&amp;gt;&amp;gt;&amp;gt; for x in islice(a,1,None):
+...   print(x)
+...
+2
+3
+4
+5
+6
+&amp;gt;&amp;gt;&amp;gt; a = [1, 2, 3, 4, 5, 6]
+&amp;gt;&amp;gt;&amp;gt; for x in islice(a,2,None):
+...   print(x)
+...
+3
+4
+5
+6
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;例题解法来自 &lt;a href=&#34;https://checkio.org/&#34;&gt;https://checkio.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;我在 &lt;a href=&#34;https://checkio.org/user/penn201500/&#34;&gt;https://checkio.org/user/penn201500/&lt;/a&gt; ：）&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;参考：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wklken.me/posts/2013/08/20/python-extra-itertools.html&#34;&gt;PYTHON-进阶-ITERTOOLS模块小结&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/BeginMan/archive/2013/03/14/2959447.html&#34;&gt;Python零碎知识(2):强大的zip&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000000612945&#34;&gt;python列表相邻元素压缩器&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,7 +4,7 @@
     <head>
         
             
-                <title>如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</title>
+                <title>python3 zip的用法</title>
             
         
 
@@ -16,7 +16,7 @@
 
         
         
-            <meta name="description" content="如何使用hugo搭建个人博客">
+            <meta name="description" content="python奇思妙解">
         
 
         
@@ -25,18 +25,18 @@
 
 
 
-<meta name="twitter:title" content="如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局"/>
-<meta name="twitter:description" content="如何使用hugo搭建个人博客"/>
+<meta name="twitter:title" content="python3 zip的用法"/>
+<meta name="twitter:description" content="python奇思妙解"/>
 
 
 
-        <meta property="og:title" content="如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局" />
-<meta property="og:description" content="如何使用hugo搭建个人博客" />
+        <meta property="og:title" content="python3 zip的用法" />
+<meta property="og:description" content="python奇思妙解" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://learnbetter.club/2016/06/hugo-2-update-sidebar/" />
+<meta property="og:url" content="http://learnbetter.club/2016/06/python3-zip/" />
 
 
-<meta property="og:updated_time" content="2016-06-03T16:04:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-06-19T19:19:40&#43;00:00"/>
 
 
 
@@ -48,12 +48,12 @@
 
 
         
-<meta itemprop="name" content="如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局">
-<meta itemprop="description" content="如何使用hugo搭建个人博客">
+<meta itemprop="name" content="python3 zip的用法">
+<meta itemprop="description" content="python奇思妙解">
 
 
-<meta itemprop="dateModified" content="2016-06-03T16:04:40&#43;00:00" />
-<meta itemprop="wordCount" content="235">
+<meta itemprop="dateModified" content="2016-06-19T19:19:40&#43;00:00" />
+<meta itemprop="wordCount" content="658">
 
 
 
@@ -709,7 +709,7 @@ footer a:hover
                                          
             
             <h1><a href="http://learnbetter.club/">learn better， learn more</a></h1>
-            <p>如何使用hugo搭建个人博客</p>
+            <p>python奇思妙解</p>
 
             
             <div id="follow-icons">
@@ -773,14 +773,14 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-03T16:04:40Z">
-            3 Jun 2016
+        <time datetime="2016-06-19T19:19:40Z">
+            19 Jun 2016
         </time>
         <span class="taglist">
         
         &middot;
         
-            <a href="http://learnbetter.club/tags/hugo/">Hugo</a>
+            <a href="http://learnbetter.club/tags/python3/">python3</a>
         
         
         </span>
@@ -794,163 +794,273 @@ footer a:hover
 </div>       
     </div>
     
-    <h1 class="post-title">如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</h1>
+    <h1 class="post-title">python3 zip的用法</h1>
     
-
-<p>上一篇博文中谈到了如何在本地使用hugo预览特定主题crisp，本文介绍主题的颜色，字体，布局的修改。</p>
-
-<h2 id="修改主题侧边栏颜色:c3f6a68923e233951f19e3ad987dc958"><strong>修改主题侧边栏颜色</strong></h2>
-
-<p>crisp主题的侧边栏默认是白色，如果想改个颜色咋办？
-到github仓库 <a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/">https://github.com/penn201500/hugo-crisp-theme-for-blog/</a> 获取 hugo-crisp-theme-for-blog/mysite/themes/crisp/layouts/partials/criticalpath.html  文件，替换本地themes目录下的同名文件，如
- E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials\criticalpath.html
- 替换之后效果：
- <img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20bgcolor.jpg" alt="hugo update sidebar bgcolor" />
-<p/>
-<p/></p>
-
-<h2 id="修改主题字体:c3f6a68923e233951f19e3ad987dc958"><strong>修改主题字体</strong></h2>
-
-<p>在criticalpath.html文件中，查找font-family。然后修改字体类型，大小，颜色等</p>
-
-<pre><code>body,html
-{
-    font-size: 1em;
-    line-height: 1.65em;
-    font-family:&quot;Open Sans&quot;,sans-serif;
-    font-weight:300;color:#444
-    background-color: #ecf0f1;
-}
-
-</code></pre>
-
-<h2 id="修改侧边栏布局:c3f6a68923e233951f19e3ad987dc958"><strong>修改侧边栏布局</strong></h2>
-
-<p>侧边栏不想要头像？想添加links？只要github follow？
-下面介绍如何实现这些需求</p>
-
-<p><strong>1.去掉头像</strong></p>
-
-<p>编辑layouts/partial目录下的header.html文件：
-如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials</p>
-
-<pre><code>        &lt;header id=&quot;header&quot;&gt;
-            &lt;a id=&quot;logo&quot; href=&quot;{{ .Site.BaseURL }}&quot;&gt;&lt;img src=&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt=&quot;{{ .Site.Title }}&quot; /&gt;&lt;/a&gt;
-            &lt;h1&gt;&lt;a href=&quot;{{.Site.BaseURL}}&quot;&gt;{{.Site.Title}}&lt;/a&gt;&lt;/h1&gt;
-            &lt;p&gt;{{.Description}}&lt;/p&gt;
-
-            {{ partial &quot;follow.html&quot; . }}
-            {{ partial &quot;navigation.html&quot; . }}
-        &lt;/header&gt;
-</code></pre>
-
-<p>id = &ldquo;logo&rdquo;的这一行既是图片信息，替换图片，则将 imgsrc 连接替换。 取消图片则将这行注释或者删除。注释后效果如下：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg" alt="delete logo" />
-<p/>
-<p/>
-<strong>2. 添加links</strong></p>
-
-<p>可以参考配置文件：<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html</a>
-将与header.html同目录的navigation.html文件修改为：</p>
-
-<pre><code>&lt;hr class=&quot;nav-site-separator&quot;&gt;
-&lt;h6&gt;Links&lt;/h6&gt;
-&lt;nav class=&quot;nav&quot;&gt;
-      &lt;ul class=&quot;nav-list&quot;&gt;
-        &lt;font size=&quot;3&quot;&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://lilydjwg.is-programmer.com/&quot; target=&quot;_blank&quot;&gt;依云的博客&lt;/a&gt;&lt;/li&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://evilbinary.org/&quot; target=&quot;_blank&quot;&gt;邪恶二进制&lt;/a&gt;&lt;/li&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://www.wlman.cc/&quot; target=&quot;_blank&quot;&gt;Consec 's Blog&lt;/a&gt;&lt;/li&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://www.linuxzen.com/&quot; target=&quot;_blank&quot;&gt;cold's world&lt;/a&gt;&lt;/li&gt;
-        &lt;/font&gt;
-      &lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p><code>&lt;li class=&quot;nav-site&quot;&gt;</code> 这一行可以编辑一个链接。
-修改后效果如下：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg" alt="add links" />
-<p/>
-<p/>
-<strong>3. 只需要github follow</strong></p>
-
-<p>crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
-下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）
-将同目录下的follow.html修改如下：</p>
-
-<pre><code>&lt;div id=&quot;follow-icons&quot;&gt;
-    &lt;a href=&quot;https://github.com/penn201500&quot; rel=&quot;me&quot;&gt;&lt;i class=&quot;fa fa-github-square fa-2x&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;/div&gt;  
-</code></pre>
-
-<p>图标使用的是fontawesome，可以从github fork：
-<a href="https://github.com/penn201500/Font-Awesome.git">https://github.com/penn201500/Font-Awesome.git</a>
-或者访问fontawesome：
-<a href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a></p>
-
-<p>修改follow.html的效果：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20follow%20method.jpg" alt="update follow method" />
-<p/>
-<p/>
-<strong>4.增加tags和修改title</strong>
-4.1 修改title
-将E:\github_projects\my_blogs\mysite目录下的config.toml文件修改为：</p>
-
-<pre><code>baseurl = &quot;http://www.learnbetter.club&quot;
-languageCode = &quot;en-us&quot;
-title = &quot;My Blog&quot;
-</code></pre>
-
-<p>4.2 add tags
-1.增加tags.html文件到header.html文件所在的目录。tags.html文件的内容为：</p>
-
-<pre><code>&lt;h6 class=&quot;sitetaglisttitle&quot;&gt;Tags&lt;/h6&gt;
-&lt;ul class=&quot;sitetaglist&quot;&gt;
-    {{ range first 10 .Site.Taxonomies.tags.ByCount }}
-        {{ if ge .Count 1 }}
-            &lt;li&gt;&lt;a href=&quot;/tags/{{ .Name | urlize }}&quot;&gt;{{ .Name }} ({{ .Count }})&lt;/a&gt;&lt;/li&gt;
-        {{ end }}
-    {{ end }}
-&lt;/ul&gt;
-</code></pre>
-
-<p>2.并修改header.html：</p>
-
-<pre><code>        &lt;header id=&quot;header&quot;&gt;
-           &lt;!--
-            &lt;a id=&quot;logo&quot; href=&quot;{{ .Site.BaseURL }}&quot;&gt;&lt;img src=&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt=&quot;{{ .Site.Title }}&quot; /&gt;&lt;/a&gt;
-            --&gt;
-            &lt;h1&gt;&lt;a href=&quot;{{.Site.BaseURL}}&quot;&gt;{{.Site.Title}}&lt;/a&gt;&lt;/h1&gt;
-            &lt;p&gt;{{.Description}}&lt;/p&gt;
-
-            {{ partial &quot;follow.html&quot; . }}
-            {{ partial &quot;navigation.html&quot; . }}
-            {{ partial &quot;tags.html&quot; . }}  &lt;!--增加tags--&gt;
-        &lt;/header&gt;
-</code></pre>
-
-<p>3.修改E:\github_projects\my_blogs\mysite\content\content\test.md文件为：</p>
-
-<pre><code>+++
-date = &quot;2016-05-29T23:56:41+08:00&quot;
-draft = true
-title = &quot;test&quot;
-tags = &quot;test&quot;
-+++
-
-hello hugo! I am test.md
-</code></pre>
-
-<p>显示效果为：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20title%20add%20tags.jpg" alt="add tags and update title" /></p>
 
 <hr />
 
-<p><strong>注：</strong>如果有其他好的博客主题，且托管在github上，可以clone到本地进行修改尝试</p>
+<h2 id="例子:3a2916a882b53bf4714c682a2b069b9a"><strong>例子：</strong></h2>
+
+<blockquote>
+<p>井字游戏，有时也被称为“进攻和防守”，是一个两人玩家（X和O）轮流标志着3×3的网格的空间的连珠游戏。最先在任意一条直线（水平线，垂直线或对角线）上成功连接三个标记的一方获胜。</p>
+
+<p>但我们不去玩这个游戏。你将是这个游戏的裁判。你被赋予游戏的结果，以及你必须判断游戏是平局还是有人胜出，以及谁将会成为最后的赢家。如果X玩家获胜，返回“X”。如果O玩家获胜，返回“O”。如果比赛是平局，返回“D”。</p>
+
+<p>x-o-referee</p>
+
+<p>游戏的结果是作为字符串形式的列表，其中“X”和“O”是玩家的标志，“.”是空格。</p>
+
+<p><strong>输入:</strong> 游戏结果作为字符串形式的列表(Unicode)。</p>
+
+<p><strong>输出:</strong> “X”，“O”或“D”作为字符串形式。</p>
+
+<p><strong>范例:</strong></p>
+
+<p>checkio([
+    &ldquo;X.O&rdquo;,
+    &ldquo;XX.&rdquo;,
+    &ldquo;XOO&rdquo;]) == &ldquo;X&rdquo;</p>
+
+<p>checkio([
+    &ldquo;OO.&rdquo;,
+    &ldquo;XOX&rdquo;,
+    &ldquo;XOX&rdquo;]) == &ldquo;O&rdquo;</p>
+
+<p>checkio([
+    &ldquo;OOX&rdquo;,
+    &ldquo;XXO&rdquo;,
+    &ldquo;OXX&rdquo;]) == &ldquo;D&rdquo;</p>
+
+<p><strong>如何使用：</strong> 此任务中的概念将有助于您遍历数据类型。这还可以用在游戏的算法上，让你知道如何去检查结果。</p>
+</blockquote>
+
+<p><strong>最多推荐的解法：</strong></p>
+
+<pre><code class="language-python">def checkio(result):
+    rows = result
+    cols = map(''.join, zip(*rows))
+    diags = map(''.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
+    lines = rows + list(cols) + list(diags)
+​
+    return 'X' if ('XXX' in lines) else 'O' if ('OOO' in lines) else 'D'
+</code></pre>
+
+<p>上面的最多推荐的解法，步骤是：</p>
+
+<p><strong>1.将列表result中的3个元素拆开成3个tuple（tuple是列的元素组合）</strong></p>
+
+<blockquote>
+<p>&gt;&gt;&gt; result = [
+&hellip;     &ldquo;OOX&rdquo;,
+&hellip;     &ldquo;XXO&rdquo;,
+&hellip;     &ldquo;OXX&rdquo;]</p>
+
+<p>&gt;&gt;&gt; rows = result</p>
+
+<p>&gt;&gt;&gt; for i in zip(*rows):</p>
+
+<p>&hellip;   print(i)</p>
+
+<p>&hellip;</p>
+
+<p>(&lsquo;O&rsquo;, &lsquo;X&rsquo;, &lsquo;O&rsquo;)</p>
+
+<p>(&lsquo;O&rsquo;, &lsquo;X&rsquo;, &lsquo;X&rsquo;)</p>
+
+<p>(&lsquo;X&rsquo;, &lsquo;O&rsquo;, &lsquo;X&rsquo;)</p>
+
+<p>&gt;&gt;&gt;</p>
+</blockquote>
+
+<p><strong>2.获取对角线上的元素组合</strong></p>
+
+<p><strong>3.行上的元素组合+列上的元素组合+对角线元素组合，然后判断胜利方</strong></p>
+
+<h2 id="zip的用法:3a2916a882b53bf4714c682a2b069b9a"><strong>zip的用法：</strong></h2>
+
+<pre><code>&gt;help(zip)
+
+Help on class zip in module builtins:
+
+class zip(object)
+
+ |  zip(iter1 [,iter2 [...]]) --&gt; zip object
+ |
+ |  Return a zip object whose .__next__() method returns a tuple where
+ |  the i-th element comes from the i-th iterable argument.  The .__next__()
+ |  method continues until the shortest iterable in the argument sequence
+ |  is exhausted and then it raises StopIteration.
+ |
+ |  Methods defined here:
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  __next__(self, /)
+ |      Implement next(self).
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+</code></pre>
+
+<p>zip输入参数是一些迭代器，执行完成之后返回zip object（迭代器 ,tuple list）。</p>
+
+<p><strong>zip用法中需要注意的是：</strong></p>
+
+<p><strong>1.zip是将每个可迭代对象的对应位置元素打包成一个tuple组，例如：</strong></p>
+
+<pre><code>&gt;二维矩阵变换（矩阵的行列互换）
+比如我们有一个由列表描述的二维矩阵
+a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+利用zip函数：
+&gt;&gt;&gt; a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+&gt;&gt;&gt; zip(*a)
+[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+&gt;&gt;&gt; map(list,zip(*a))
+[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+</code></pre>
+
+<p><strong>2.(*)操作符与zip函数配合可以实现与zip相反的功能,即将合并的序列拆成多个tuple，如解法中的zip(*rows)。如：</strong></p>
+
+<pre><code>&gt;&gt;&gt;x=[1,2,3],y=['a','b','c']
+&gt;&gt;&gt;zip(*zip(x,y))
+[(1,2,3),('a','b','c')]
+</code></pre>
+
+<p><strong>3.新的序列的长度以参数中最短的序列为准.</strong></p>
+
+<pre><code>&gt;&gt;&gt;x=[1,2],y=['a','b','c']
+&gt;&gt;&gt;zip(x,y)
+[(1,'a'),(2,'b')]
+</code></pre>
+
+<p><strong>zip另有一些高级用法：</strong>
+<strong>1.python列表相邻元素压缩：</strong></p>
+
+<pre><code class="language-python">group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+</code></pre>
+
+<p>强烈推荐阅读：<a href="https://segmentfault.com/q/1010000000612945">https://segmentfault.com/q/1010000000612945</a></p>
+
+<p>关键摘录：
+iter() 能把一个序列生成为一个和迭代器，迭代器的特点是可以用 for in 语句迭代，原理是迭代器对象有一个next方法，可以每次移动迭代的指针，一旦迭代完，没有下一个元素的时候，会应发一个 StopIteration 异常。</p>
+
+<p>迭代器的特点就是，迭代了一次之后，指针就移动了，不会自动回溯。例如可以用 for in 列表 a 无数次，却只能for in 迭代器 x 一次。</p>
+
+<p>如果不用迭代器？</p>
+
+<pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; x = iter(a)
+&gt;&gt;&gt; t = [a, a]
+&gt;&gt;&gt; zip(*t)                 # 1
+[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)]  
+&gt;&gt;&gt; tx = [x, x]                                   
+&gt;&gt;&gt; zip(*tx)                # 2
+[(1, 2), (3, 4), (5, 6)]
+&gt;&gt;&gt; 
+
+#1 这里的含义表示zip 传了两个参数a，a1 a2 都是a，所以就打包了这两个序列。
+#2 这里面因为 x 是迭代器对象，迭代就调用 next 方法，之后就不会有了。也就是 zip 执行打包的过程先调用第一个参数的 x 的 next 方法得 1，然后调用第二个参数的 x 的next，因为这两个x对象实际上是一样的，调用第二个 x 的 next 方法的时候，迭代的指针已经移动，实际得到的时2，以次类推，过程模拟如下表示
+     x.next -&gt; 1
+     x.next -&gt; 2
+     zip(x.next(), x.next()) ---&gt; zip(1, 2)
+     x.next -&gt; 3
+     x.next -&gt; 4
+     zip(x.next(), x.next()) ---&gt; zip(3, 4)
+    ....
+</code></pre>
+
+<p>等价于下面的方式</p>
+
+<pre><code class="language-python">zip([1, 3, 5], [2, 4, 6])
+</code></pre>
+
+<p>所以代码：</p>
+
+<pre><code class="language-python">group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+</code></pre>
+
+<p>表示定义一个匿名函数，参数是 a和k，并绑定变量 group_adjacent。匿名函数的主体内容是，用iter将序列迭代化，然后用zip打包这个迭代器对象。</p>
+
+<p><strong>2.使用zip反转字典</strong></p>
+
+<pre><code>&gt;&gt;&gt; m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+&gt;&gt;&gt; m.items()
+[('a', 1), ('c', 3), ('b', 2), ('d', 4)]
+&gt;&gt;&gt; zip(m.values(), m.keys())
+[(1, 'a'), (3, 'c'), (2, 'b'), (4, 'd')]
+&gt;&gt;&gt; mi = dict(zip(m.values(), m.keys()))
+&gt;&gt;&gt; mi
+{1: 'a', 2: 'b', 3: 'c', 4: 'd'}
+</code></pre>
+
+<p><strong>3.使用zip和iterators生成滑动窗口 (n -grams)</strong></p>
+
+<pre><code>&gt;&gt;&gt; from itertools import islice
+&gt;&gt;&gt; def n_grams(a, n):
+...     z = (islice(a, i, None) for i in range(n))
+...     return zip(*z)
+...
+&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; n_grams(a, 3)
+[(1, 2, 3), (2, 3, 4), (3, 4, 5), (4, 5, 6)]
+&gt;&gt;&gt; n_grams(a, 2)
+[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+&gt;&gt;&gt; n_grams(a, 4)
+[(1, 2, 3, 4), (2, 3, 4, 5), (3, 4, 5, 6)]
+#
+islice的用法：
+islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  islice('ABCDEFG', 2, None) --&gt; C D E F G
+测试islice：
+&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; for x in islice(a,0,None):
+...   print(x)
+...
+1
+2
+3
+4
+5
+6
+&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; for x in islice(a,1,None):
+...   print(x)
+...
+2
+3
+4
+5
+6
+&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; for x in islice(a,2,None):
+...   print(x)
+...
+3
+4
+5
+6
+&gt;&gt;&gt;
+</code></pre>
+
+<p><strong>注：</strong>例题解法来自 <a href="https://checkio.org/">https://checkio.org/</a></p>
+
+<p>我在 <a href="https://checkio.org/user/penn201500/">https://checkio.org/user/penn201500/</a> ：）</p>
+
+<hr />
+
+<p><strong>参考：</strong></p>
+
+<p><a href="http://wklken.me/posts/2013/08/20/python-extra-itertools.html">PYTHON-进阶-ITERTOOLS模块小结</a></p>
+
+<p><a href="http://www.cnblogs.com/BeginMan/archive/2013/03/14/2959447.html">Python零碎知识(2):强大的zip</a></p>
+
+<p><a href="https://segmentfault.com/q/1010000000612945">python列表相邻元素压缩器</a></p>
 
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
@@ -959,16 +1069,16 @@ hello hugo! I am test.md
     
         <li>
         <font size="5" color="green"><b>Next:</b></font>
-        <a href="http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/"
-                class="button big previous">如何使用hugo搭建个人博客（一）：在win7上使用hugo</a></li>
+        <a href="http://learnbetter.club/2016/06/hugo-5-add-gcse/"
+                class="button big previous">如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）</a></li>
     
 
     
        
         <li>
         <font size="5" color="green"><b>Prev:</b></font>
-        <a href="http://learnbetter.club/2016/06/hugo-3-update-follow-and-share-method/"
-                class="button big next">如何使用hugo搭建个人博客（三）：添加follow与修改share的方式</a></li>
+        <a href="http://learnbetter.club/2016/06/python3-sorted/"
+                class="button big next">python3 sorted的用法</a></li>
     
 </ul>
 </section>

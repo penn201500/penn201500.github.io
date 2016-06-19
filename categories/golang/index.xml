@@ -8,16 +8,17 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Mon, 06 Jun 2016 05:04:40 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jun 2016 05:04:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Go is cool</title>
       <link>http://learnbetter.club/2016/06/go_is_cool/</link>
-      <pubDate>Mon, 06 Jun 2016 05:04:40 +0000</pubDate>
+      <pubDate>Wed, 01 Jun 2016 05:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/go_is_cool/</guid>
-      <description></description>
+      <description>&lt;p&gt;test hugo pages&lt;/p&gt;
+</description>
     </item>
     
   </channel>

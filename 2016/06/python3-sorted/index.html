@@ -4,7 +4,7 @@
     <head>
         
             
-                <title>如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</title>
+                <title>python3 sorted的用法</title>
             
         
 
@@ -16,7 +16,7 @@
 
         
         
-            <meta name="description" content="如何使用hugo搭建个人博客">
+            <meta name="description" content="python奇思妙解">
         
 
         
@@ -25,18 +25,18 @@
 
 
 
-<meta name="twitter:title" content="如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局"/>
-<meta name="twitter:description" content="如何使用hugo搭建个人博客"/>
+<meta name="twitter:title" content="python3 sorted的用法"/>
+<meta name="twitter:description" content="python奇思妙解"/>
 
 
 
-        <meta property="og:title" content="如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局" />
-<meta property="og:description" content="如何使用hugo搭建个人博客" />
+        <meta property="og:title" content="python3 sorted的用法" />
+<meta property="og:description" content="python奇思妙解" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://learnbetter.club/2016/06/hugo-2-update-sidebar/" />
+<meta property="og:url" content="http://learnbetter.club/2016/06/python3-sorted/" />
 
 
-<meta property="og:updated_time" content="2016-06-03T16:04:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-06-19T19:20:40&#43;00:00"/>
 
 
 
@@ -48,12 +48,12 @@
 
 
         
-<meta itemprop="name" content="如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局">
-<meta itemprop="description" content="如何使用hugo搭建个人博客">
+<meta itemprop="name" content="python3 sorted的用法">
+<meta itemprop="description" content="python奇思妙解">
 
 
-<meta itemprop="dateModified" content="2016-06-03T16:04:40&#43;00:00" />
-<meta itemprop="wordCount" content="235">
+<meta itemprop="dateModified" content="2016-06-19T19:20:40&#43;00:00" />
+<meta itemprop="wordCount" content="509">
 
 
 
@@ -709,7 +709,7 @@ footer a:hover
                                          
             
             <h1><a href="http://learnbetter.club/">learn better， learn more</a></h1>
-            <p>如何使用hugo搭建个人博客</p>
+            <p>python奇思妙解</p>
 
             
             <div id="follow-icons">
@@ -773,14 +773,14 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-03T16:04:40Z">
-            3 Jun 2016
+        <time datetime="2016-06-19T19:20:40Z">
+            19 Jun 2016
         </time>
         <span class="taglist">
         
         &middot;
         
-            <a href="http://learnbetter.club/tags/hugo/">Hugo</a>
+            <a href="http://learnbetter.club/tags/python3/">python3</a>
         
         
         </span>
@@ -794,163 +794,153 @@ footer a:hover
 </div>       
     </div>
     
-    <h1 class="post-title">如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</h1>
+    <h1 class="post-title">python3 sorted的用法</h1>
     
-
-<p>上一篇博文中谈到了如何在本地使用hugo预览特定主题crisp，本文介绍主题的颜色，字体，布局的修改。</p>
-
-<h2 id="修改主题侧边栏颜色:c3f6a68923e233951f19e3ad987dc958"><strong>修改主题侧边栏颜色</strong></h2>
-
-<p>crisp主题的侧边栏默认是白色，如果想改个颜色咋办？
-到github仓库 <a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/">https://github.com/penn201500/hugo-crisp-theme-for-blog/</a> 获取 hugo-crisp-theme-for-blog/mysite/themes/crisp/layouts/partials/criticalpath.html  文件，替换本地themes目录下的同名文件，如
- E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials\criticalpath.html
- 替换之后效果：
- <img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20bgcolor.jpg" alt="hugo update sidebar bgcolor" />
-<p/>
-<p/></p>
-
-<h2 id="修改主题字体:c3f6a68923e233951f19e3ad987dc958"><strong>修改主题字体</strong></h2>
-
-<p>在criticalpath.html文件中，查找font-family。然后修改字体类型，大小，颜色等</p>
-
-<pre><code>body,html
-{
-    font-size: 1em;
-    line-height: 1.65em;
-    font-family:&quot;Open Sans&quot;,sans-serif;
-    font-weight:300;color:#444
-    background-color: #ecf0f1;
-}
-
-</code></pre>
-
-<h2 id="修改侧边栏布局:c3f6a68923e233951f19e3ad987dc958"><strong>修改侧边栏布局</strong></h2>
-
-<p>侧边栏不想要头像？想添加links？只要github follow？
-下面介绍如何实现这些需求</p>
-
-<p><strong>1.去掉头像</strong></p>
-
-<p>编辑layouts/partial目录下的header.html文件：
-如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials</p>
-
-<pre><code>        &lt;header id=&quot;header&quot;&gt;
-            &lt;a id=&quot;logo&quot; href=&quot;{{ .Site.BaseURL }}&quot;&gt;&lt;img src=&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt=&quot;{{ .Site.Title }}&quot; /&gt;&lt;/a&gt;
-            &lt;h1&gt;&lt;a href=&quot;{{.Site.BaseURL}}&quot;&gt;{{.Site.Title}}&lt;/a&gt;&lt;/h1&gt;
-            &lt;p&gt;{{.Description}}&lt;/p&gt;
-
-            {{ partial &quot;follow.html&quot; . }}
-            {{ partial &quot;navigation.html&quot; . }}
-        &lt;/header&gt;
-</code></pre>
-
-<p>id = &ldquo;logo&rdquo;的这一行既是图片信息，替换图片，则将 imgsrc 连接替换。 取消图片则将这行注释或者删除。注释后效果如下：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg" alt="delete logo" />
-<p/>
-<p/>
-<strong>2. 添加links</strong></p>
-
-<p>可以参考配置文件：<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html</a>
-将与header.html同目录的navigation.html文件修改为：</p>
-
-<pre><code>&lt;hr class=&quot;nav-site-separator&quot;&gt;
-&lt;h6&gt;Links&lt;/h6&gt;
-&lt;nav class=&quot;nav&quot;&gt;
-      &lt;ul class=&quot;nav-list&quot;&gt;
-        &lt;font size=&quot;3&quot;&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://lilydjwg.is-programmer.com/&quot; target=&quot;_blank&quot;&gt;依云的博客&lt;/a&gt;&lt;/li&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://evilbinary.org/&quot; target=&quot;_blank&quot;&gt;邪恶二进制&lt;/a&gt;&lt;/li&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://www.wlman.cc/&quot; target=&quot;_blank&quot;&gt;Consec 's Blog&lt;/a&gt;&lt;/li&gt;
-        
-           &lt;li class=&quot;nav-site&quot;&gt;&lt;a href=&quot;http://www.linuxzen.com/&quot; target=&quot;_blank&quot;&gt;cold's world&lt;/a&gt;&lt;/li&gt;
-        &lt;/font&gt;
-      &lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p><code>&lt;li class=&quot;nav-site&quot;&gt;</code> 这一行可以编辑一个链接。
-修改后效果如下：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg" alt="add links" />
-<p/>
-<p/>
-<strong>3. 只需要github follow</strong></p>
-
-<p>crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
-下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）
-将同目录下的follow.html修改如下：</p>
-
-<pre><code>&lt;div id=&quot;follow-icons&quot;&gt;
-    &lt;a href=&quot;https://github.com/penn201500&quot; rel=&quot;me&quot;&gt;&lt;i class=&quot;fa fa-github-square fa-2x&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;/div&gt;  
-</code></pre>
-
-<p>图标使用的是fontawesome，可以从github fork：
-<a href="https://github.com/penn201500/Font-Awesome.git">https://github.com/penn201500/Font-Awesome.git</a>
-或者访问fontawesome：
-<a href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a></p>
-
-<p>修改follow.html的效果：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20follow%20method.jpg" alt="update follow method" />
-<p/>
-<p/>
-<strong>4.增加tags和修改title</strong>
-4.1 修改title
-将E:\github_projects\my_blogs\mysite目录下的config.toml文件修改为：</p>
-
-<pre><code>baseurl = &quot;http://www.learnbetter.club&quot;
-languageCode = &quot;en-us&quot;
-title = &quot;My Blog&quot;
-</code></pre>
-
-<p>4.2 add tags
-1.增加tags.html文件到header.html文件所在的目录。tags.html文件的内容为：</p>
-
-<pre><code>&lt;h6 class=&quot;sitetaglisttitle&quot;&gt;Tags&lt;/h6&gt;
-&lt;ul class=&quot;sitetaglist&quot;&gt;
-    {{ range first 10 .Site.Taxonomies.tags.ByCount }}
-        {{ if ge .Count 1 }}
-            &lt;li&gt;&lt;a href=&quot;/tags/{{ .Name | urlize }}&quot;&gt;{{ .Name }} ({{ .Count }})&lt;/a&gt;&lt;/li&gt;
-        {{ end }}
-    {{ end }}
-&lt;/ul&gt;
-</code></pre>
-
-<p>2.并修改header.html：</p>
-
-<pre><code>        &lt;header id=&quot;header&quot;&gt;
-           &lt;!--
-            &lt;a id=&quot;logo&quot; href=&quot;{{ .Site.BaseURL }}&quot;&gt;&lt;img src=&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt=&quot;{{ .Site.Title }}&quot; /&gt;&lt;/a&gt;
-            --&gt;
-            &lt;h1&gt;&lt;a href=&quot;{{.Site.BaseURL}}&quot;&gt;{{.Site.Title}}&lt;/a&gt;&lt;/h1&gt;
-            &lt;p&gt;{{.Description}}&lt;/p&gt;
-
-            {{ partial &quot;follow.html&quot; . }}
-            {{ partial &quot;navigation.html&quot; . }}
-            {{ partial &quot;tags.html&quot; . }}  &lt;!--增加tags--&gt;
-        &lt;/header&gt;
-</code></pre>
-
-<p>3.修改E:\github_projects\my_blogs\mysite\content\content\test.md文件为：</p>
-
-<pre><code>+++
-date = &quot;2016-05-29T23:56:41+08:00&quot;
-draft = true
-title = &quot;test&quot;
-tags = &quot;test&quot;
-+++
-
-hello hugo! I am test.md
-</code></pre>
-
-<p>显示效果为：
-<img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20title%20add%20tags.jpg" alt="add tags and update title" /></p>
 
 <hr />
 
-<p><strong>注：</strong>如果有其他好的博客主题，且托管在github上，可以clone到本地进行修改尝试</p>
+<h2 id="例题:55447a98b04e184bd08bcb4f57ca58c1"><strong>例题：</strong></h2>
+
+<pre><code>先来看一个例题：
+给你一个其中包含不同的英文字母和标点符号的文本，你要找到其中出现最多的字母，返回的字母必须是小写形式，
+当检查最想要的字母时，不区分大小写，所以在你的搜索中 &quot;A&quot; == &quot;a&quot;。 请确保你不计算标点符号，数字和空格，只计算字母。
+如果你找到 两个或两个以上的具有相同的频率的字母， 返回那个先出现在字母表中的字母。 例如 -- “one”包含“o”，“n”，“e”每个字母一次，因此我们选择“e”。
+**输入:** 用于分析的文本 (str, unicode).
+**输出:** 最常见的字母的小写形式。
+**前提::**
+密码只包含ASCII码符号
+0 &lt; len(text) ≤ 105
+</code></pre>
+
+<p>使用sorted的解法如下：</p>
+
+<pre><code class="language-python">def checkio(text):
+    #filter out not-alphebet char
+    if text.isalpha():  text = text.lower()
+    else:  text = ''.join([x.lower() for x in text if x.isalpha()])
+    #print(text)
+    
+    from collections import Counter
+    str_count = Counter(text)
+    #print(str_count)
+    #sorted with two parameters, the first parameter is the count of every char,the second is alphabet
+    str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))
+    #print(str_sorted)
+    #get the most wanted chars
+    most_wanted_letters = [item for item in str_sorted if item[1] == str_sorted[len(str_sorted) - 1][1]]
+    return most_wanted_letters[0][0]
+
+if __name__ == '__main__':
+    #These &quot;asserts&quot; using only for self-checking and not necessary for auto-testing
+    assert checkio(&quot;Hello World!&quot;) == &quot;l&quot;, &quot;Hello test&quot;
+    assert checkio(&quot;How do you do?&quot;) == &quot;o&quot;, &quot;O is most wanted&quot;
+    assert checkio(&quot;One&quot;) == &quot;e&quot;, &quot;All letter only once.&quot;
+    assert checkio(&quot;Oops!&quot;) == &quot;o&quot;, &quot;Don't forget about lower case.&quot;
+    assert checkio(&quot;AAaooo!!!!&quot;) == &quot;a&quot;, &quot;Only letters.&quot;
+    assert checkio(&quot;abe&quot;) == &quot;a&quot;, &quot;The First.&quot;
+    print(&quot;Start the long test&quot;)
+    assert checkio(&quot;a&quot; * 9000 + &quot;b&quot; * 1000) == &quot;a&quot;, &quot;Long.&quot;
+    print(&quot;The local tests are done.&quot;)
+</code></pre>
+
+<p>测试结果如下：
+<img src="http://o7ubfyghw.bkt.clouddn.com/checkio%20most%20wanted%20letter.jpg" alt="the most wanted letter" /></p>
+
+<h2 id="sorted的用法:55447a98b04e184bd08bcb4f57ca58c1"><strong>sorted的用法：</strong></h2>
+
+<p>分析解法的关键代码</p>
+
+<pre><code class="language-python">str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))`
+</code></pre>
+
+<pre><code>增加print测试:
+#print(text)
+&gt;&gt;&gt;checkio(&quot;Lorem ipsum dolor sit amet&quot;)
+loremipsumdolorsitamet
+&lt;&lt;&lt; 'm'
+#print(str_sorted)
+&gt;&gt;&gt;checkio(&quot;Lorem ipsum dolor sit amet&quot;)
+loremipsumdolorsitamet
+Counter({'m': 3, 'o': 3, 'i': 2, 'l': 2, 's': 2, 'e': 2, 't': 2, 'r': 2, 'd': 1, 'p': 1, 'a': 1, 'u': 1})
+&lt;&lt;&lt; 'm'
+</code></pre>
+
+<p>这里sorted使用<strong>两个关键字</strong>进行排序：
+先按照每个字母出现的次数k[1]进行排序，然后安装字母表顺序对测试text中的内容k[0]进行排序.</p>
+
+<p>python3手册对sorted的用法描述如下：</p>
+
+<pre><code>sorted(iterable[, key][, reverse])
+
+Return a new sorted list from the items in iterable.
+
+Has two optional arguments which must be specified as keyword arguments.
+
+key specifies a function of one argument that is used to extract a comparison key from each list element: key=str.lower. The default value is None (compare the elements directly).
+
+reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.
+
+Use functools.cmp_to_key() to convert an old-style cmp function to a key function.
+
+The built-in sorted() function is guaranteed to be stable. A sort is stable if it guarantees not to change the relative order of elements that compare equal — this is helpful for sorting in multiple passes (for example, sort by department, then by salary grade).
+
+For sorting examples and a brief sorting tutorial, see Sorting HOW TO.
+</code></pre>
+
+<p>sorted的第一个参数是一个迭代器，第二个参数是用来排序的key，第三个参数的排序数序：正序还是倒序
+如：
+第一个参数是迭代器</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]
+</code></pre>
+
+<p>第二个参数是用来排序的key</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]
+</code></pre>
+
+<pre><code>key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
+list = [36, 5, -12, 9, -21]
+keys = [36, 5,  12, 9,  21]
+然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素：
+keys排序结果 =&gt; [5, 9,  12,  21, 36]
+最终结果     ====&gt; [5, 9, -12, -21, 36]
+</code></pre>
+
+<p>第三个参数决定正向还是反向排序：
+要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+['Zoo', 'Credit', 'bob', 'about']
+</code></pre>
+
+<p><strong>注：</strong>例题解法来自 <a href="https://checkio.org/user/penn201500/">https://checkio.org/user/penn201500/</a>
+更优解法为：</p>
+
+<pre><code class="language-python">import string
+​
+def checkio(text):
+    &quot;&quot;&quot;
+    We iterate through latyn alphabet and count each letter in the text.
+    Then 'max' selects the most frequent letter.
+    For the case when we have several equal letter,
+    'max' selects the first from they.
+    &quot;&quot;&quot;
+    text = text.lower()
+    return max(string.ascii_lowercase, key=text.count)
+</code></pre>
+
+<hr />
+
+<p><strong>参考：</strong></p>
+
+<p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000">廖雪峰官网 sorted方法</a></p>
+
+<p><a href="https://checkio.org/mission/most-wanted-letter/">checkio: most wanted letter</a></p>
+
+<p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000">sorted()函数</a></p>
 
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
@@ -959,16 +949,11 @@ hello hugo! I am test.md
     
         <li>
         <font size="5" color="green"><b>Next:</b></font>
-        <a href="http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/"
-                class="button big previous">如何使用hugo搭建个人博客（一）：在win7上使用hugo</a></li>
+        <a href="http://learnbetter.club/2016/06/python3-zip/"
+                class="button big previous">python3 zip的用法</a></li>
     
 
     
-       
-        <li>
-        <font size="5" color="green"><b>Prev:</b></font>
-        <a href="http://learnbetter.club/2016/06/hugo-3-update-follow-and-share-method/"
-                class="button big next">如何使用hugo搭建个人博客（三）：添加follow与修改share的方式</a></li>
     
 </ul>
 </section>
