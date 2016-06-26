@@ -8,8 +8,252 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Sun, 19 Jun 2016 19:20:40 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jun 2016 21:19:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/tags/python3/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>获取两个字符串中最长的公共字符串</title>
+      <link>http://learnbetter.club/2016/06/longest-common-substring/</link>
+      <pubDate>Sun, 26 Jun 2016 21:19:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/longest-common-substring/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;例题:03e4760e1ab426fb87738f4b382c95c8&#34;&gt;&lt;strong&gt;例题：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;longest common substring
+获取两个字符串中最长的公共字符串
+如：
+如果s1=&amp;lsquo;abcdefgh&amp;rsquo;，s2=&amp;lsquo;cdefgh&amp;rsquo;; s1与s2的最长公共字符串&amp;rsquo;cd&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;例子：
+&amp;gt;s1=&amp;lsquo;abcdefgh&amp;rsquo;，s2=&amp;lsquo;cdefgh&amp;rsquo;
+lcs(s1,s2) ==&amp;gt; &amp;lsquo;cd&amp;rsquo;&lt;/p&gt;
+
+&lt;h2 id=&#34;解法:03e4760e1ab426fb87738f4b382c95c8&#34;&gt;&lt;strong&gt;解法：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def lcs(s1,s2):
+    m = len(s1)
+    n = len(s2)
+    counter = [[0]*(n+1) for x in range(m+1)]
+    longest = 0
+    lcs_set = set()
+    for i in range(1,m+1):
+        for j in range(1,n+1):
+            if s1[i-1] == s2[j-1]:
+                c = counter[i-1][j-1] + 1
+                counter[i][j] = c
+                if c &amp;gt; longest:
+                    lcs_set = set()
+                    longest = c
+                    lcs_set.add(s1[i-c:i])
+                elif c == longest:
+                    lcs_set.add(s1[i-c:i])
+    return lcs_set
+
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    assert lcs(&#39;academy&#39;, &#39;abracadabra&#39;) == {&#39;acad&#39;}
+    assert lcs(&#39;ababc&#39;, &#39;abcdaba&#39;) == {&#39;aba&#39;,&#39;abc&#39;}
+    assert lcs(&#39;abcdefgh&#39;, &#39;cdefgh&#39;) == {&#39;cdefgh&#39;}
+    assert lcs(&#39;abcdefgh&#39;, &#39;&#39;) == set()
+    print(&#39;assert complete!&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;C:\Anaconda3\python.exe E:/python_projects/test.py
+assert complete!
+
+Process finished with exit code 0
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;解释:03e4760e1ab426fb87738f4b382c95c8&#34;&gt;&lt;strong&gt;解释：&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;创建一个二维矩阵counter用来记录最长相同字符串的长度
+&lt;code&gt;python
+m = len(S)
+n = len(T)
+counter = [[0]*(n+1) for x in range(m+1)]
+&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%201.jpg&#34; alt=&#34;&#34; /&gt;
+2. 将s1中的每一个字符与s2中的每一个字符进行比较&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for i in range(m):
+    for j in range(n):
+        if S[i] == T[j]:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%202.jpg&#34; alt=&#34;&#34; /&gt;
+3. 如果s1的第i个字符和s2的第j个字符相同，则将矩阵counter[i+1][j+1]的值在counter[i][j]的基础上加1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;if S[i] == T[j]:
+    c = counter[i][j] + 1
+    counter[i+1][j+1] = c
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%203.jpg&#34; alt=&#34;&#34; /&gt;
+4. 如果现在的最长substring比以前的substring长，更新longest和set为新substring；如果新的substring和以前的substring一样长，直接将新的substring加入到set中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;if c &amp;gt; longest:
+     lcs_set = set()
+     longest = c
+     lcs_set.add(S[i-c+1:i+1])
+elif c == longest:
+     lcs_set.add(S[i-c+1:i+1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%204.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;寻找最长回文字符串:03e4760e1ab426fb87738f4b382c95c8&#34;&gt;&lt;strong&gt;寻找最长回文字符串&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;上一篇博客&lt;a href=&#34;http://blog.csdn.net/justheretobe/article/details/51761575&#34;&gt;获取string中的最长回文字符串&lt;/a&gt;还可以使用寻找两个字符串最长公共substring的方法解答：
+1. s1=‘给定字符串’
+2. s2=‘给定字符串的反序’
+3. 比较s1与s2, 获取两个字符串中最长的公共字符串，即为s1最长的回文字符串
+代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def longest_palindrome (s):
+    s1 = s
+    s2 = s1[::-1]
+    if len(s) == 1 : return 1
+    elif len(s) == 0: return 0
+    else:
+      #get the longest common string between s1 and reversed s1
+      m = [[0] * (1 + len(s2)) for i in range(1 + len(s1))]
+      longest, x_longest = 0, 0
+      for x in range(1, 1 + len(s1)):
+        for y in range(1, 1 + len(s2)):
+          if s1[x - 1] == s2[y - 1]:
+            m[x][y] = m[x - 1][y - 1] + 1
+            if m[x][y] &amp;gt; longest:
+              longest = m[x][y]
+              x_longest = x
+          else:
+              m[x][y] = 0
+
+      #if the longest common string is palindrome, return its length, else return 1
+      longest_string = s1[(x_longest-longest):x_longest]
+      if longest_string == longest_string[::-1]: return longest
+      else: return 1
+
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    assert longest_palindrome(&#39;abcdab123454321&#39;) == 9
+    assert longest_palindrome(&#39;ab&#39;) == 1
+    assert longest_palindrome(&#39;aa&#39;) == 2
+    assert longest_palindrome(&#39;&#39;) == 0
+    assert longest_palindrome(&#39;abcdefba&#39;) == 1
+    print(&#39;assert complete!&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;C:\Anaconda3\python.exe E:/python_projects/test.py
+assert complete!
+
+Process finished with exit code 0
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;更多longest_palindrome 解法，见：
+&lt;a href=&#34;https://www.codewars.com/kata/longest-palindrome/solutions/python&#34;&gt;https://www.codewars.com/kata/longest-palindrome/solutions/python&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Reference：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.bogotobogo.com/python/python_solutions.php#longest_substring&#34;&gt;从给定string中找出至多只包含两个不同字符的最长substring&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;解释和主要代码来自：
+&lt;a href=&#34;http://www.bogotobogo.com/python/python_longest_common_substring_lcs_algorithm_generalized_suffix_tree.php&#34;&gt;python_longest_common_substring_lcs_algorithm_generalized_suffix_tree&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>获取string中的最长回文字符串</title>
+      <link>http://learnbetter.club/2016/06/longest-palindrome/</link>
+      <pubDate>Sun, 26 Jun 2016 19:19:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/06/longest-palindrome/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;例题:a769ae6fcf933b7be2d65532f19a4293&#34;&gt;&lt;strong&gt;例题&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;获取string中的最长回文字符串&lt;/p&gt;
+
+&lt;p&gt;所谓回文字符串，即该字符串从左到右读和从右到左读是完全一样的。如“123454321”就是一个长度为9的回文字符串。
+现要求使用python完成：对一个字符串s，找出其中为回文字符串的部分，并返回回文字符串的长度。规则为：
+1. 如果s是1个字符，则长度为1，如“a”
+2. 如果s为空“”，则长度为0
+3. 如果s中有部分是回文字符串，返回最长回文字符串及其长度，如“aab”，最长回文字符串为“aa”，长度为2&lt;/p&gt;
+
+&lt;p&gt;例子：
+&amp;gt;&amp;ldquo;a&amp;rdquo; -&amp;gt; 1
+&amp;ldquo;aab&amp;rdquo; -&amp;gt; 2&lt;br /&gt;
+&amp;ldquo;abcde&amp;rdquo; -&amp;gt; 1
+&amp;ldquo;zzbaabcd&amp;rdquo; -&amp;gt; 4
+&amp;ldquo;&amp;rdquo; -&amp;gt; 0&lt;/p&gt;
+
+&lt;h2 id=&#34;解法:a769ae6fcf933b7be2d65532f19a4293&#34;&gt;&lt;strong&gt;解法&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def longest_palindrome (s):
+    longest = 0
+    if s == &#39;&#39;: return &#39;&#39;
+    for left in range(len(s)):
+        for right in range(len(s), left, -1):
+            if s[left:right] in (s[left:right])[::-1]:
+                #longest = max(right-left, longest)
+                if (right-left)&amp;gt;longest:
+                    longest = right-left
+                    palindrome = s[left:right]
+                    break
+                else: break
+    return palindrome
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    assert longest_palindrome(&#39;abcdab123454321&#39;) == &#39;123454321&#39;
+    assert len(longest_palindrome(&#39;abcdab123454321&#39;)) == 9
+    assert longest_palindrome(&#39;ab&#39;) == &#39;a&#39;
+    assert len(longest_palindrome(&#39;ab&#39;)) == 1
+    assert longest_palindrome(&#39;aa&#39;) == &#39;aa&#39;
+    assert len(longest_palindrome(&#39;aa&#39;)) == 2
+    assert longest_palindrome(&#39;&#39;) == &#39;&#39;
+    assert len(longest_palindrome(&#39;&#39;)) == 0
+    assert longest_palindrome(&#39;abcdefba&#39;) == &#39;a&#39;
+    assert len(longest_palindrome(&#39;abcdefba&#39;)) == 1
+
+    print(&#39;assert complete!&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;C:\Anaconda3\python.exe E:/python_projects/test.py
+assert complete!
+
+Process finished with exit code 0
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>python3 sorted的用法</title>

@@ -3,8 +3,18 @@
   
   <url>
     <loc>http://learnbetter.club/</loc>
-    <lastmod>2016-06-19T19:20:40+00:00</lastmod>
+    <lastmod>2016-06-26T21:19:40+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://learnbetter.club/2016/06/longest-common-substring/</loc>
+    <lastmod>2016-06-26T21:19:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://learnbetter.club/2016/06/longest-palindrome/</loc>
+    <lastmod>2016-06-26T19:19:40+00:00</lastmod>
   </url>
   
   <url>
