@@ -36,7 +36,7 @@
 <meta property="og:url" content="http://learnbetter.club/2016/06/python3-sorted/" />
 
 
-<meta property="og:updated_time" content="2016-06-19T19:20:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-06-19T21:04:40&#43;00:00"/>
 
 
 
@@ -52,12 +52,12 @@
 <meta itemprop="description" content="python奇思妙解">
 
 
-<meta itemprop="dateModified" content="2016-06-19T19:20:40&#43;00:00" />
+<meta itemprop="dateModified" content="2016-06-19T21:04:40&#43;00:00" />
 <meta itemprop="wordCount" content="509">
 
 
 
-<meta itemprop="keywords" content="development,golang,hugo,python,golang,hugo,python3," />
+<meta itemprop="keywords" content="development,golang,hugo,python,vim,golang,hugo,python3,vim," />
 
         
 
@@ -746,6 +746,10 @@ footer a:hover
         
     
         
+            <li><a href="/tags/vim">vim (1)</a></li>
+        
+    
+        
             <li><a href="/tags/golang">golang (1)</a></li>
         
     
@@ -765,9 +769,6 @@ footer a:hover
     <font size="3" color="green"><i>位访客</i></font> 
 </span>  
 </div>   
-
-
-
             
            
     
@@ -776,7 +777,7 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-19T19:20:40Z">
+        <time datetime="2016-06-19T21:04:40Z">
             19 Jun 2016
         </time>
         <span class="taglist">
@@ -802,6 +803,8 @@ footer a:hover
 
 <hr />
 
+<hr />
+
 <h2 id="例题:55447a98b04e184bd08bcb4f57ca58c1"><strong>例题：</strong></h2>
 
 <pre><code>先来看一个例题：
@@ -817,12 +820,12 @@ footer a:hover
 
 <p>使用sorted的解法如下：</p>
 
-<pre><code class="language-python">def checkio(text):
+<pre><code>def checkio(text):
     #filter out not-alphebet char
     if text.isalpha():  text = text.lower()
     else:  text = ''.join([x.lower() for x in text if x.isalpha()])
     #print(text)
-    
+
     from collections import Counter
     str_count = Counter(text)
     #print(str_count)
@@ -853,10 +856,7 @@ if __name__ == '__main__':
 
 <p>分析解法的关键代码</p>
 
-<pre><code class="language-python">str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))`
-</code></pre>
-
-<pre><code>增加print测试:
+<pre><code>str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))    增加print测试:
 #print(text)
 &gt;&gt;&gt;checkio(&quot;Lorem ipsum dolor sit amet&quot;)
 loremipsumdolorsitamet
@@ -894,17 +894,14 @@ For sorting examples and a brief sorting tutorial, see Sorting HOW TO.
 如：
 第一个参数是迭代器</p>
 
-<pre><code class="language-python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
+<pre><code>&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
 [-21, -12, 5, 9, 36]
 </code></pre>
 
 <p>第二个参数是用来排序的key</p>
 
-<pre><code class="language-python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
-[5, 9, -12, -21, 36]
-</code></pre>
-
-<pre><code>key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
+<pre><code>&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]    key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
 list = [36, 5, -12, 9, -21]
 keys = [36, 5,  12, 9,  21]
 然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素：
@@ -915,14 +912,14 @@ keys排序结果 =&gt; [5, 9,  12,  21, 36]
 <p>第三个参数决定正向还是反向排序：
 要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：</p>
 
-<pre><code class="language-python">&gt;&gt;&gt; sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+<pre><code>&gt;&gt;&gt; sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
 ['Zoo', 'Credit', 'bob', 'about']
 </code></pre>
 
 <p><strong>注：</strong>例题解法来自 <a href="https://checkio.org/user/penn201500/">https://checkio.org/user/penn201500/</a>
 更优解法为：</p>
 
-<pre><code class="language-python">import string
+<pre><code>import string
 ​
 def checkio(text):
     &quot;&quot;&quot;
@@ -945,6 +942,8 @@ def checkio(text):
 
 <p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000">sorted()函数</a></p>
 
+<hr />
+
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
 <section>
@@ -960,7 +959,7 @@ def checkio(text):
        
         <li>
         <font size="5" color="green"><b>Next:</b></font>
-        <a href="http://learnbetter.club/2016/06/longest-palindrome/"
+        <a href="http://learnbetter.club/2016/06/longest_palindrome/"
                 class="button big next">获取string中的最长回文字符串</a></li>
     
 </ul>
@@ -1001,7 +1000,6 @@ s.setAttribute('data-timestamp', +new Date());
 </main>
 
 <footer id="footer">
-
 	<section id="footer-message">&copy;  <b>Penn's Blog</b> All rights reserved. Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>. <a href="https://github.com/kathyqian/crisp-ghost-theme" target="_blank">Crisp</a> theme by <a href="http://kathyqian.com" target="_blank">Kathy Qian</a>.</section>
 </footer>
 

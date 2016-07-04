@@ -8,13 +8,13 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Mon, 06 Jun 2016 15:04:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jun 2016 21:04:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）</title>
       <link>http://learnbetter.club/2016/06/hugo-5-add-gcse/</link>
-      <pubDate>Mon, 06 Jun 2016 15:04:40 +0000</pubDate>
+      <pubDate>Fri, 17 Jun 2016 21:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-5-add-gcse/</guid>
       <description>
@@ -101,7 +101,7 @@ gcse的使用方法强烈推荐阅读：&lt;a href=&#34;http://lulee007.coding.m
     <item>
       <title>如何使用hugo搭建个人博客（四）：添加评论系统disqus</title>
       <link>http://learnbetter.club/2016/06/hugo-4-add-disqus/</link>
-      <pubDate>Sun, 05 Jun 2016 15:04:40 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 15:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-4-add-disqus/</guid>
       <description>&lt;p&gt;按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。&lt;/p&gt;
@@ -173,7 +173,7 @@ hello hugo! I am test.md
     <item>
       <title>如何使用hugo搭建个人博客（三）：添加follow与修改share的方式</title>
       <link>http://learnbetter.club/2016/06/hugo-3-update-follow-and-share-method/</link>
-      <pubDate>Sat, 04 Jun 2016 10:04:40 +0000</pubDate>
+      <pubDate>Wed, 15 Jun 2016 12:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-3-update-follow-and-share-method/</guid>
       <description>
@@ -238,7 +238,7 @@ hello hugo! I am test.md
     <item>
       <title>如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</title>
       <link>http://learnbetter.club/2016/06/hugo-2-update-sidebar/</link>
-      <pubDate>Fri, 03 Jun 2016 16:04:40 +0000</pubDate>
+      <pubDate>Tue, 14 Jun 2016 10:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-2-update-sidebar/</guid>
       <description>
@@ -270,14 +270,24 @@ hello hugo! I am test.md
 
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
+
+&lt;p&gt;=======
+&lt;p/&gt;
+&lt;p/&gt;
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master&lt;/p&gt;
+
 &lt;h2 id=&#34;修改侧边栏布局:c3f6a68923e233951f19e3ad987dc958&#34;&gt;&lt;strong&gt;修改侧边栏布局&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;侧边栏不想要头像？想添加links？只要github follow？
 下面介绍如何实现这些需求&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;1.去掉头像&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.去掉头像&lt;/strong&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
 
-&lt;p&gt;编辑layouts/partial目录下的header.html文件：
+&lt;p&gt;=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master
+编辑layouts/partial目录下的header.html文件：
 如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;        &amp;lt;header id=&amp;quot;header&amp;quot;&amp;gt;
@@ -294,9 +304,12 @@ hello hugo! I am test.md
 &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg&#34; alt=&#34;delete logo&#34; /&gt;
 &lt;p/&gt;
 &lt;p/&gt;
-&lt;strong&gt;2. 添加links&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;2. 添加links&lt;/strong&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
 
-&lt;p&gt;可以参考配置文件：&lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&lt;/a&gt;
+&lt;p&gt;=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master
+可以参考配置文件：&lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&lt;/a&gt;
 将与header.html同目录的navigation.html文件修改为：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;hr class=&amp;quot;nav-site-separator&amp;quot;&amp;gt;
@@ -322,9 +335,12 @@ hello hugo! I am test.md
 &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg&#34; alt=&#34;add links&#34; /&gt;
 &lt;p/&gt;
 &lt;p/&gt;
-&lt;strong&gt;3. 只需要github follow&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;3. 只需要github follow&lt;/strong&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
 
-&lt;p&gt;crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
+&lt;p&gt;=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master
+crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
 下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）
 将同目录下的follow.html修改如下：&lt;/p&gt;
 
@@ -403,7 +419,7 @@ hello hugo! I am test.md
     <item>
       <title>如何使用hugo搭建个人博客（一）：在win7上使用hugo</title>
       <link>http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/</link>
-      <pubDate>Thu, 02 Jun 2016 17:04:40 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 19:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/</guid>
       <description>
@@ -450,9 +466,8 @@ hello hugo! I am test.md
 hugo new site  mysite
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;运行结果：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg&#34; alt=&#34;hugo new site mysite&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;运行结果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg&#34; alt=&#34;hugo new site mysite&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;文件结构的含义是：
 原文解释见 &lt;a href=&#34;https://gohugo.io/content/&#34;&gt;https://gohugo.io/content/&lt;/a&gt;

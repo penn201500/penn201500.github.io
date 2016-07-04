@@ -36,7 +36,7 @@
 <meta property="og:url" content="http://learnbetter.club/2016/06/python3-zip/" />
 
 
-<meta property="og:updated_time" content="2016-06-19T19:19:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-06-19T19:04:40&#43;00:00"/>
 
 
 
@@ -52,12 +52,12 @@
 <meta itemprop="description" content="python奇思妙解">
 
 
-<meta itemprop="dateModified" content="2016-06-19T19:19:40&#43;00:00" />
-<meta itemprop="wordCount" content="658">
+<meta itemprop="dateModified" content="2016-06-19T19:04:40&#43;00:00" />
+<meta itemprop="wordCount" content="657">
 
 
 
-<meta itemprop="keywords" content="development,golang,hugo,python,golang,hugo,python3," />
+<meta itemprop="keywords" content="development,golang,hugo,python,vim,golang,hugo,python3,vim," />
 
         
 
@@ -749,6 +749,10 @@ footer a:hover
             <li><a href="/tags/golang">golang (1)</a></li>
         
     
+        
+            <li><a href="/tags/vim">vim (1)</a></li>
+        
+    
 </ul>
 
             <form class="uk-search" action="http://learnbetter.club/search/">
@@ -765,9 +769,6 @@ footer a:hover
     <font size="3" color="green"><i>位访客</i></font> 
 </span>  
 </div>   
-
-
-
             
            
     
@@ -776,7 +777,7 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-19T19:19:40Z">
+        <time datetime="2016-06-19T19:04:40Z">
             19 Jun 2016
         </time>
         <span class="taglist">
@@ -802,6 +803,8 @@ footer a:hover
 
 <hr />
 
+<hr />
+
 <h2 id="例子:3a2916a882b53bf4714c682a2b069b9a"><strong>例子：</strong></h2>
 
 <blockquote>
@@ -820,26 +823,26 @@ footer a:hover
 <p><strong>范例:</strong></p>
 
 <p>checkio([
-    &ldquo;X.O&rdquo;,
-    &ldquo;XX.&rdquo;,
-    &ldquo;XOO&rdquo;]) == &ldquo;X&rdquo;</p>
+    “X.O”,
+    “XX.”,
+    “XOO”]) == “X”</p>
 
 <p>checkio([
-    &ldquo;OO.&rdquo;,
-    &ldquo;XOX&rdquo;,
-    &ldquo;XOX&rdquo;]) == &ldquo;O&rdquo;</p>
+    “OO.”,
+    “XOX”,
+    “XOX”]) == “O”</p>
 
 <p>checkio([
-    &ldquo;OOX&rdquo;,
-    &ldquo;XXO&rdquo;,
-    &ldquo;OXX&rdquo;]) == &ldquo;D&rdquo;</p>
+    “OOX”,
+    “XXO”,
+    “OXX”]) == “D”</p>
 
 <p><strong>如何使用：</strong> 此任务中的概念将有助于您遍历数据类型。这还可以用在游戏的算法上，让你知道如何去检查结果。</p>
 </blockquote>
 
 <p><strong>最多推荐的解法：</strong></p>
 
-<pre><code class="language-python">def checkio(result):
+<pre><code>def checkio(result):
     rows = result
     cols = map(''.join, zip(*rows))
     diags = map(''.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
@@ -854,23 +857,23 @@ footer a:hover
 
 <blockquote>
 <p>&gt;&gt;&gt; result = [
-&hellip;     &ldquo;OOX&rdquo;,
-&hellip;     &ldquo;XXO&rdquo;,
-&hellip;     &ldquo;OXX&rdquo;]</p>
+…     “OOX”,
+…     “XXO”,
+…     “OXX”]</p>
 
 <p>&gt;&gt;&gt; rows = result</p>
 
 <p>&gt;&gt;&gt; for i in zip(*rows):</p>
 
-<p>&hellip;   print(i)</p>
+<p>…   print(i)</p>
 
-<p>&hellip;</p>
+<p>…</p>
 
-<p>(&lsquo;O&rsquo;, &lsquo;X&rsquo;, &lsquo;O&rsquo;)</p>
+<p>(‘O’, ‘X’, ‘O’)</p>
 
-<p>(&lsquo;O&rsquo;, &lsquo;X&rsquo;, &lsquo;X&rsquo;)</p>
+<p>(‘O’, ‘X’, ‘X’)</p>
 
-<p>(&lsquo;X&rsquo;, &lsquo;O&rsquo;, &lsquo;X&rsquo;)</p>
+<p>(‘X’, ‘O’, ‘X’)</p>
 
 <p>&gt;&gt;&gt;</p>
 </blockquote>
@@ -918,7 +921,7 @@ class zip(object)
 
 <p><strong>1.zip是将每个可迭代对象的对应位置元素打包成一个tuple组，例如：</strong></p>
 
-<pre><code>&gt;二维矩阵变换（矩阵的行列互换）
+<pre><code>二维矩阵变换（矩阵的行列互换）
 比如我们有一个由列表描述的二维矩阵
 a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 利用zip函数：
@@ -943,10 +946,9 @@ a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 [(1,'a'),(2,'b')]
 </code></pre>
 
-<p><strong>zip另有一些高级用法：</strong>
-<strong>1.python列表相邻元素压缩：</strong></p>
+<p><strong>zip另有一些高级用法：</strong><strong>1.python列表相邻元素压缩：</strong></p>
 
-<pre><code class="language-python">group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+<pre><code>group_adjacent = lambda a, k: zip(*([iter(a)] * k))
 </code></pre>
 
 <p>强烈推荐阅读：<a href="https://segmentfault.com/q/1010000000612945">https://segmentfault.com/q/1010000000612945</a></p>
@@ -981,12 +983,12 @@ iter() 能把一个序列生成为一个和迭代器，迭代器的特点是可�
 
 <p>等价于下面的方式</p>
 
-<pre><code class="language-python">zip([1, 3, 5], [2, 4, 6])
+<pre><code>zip([1, 3, 5], [2, 4, 6])
 </code></pre>
 
 <p>所以代码：</p>
 
-<pre><code class="language-python">group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+<pre><code>group_adjacent = lambda a, k: zip(*([iter(a)] * k))
 </code></pre>
 
 <p>表示定义一个匿名函数，参数是 a和k，并绑定变量 group_adjacent。匿名函数的主体内容是，用iter将序列迭代化，然后用zip打包这个迭代器对象。</p>
@@ -1065,6 +1067,8 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 
 <p><a href="https://segmentfault.com/q/1010000000612945">python列表相邻元素压缩器</a></p>
 
+<hr />
+
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
 <section>
@@ -1121,7 +1125,6 @@ s.setAttribute('data-timestamp', +new Date());
 </main>
 
 <footer id="footer">
-
 	<section id="footer-message">&copy;  <b>Penn's Blog</b> All rights reserved. Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>. <a href="https://github.com/kathyqian/crisp-ghost-theme" target="_blank">Crisp</a> theme by <a href="http://kathyqian.com" target="_blank">Kathy Qian</a>.</section>
 </footer>
 

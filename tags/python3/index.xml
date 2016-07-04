@@ -8,13 +8,13 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Sun, 26 Jun 2016 21:19:40 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jun 2016 21:04:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/tags/python3/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>获取两个字符串中最长的公共字符串</title>
       <link>http://learnbetter.club/2016/06/longest-common-substring/</link>
-      <pubDate>Sun, 26 Jun 2016 21:19:40 +0000</pubDate>
+      <pubDate>Sun, 26 Jun 2016 21:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/longest-common-substring/</guid>
       <description>
@@ -184,15 +184,15 @@ Process finished with exit code 0
     
     <item>
       <title>获取string中的最长回文字符串</title>
-      <link>http://learnbetter.club/2016/06/longest-palindrome/</link>
-      <pubDate>Sun, 26 Jun 2016 19:19:40 +0000</pubDate>
+      <link>http://learnbetter.club/2016/06/longest_palindrome/</link>
+      <pubDate>Sun, 26 Jun 2016 19:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
-      <guid>http://learnbetter.club/2016/06/longest-palindrome/</guid>
+      <guid>http://learnbetter.club/2016/06/longest_palindrome/</guid>
       <description>
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;例题:a769ae6fcf933b7be2d65532f19a4293&#34;&gt;&lt;strong&gt;例题&lt;/strong&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;例题:44af3760fc3194ac830c03427bef8298&#34;&gt;&lt;strong&gt;例题&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;获取string中的最长回文字符串&lt;/p&gt;
 
@@ -209,7 +209,7 @@ Process finished with exit code 0
 &amp;ldquo;zzbaabcd&amp;rdquo; -&amp;gt; 4
 &amp;ldquo;&amp;rdquo; -&amp;gt; 0&lt;/p&gt;
 
-&lt;h2 id=&#34;解法:a769ae6fcf933b7be2d65532f19a4293&#34;&gt;&lt;strong&gt;解法&lt;/strong&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;解法:44af3760fc3194ac830c03427bef8298&#34;&gt;&lt;strong&gt;解法&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串&lt;/p&gt;
 
@@ -258,10 +258,12 @@ Process finished with exit code 0
     <item>
       <title>python3 sorted的用法</title>
       <link>http://learnbetter.club/2016/06/python3-sorted/</link>
-      <pubDate>Sun, 19 Jun 2016 19:20:40 +0000</pubDate>
+      <pubDate>Sun, 19 Jun 2016 21:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/python3-sorted/</guid>
       <description>
+
+&lt;hr /&gt;
 
 &lt;hr /&gt;
 
@@ -280,12 +282,12 @@ Process finished with exit code 0
 
 &lt;p&gt;使用sorted的解法如下：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def checkio(text):
+&lt;pre&gt;&lt;code&gt;def checkio(text):
     #filter out not-alphebet char
     if text.isalpha():  text = text.lower()
     else:  text = &#39;&#39;.join([x.lower() for x in text if x.isalpha()])
     #print(text)
-    
+
     from collections import Counter
     str_count = Counter(text)
     #print(str_count)
@@ -316,10 +318,7 @@ if __name__ == &#39;__main__&#39;:
 
 &lt;p&gt;分析解法的关键代码&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;增加print测试:
+&lt;pre&gt;&lt;code&gt;str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))    增加print测试:
 #print(text)
 &amp;gt;&amp;gt;&amp;gt;checkio(&amp;quot;Lorem ipsum dolor sit amet&amp;quot;)
 loremipsumdolorsitamet
@@ -357,17 +356,14 @@ For sorting examples and a brief sorting tutorial, see Sorting HOW TO.
 如：
 第一个参数是迭代器&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21])
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21])
 [-21, -12, 5, 9, 36]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;第二个参数是用来排序的key&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21], key=abs)
-[5, 9, -12, -21, 36]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]    key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
 list = [36, 5, -12, 9, -21]
 keys = [36, 5,  12, 9,  21]
 然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素：
@@ -378,14 +374,14 @@ keys排序结果 =&amp;gt; [5, 9,  12,  21, 36]
 &lt;p&gt;第三个参数决定正向还是反向排序：
 要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
 [&#39;Zoo&#39;, &#39;Credit&#39;, &#39;bob&#39;, &#39;about&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;例题解法来自 &lt;a href=&#34;https://checkio.org/user/penn201500/&#34;&gt;https://checkio.org/user/penn201500/&lt;/a&gt;
 更优解法为：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import string
+&lt;pre&gt;&lt;code&gt;import string
 ​
 def checkio(text):
     &amp;quot;&amp;quot;&amp;quot;
@@ -407,16 +403,20 @@ def checkio(text):
 &lt;p&gt;&lt;a href=&#34;https://checkio.org/mission/most-wanted-letter/&#34;&gt;checkio: most wanted letter&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000&#34;&gt;sorted()函数&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
     </item>
     
     <item>
       <title>python3 zip的用法</title>
       <link>http://learnbetter.club/2016/06/python3-zip/</link>
-      <pubDate>Sun, 19 Jun 2016 19:19:40 +0000</pubDate>
+      <pubDate>Sun, 19 Jun 2016 19:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/python3-zip/</guid>
       <description>
+
+&lt;hr /&gt;
 
 &lt;hr /&gt;
 
@@ -438,26 +438,26 @@ def checkio(text):
 &lt;p&gt;&lt;strong&gt;范例:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;checkio([
-    &amp;ldquo;X.O&amp;rdquo;,
-    &amp;ldquo;XX.&amp;rdquo;,
-    &amp;ldquo;XOO&amp;rdquo;]) == &amp;ldquo;X&amp;rdquo;&lt;/p&gt;
+    “X.O”,
+    “XX.”,
+    “XOO”]) == “X”&lt;/p&gt;
 
 &lt;p&gt;checkio([
-    &amp;ldquo;OO.&amp;rdquo;,
-    &amp;ldquo;XOX&amp;rdquo;,
-    &amp;ldquo;XOX&amp;rdquo;]) == &amp;ldquo;O&amp;rdquo;&lt;/p&gt;
+    “OO.”,
+    “XOX”,
+    “XOX”]) == “O”&lt;/p&gt;
 
 &lt;p&gt;checkio([
-    &amp;ldquo;OOX&amp;rdquo;,
-    &amp;ldquo;XXO&amp;rdquo;,
-    &amp;ldquo;OXX&amp;rdquo;]) == &amp;ldquo;D&amp;rdquo;&lt;/p&gt;
+    “OOX”,
+    “XXO”,
+    “OXX”]) == “D”&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;如何使用：&lt;/strong&gt; 此任务中的概念将有助于您遍历数据类型。这还可以用在游戏的算法上，让你知道如何去检查结果。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;最多推荐的解法：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def checkio(result):
+&lt;pre&gt;&lt;code&gt;def checkio(result):
     rows = result
     cols = map(&#39;&#39;.join, zip(*rows))
     diags = map(&#39;&#39;.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
@@ -472,23 +472,23 @@ def checkio(text):
 
 &lt;blockquote&gt;
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt; result = [
-&amp;hellip;     &amp;ldquo;OOX&amp;rdquo;,
-&amp;hellip;     &amp;ldquo;XXO&amp;rdquo;,
-&amp;hellip;     &amp;ldquo;OXX&amp;rdquo;]&lt;/p&gt;
+…     “OOX”,
+…     “XXO”,
+…     “OXX”]&lt;/p&gt;
 
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt; rows = result&lt;/p&gt;
 
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt; for i in zip(*rows):&lt;/p&gt;
 
-&lt;p&gt;&amp;hellip;   print(i)&lt;/p&gt;
+&lt;p&gt;…   print(i)&lt;/p&gt;
 
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;…&lt;/p&gt;
 
-&lt;p&gt;(&amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;, &amp;lsquo;O&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(‘O’, ‘X’, ‘O’)&lt;/p&gt;
 
-&lt;p&gt;(&amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;, &amp;lsquo;X&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(‘O’, ‘X’, ‘X’)&lt;/p&gt;
 
-&lt;p&gt;(&amp;lsquo;X&amp;rsquo;, &amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(‘X’, ‘O’, ‘X’)&lt;/p&gt;
 
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -536,7 +536,7 @@ class zip(object)
 
 &lt;p&gt;&lt;strong&gt;1.zip是将每个可迭代对象的对应位置元素打包成一个tuple组，例如：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt;二维矩阵变换（矩阵的行列互换）
+&lt;pre&gt;&lt;code&gt;二维矩阵变换（矩阵的行列互换）
 比如我们有一个由列表描述的二维矩阵
 a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 利用zip函数：
@@ -561,10 +561,9 @@ a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 [(1,&#39;a&#39;),(2,&#39;b&#39;)]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;zip另有一些高级用法：&lt;/strong&gt;
-&lt;strong&gt;1.python列表相邻元素压缩：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;zip另有一些高级用法：&lt;/strong&gt;&lt;strong&gt;1.python列表相邻元素压缩：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+&lt;pre&gt;&lt;code&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;强烈推荐阅读：&lt;a href=&#34;https://segmentfault.com/q/1010000000612945&#34;&gt;https://segmentfault.com/q/1010000000612945&lt;/a&gt;&lt;/p&gt;
@@ -599,12 +598,12 @@ iter() 能把一个序列生成为一个和迭代器，迭代器的特点是可�
 
 &lt;p&gt;等价于下面的方式&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;zip([1, 3, 5], [2, 4, 6])
+&lt;pre&gt;&lt;code&gt;zip([1, 3, 5], [2, 4, 6])
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;所以代码：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+&lt;pre&gt;&lt;code&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;表示定义一个匿名函数，参数是 a和k，并绑定变量 group_adjacent。匿名函数的主体内容是，用iter将序列迭代化，然后用zip打包这个迭代器对象。&lt;/p&gt;
@@ -682,6 +681,8 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 &lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/BeginMan/archive/2013/03/14/2959447.html&#34;&gt;Python零碎知识(2):强大的zip&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000000612945&#34;&gt;python列表相邻元素压缩器&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
     </item>
     

@@ -8,13 +8,123 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Sun, 26 Jun 2016 21:19:40 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jul 2016 22:04:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>linux mint 18上安装vim spf13 </title>
+      <link>http://learnbetter.club/2016/07/install-vim-spf13-on-linux-mint-18/</link>
+      <pubDate>Mon, 04 Jul 2016 22:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/07/install-vim-spf13-on-linux-mint-18/</guid>
+      <description>&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;vim的终极配置spf13在linux_mint上的安装步骤如下（非gui）：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装vim
+菜单&amp;ndash;&amp;gt;软件管理器&amp;ndash;&amp;gt;搜索“vim”。双击vim，安装
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/mint%20install%20vim.jpg&#34; alt=&#34;search and install vim&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装vim-nox
+与安装vim一样，搜索vim-nox；使用vim spf13中的neocomplete功能，需要vim有lua特性支持。vim-nox安装之后，查看vim的version信息：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/spf13%20lua%20support.jpg&#34; alt=&#34;vim version with lua support&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装spf13
+访问spf13官网：&lt;a href=&#34;http://vim.spf13.com/&#34;&gt;http://vim.spf13.com/&lt;/a&gt;
+打开terminal，输入：&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;curl &lt;a href=&#34;http://j.mp/spf13-vim3&#34;&gt;http://j.mp/spf13-vim3&lt;/a&gt; -L -o - | sh&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然后等待安装完成。
+  如果安装失败，提示git或者curl未安装:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get install git
+sudo apt-get install curl&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;配置color-scheme，NerdTree，字体
+安装完成之后，在.spf13-vim-3同一级目录下，有&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;.vimrc
+.vimrc.before
+.vimrc.bundles
+.viminfo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;使用molokai color-scheme：
+  可以在.vimrc.local中配置colorscheme，也可以vim中执行命令，如：
+  &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/colorshceme%20molokai.jpg&#34; alt=&#34;molokai color-scheme&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;配置NerdTree标签：需要在与.spf13-vim-3同一级目录下创建文件.NERDTreeBookmarks 文件中内容如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;.spf13-vim-3 ~/.spf13-vim-3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这样会在NERDTree的标签中显示标签 &lt;code&gt;.spf13-vim-3&lt;/code&gt;
+  &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/spf13%20bookmarks.jpg&#34; alt=&#34;nerdtree bookmark&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;添加.vimrc.local:
+  与.spf13-vim-3同一级目录下创建文件.vimrc.local，用来做个性化配置。如：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;rdquo;================快捷换行==================
+nmap &lt;c-up&gt; ddkP
+nmap &lt;c-down&gt; ddp
+vmap &lt;c-up&gt; xkP&lt;code&gt;[V&lt;/code&gt;]
+vmap &lt;c-down&gt; xp&lt;code&gt;[V&lt;/code&gt;]
+&amp;ldquo; ======= 使nerd-tree 能够copy文件 ======= &amp;rdquo;
+let g:NERDTreeCopyCmd = &amp;lsquo;cp -r &amp;lsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;配置NerdTree打开时显示的路径：
+  在.vimrc.local中增加&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;rdquo; ======= 设置NERDTree打开时的目录 ======= &amp;ldquo;
+cd /home/mint/python_projects
+&amp;ldquo; shortcut to toggle NerdTree
+map &lt;F2&gt; :NERDTreeToggle&lt;CR&gt;&lt;br /&gt;
+&amp;rdquo; open Nerd Tree in folder of file in active buffer
+map &lt;Leader&gt;nt :NERDTree %:p:h&lt;CR&gt;
+autocmd bufenter * if (winnr(&amp;ldquo;$&amp;rdquo;) == 1 &amp;amp;&amp;amp; exists(&amp;ldquo;b:NERDTreeType&amp;rdquo;) &amp;amp;&amp;amp; b:NERDTreeType == &amp;ldquo;primary&amp;rdquo;) |q| endif&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;添加.vimrc.bundles.local 用来配置自己的插件，如：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Bundle &amp;lsquo;mhinz/vim-startify&amp;rsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;添加自己的插件之后，执行命令插件：
+  &amp;gt;vim +BundleInstall! +BundleClean +q&lt;/p&gt;
+
+&lt;p&gt;在.vimrc.local中配置字体：
+  &amp;gt;&amp;rdquo; ======= 自定义快捷键 ======= &amp;ldquo;
+&amp;ldquo; 设置着色模式和字体
+colorscheme molokai
+set guifont=Monaco:h11
+&amp;ldquo; AirLine             彩色状态栏
+let g:airline_theme = &amp;lsquo;dark&amp;rsquo;                &amp;ldquo; 设置主题&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
     
     <item>
       <title>获取两个字符串中最长的公共字符串</title>
       <link>http://learnbetter.club/2016/06/longest-common-substring/</link>
-      <pubDate>Sun, 26 Jun 2016 21:19:40 +0000</pubDate>
+      <pubDate>Sun, 26 Jun 2016 21:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/longest-common-substring/</guid>
       <description>
@@ -184,15 +294,15 @@ Process finished with exit code 0
     
     <item>
       <title>获取string中的最长回文字符串</title>
-      <link>http://learnbetter.club/2016/06/longest-palindrome/</link>
-      <pubDate>Sun, 26 Jun 2016 19:19:40 +0000</pubDate>
+      <link>http://learnbetter.club/2016/06/longest_palindrome/</link>
+      <pubDate>Sun, 26 Jun 2016 19:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
-      <guid>http://learnbetter.club/2016/06/longest-palindrome/</guid>
+      <guid>http://learnbetter.club/2016/06/longest_palindrome/</guid>
       <description>
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;例题:a769ae6fcf933b7be2d65532f19a4293&#34;&gt;&lt;strong&gt;例题&lt;/strong&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;例题:44af3760fc3194ac830c03427bef8298&#34;&gt;&lt;strong&gt;例题&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;获取string中的最长回文字符串&lt;/p&gt;
 
@@ -209,7 +319,7 @@ Process finished with exit code 0
 &amp;ldquo;zzbaabcd&amp;rdquo; -&amp;gt; 4
 &amp;ldquo;&amp;rdquo; -&amp;gt; 0&lt;/p&gt;
 
-&lt;h2 id=&#34;解法:a769ae6fcf933b7be2d65532f19a4293&#34;&gt;&lt;strong&gt;解法&lt;/strong&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;解法:44af3760fc3194ac830c03427bef8298&#34;&gt;&lt;strong&gt;解法&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串&lt;/p&gt;
 
@@ -258,10 +368,12 @@ Process finished with exit code 0
     <item>
       <title>python3 sorted的用法</title>
       <link>http://learnbetter.club/2016/06/python3-sorted/</link>
-      <pubDate>Sun, 19 Jun 2016 19:20:40 +0000</pubDate>
+      <pubDate>Sun, 19 Jun 2016 21:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/python3-sorted/</guid>
       <description>
+
+&lt;hr /&gt;
 
 &lt;hr /&gt;
 
@@ -280,12 +392,12 @@ Process finished with exit code 0
 
 &lt;p&gt;使用sorted的解法如下：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def checkio(text):
+&lt;pre&gt;&lt;code&gt;def checkio(text):
     #filter out not-alphebet char
     if text.isalpha():  text = text.lower()
     else:  text = &#39;&#39;.join([x.lower() for x in text if x.isalpha()])
     #print(text)
-    
+
     from collections import Counter
     str_count = Counter(text)
     #print(str_count)
@@ -316,10 +428,7 @@ if __name__ == &#39;__main__&#39;:
 
 &lt;p&gt;分析解法的关键代码&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;增加print测试:
+&lt;pre&gt;&lt;code&gt;str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))    增加print测试:
 #print(text)
 &amp;gt;&amp;gt;&amp;gt;checkio(&amp;quot;Lorem ipsum dolor sit amet&amp;quot;)
 loremipsumdolorsitamet
@@ -357,17 +466,14 @@ For sorting examples and a brief sorting tutorial, see Sorting HOW TO.
 如：
 第一个参数是迭代器&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21])
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21])
 [-21, -12, 5, 9, 36]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;第二个参数是用来排序的key&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21], key=abs)
-[5, 9, -12, -21, 36]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]    key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
 list = [36, 5, -12, 9, -21]
 keys = [36, 5,  12, 9,  21]
 然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素：
@@ -378,14 +484,14 @@ keys排序结果 =&amp;gt; [5, 9,  12,  21, 36]
 &lt;p&gt;第三个参数决定正向还是反向排序：
 要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
 [&#39;Zoo&#39;, &#39;Credit&#39;, &#39;bob&#39;, &#39;about&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;例题解法来自 &lt;a href=&#34;https://checkio.org/user/penn201500/&#34;&gt;https://checkio.org/user/penn201500/&lt;/a&gt;
 更优解法为：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import string
+&lt;pre&gt;&lt;code&gt;import string
 ​
 def checkio(text):
     &amp;quot;&amp;quot;&amp;quot;
@@ -407,16 +513,20 @@ def checkio(text):
 &lt;p&gt;&lt;a href=&#34;https://checkio.org/mission/most-wanted-letter/&#34;&gt;checkio: most wanted letter&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000&#34;&gt;sorted()函数&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
     </item>
     
     <item>
       <title>python3 zip的用法</title>
       <link>http://learnbetter.club/2016/06/python3-zip/</link>
-      <pubDate>Sun, 19 Jun 2016 19:19:40 +0000</pubDate>
+      <pubDate>Sun, 19 Jun 2016 19:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/python3-zip/</guid>
       <description>
+
+&lt;hr /&gt;
 
 &lt;hr /&gt;
 
@@ -438,26 +548,26 @@ def checkio(text):
 &lt;p&gt;&lt;strong&gt;范例:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;checkio([
-    &amp;ldquo;X.O&amp;rdquo;,
-    &amp;ldquo;XX.&amp;rdquo;,
-    &amp;ldquo;XOO&amp;rdquo;]) == &amp;ldquo;X&amp;rdquo;&lt;/p&gt;
+    “X.O”,
+    “XX.”,
+    “XOO”]) == “X”&lt;/p&gt;
 
 &lt;p&gt;checkio([
-    &amp;ldquo;OO.&amp;rdquo;,
-    &amp;ldquo;XOX&amp;rdquo;,
-    &amp;ldquo;XOX&amp;rdquo;]) == &amp;ldquo;O&amp;rdquo;&lt;/p&gt;
+    “OO.”,
+    “XOX”,
+    “XOX”]) == “O”&lt;/p&gt;
 
 &lt;p&gt;checkio([
-    &amp;ldquo;OOX&amp;rdquo;,
-    &amp;ldquo;XXO&amp;rdquo;,
-    &amp;ldquo;OXX&amp;rdquo;]) == &amp;ldquo;D&amp;rdquo;&lt;/p&gt;
+    “OOX”,
+    “XXO”,
+    “OXX”]) == “D”&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;如何使用：&lt;/strong&gt; 此任务中的概念将有助于您遍历数据类型。这还可以用在游戏的算法上，让你知道如何去检查结果。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;最多推荐的解法：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def checkio(result):
+&lt;pre&gt;&lt;code&gt;def checkio(result):
     rows = result
     cols = map(&#39;&#39;.join, zip(*rows))
     diags = map(&#39;&#39;.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
@@ -472,23 +582,23 @@ def checkio(text):
 
 &lt;blockquote&gt;
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt; result = [
-&amp;hellip;     &amp;ldquo;OOX&amp;rdquo;,
-&amp;hellip;     &amp;ldquo;XXO&amp;rdquo;,
-&amp;hellip;     &amp;ldquo;OXX&amp;rdquo;]&lt;/p&gt;
+…     “OOX”,
+…     “XXO”,
+…     “OXX”]&lt;/p&gt;
 
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt; rows = result&lt;/p&gt;
 
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt; for i in zip(*rows):&lt;/p&gt;
 
-&lt;p&gt;&amp;hellip;   print(i)&lt;/p&gt;
+&lt;p&gt;…   print(i)&lt;/p&gt;
 
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;…&lt;/p&gt;
 
-&lt;p&gt;(&amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;, &amp;lsquo;O&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(‘O’, ‘X’, ‘O’)&lt;/p&gt;
 
-&lt;p&gt;(&amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;, &amp;lsquo;X&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(‘O’, ‘X’, ‘X’)&lt;/p&gt;
 
-&lt;p&gt;(&amp;lsquo;X&amp;rsquo;, &amp;lsquo;O&amp;rsquo;, &amp;lsquo;X&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(‘X’, ‘O’, ‘X’)&lt;/p&gt;
 
 &lt;p&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -536,7 +646,7 @@ class zip(object)
 
 &lt;p&gt;&lt;strong&gt;1.zip是将每个可迭代对象的对应位置元素打包成一个tuple组，例如：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt;二维矩阵变换（矩阵的行列互换）
+&lt;pre&gt;&lt;code&gt;二维矩阵变换（矩阵的行列互换）
 比如我们有一个由列表描述的二维矩阵
 a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 利用zip函数：
@@ -561,10 +671,9 @@ a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 [(1,&#39;a&#39;),(2,&#39;b&#39;)]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;zip另有一些高级用法：&lt;/strong&gt;
-&lt;strong&gt;1.python列表相邻元素压缩：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;zip另有一些高级用法：&lt;/strong&gt;&lt;strong&gt;1.python列表相邻元素压缩：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+&lt;pre&gt;&lt;code&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;强烈推荐阅读：&lt;a href=&#34;https://segmentfault.com/q/1010000000612945&#34;&gt;https://segmentfault.com/q/1010000000612945&lt;/a&gt;&lt;/p&gt;
@@ -599,12 +708,12 @@ iter() 能把一个序列生成为一个和迭代器，迭代器的特点是可�
 
 &lt;p&gt;等价于下面的方式&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;zip([1, 3, 5], [2, 4, 6])
+&lt;pre&gt;&lt;code&gt;zip([1, 3, 5], [2, 4, 6])
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;所以代码：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+&lt;pre&gt;&lt;code&gt;group_adjacent = lambda a, k: zip(*([iter(a)] * k))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;表示定义一个匿名函数，参数是 a和k，并绑定变量 group_adjacent。匿名函数的主体内容是，用iter将序列迭代化，然后用zip打包这个迭代器对象。&lt;/p&gt;
@@ -682,13 +791,15 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 &lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/BeginMan/archive/2013/03/14/2959447.html&#34;&gt;Python零碎知识(2):强大的zip&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000000612945&#34;&gt;python列表相邻元素压缩器&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
     </item>
     
     <item>
       <title>如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）</title>
       <link>http://learnbetter.club/2016/06/hugo-5-add-gcse/</link>
-      <pubDate>Mon, 06 Jun 2016 15:04:40 +0000</pubDate>
+      <pubDate>Fri, 17 Jun 2016 21:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-5-add-gcse/</guid>
       <description>
@@ -775,7 +886,7 @@ gcse的使用方法强烈推荐阅读：&lt;a href=&#34;http://lulee007.coding.m
     <item>
       <title>如何使用hugo搭建个人博客（四）：添加评论系统disqus</title>
       <link>http://learnbetter.club/2016/06/hugo-4-add-disqus/</link>
-      <pubDate>Sun, 05 Jun 2016 15:04:40 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 15:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-4-add-disqus/</guid>
       <description>&lt;p&gt;按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。&lt;/p&gt;
@@ -847,7 +958,7 @@ hello hugo! I am test.md
     <item>
       <title>如何使用hugo搭建个人博客（三）：添加follow与修改share的方式</title>
       <link>http://learnbetter.club/2016/06/hugo-3-update-follow-and-share-method/</link>
-      <pubDate>Sat, 04 Jun 2016 10:04:40 +0000</pubDate>
+      <pubDate>Wed, 15 Jun 2016 12:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-3-update-follow-and-share-method/</guid>
       <description>
@@ -912,7 +1023,7 @@ hello hugo! I am test.md
     <item>
       <title>如何使用hugo搭建个人博客（二）：修改主题：颜色，字体，布局</title>
       <link>http://learnbetter.club/2016/06/hugo-2-update-sidebar/</link>
-      <pubDate>Fri, 03 Jun 2016 16:04:40 +0000</pubDate>
+      <pubDate>Tue, 14 Jun 2016 10:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-2-update-sidebar/</guid>
       <description>
@@ -944,14 +1055,24 @@ hello hugo! I am test.md
 
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
+
+&lt;p&gt;=======
+&lt;p/&gt;
+&lt;p/&gt;
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master&lt;/p&gt;
+
 &lt;h2 id=&#34;修改侧边栏布局:c3f6a68923e233951f19e3ad987dc958&#34;&gt;&lt;strong&gt;修改侧边栏布局&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;侧边栏不想要头像？想添加links？只要github follow？
 下面介绍如何实现这些需求&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;1.去掉头像&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.去掉头像&lt;/strong&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
 
-&lt;p&gt;编辑layouts/partial目录下的header.html文件：
+&lt;p&gt;=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master
+编辑layouts/partial目录下的header.html文件：
 如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;        &amp;lt;header id=&amp;quot;header&amp;quot;&amp;gt;
@@ -968,9 +1089,12 @@ hello hugo! I am test.md
 &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg&#34; alt=&#34;delete logo&#34; /&gt;
 &lt;p/&gt;
 &lt;p/&gt;
-&lt;strong&gt;2. 添加links&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;2. 添加links&lt;/strong&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
 
-&lt;p&gt;可以参考配置文件：&lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&lt;/a&gt;
+&lt;p&gt;=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master
+可以参考配置文件：&lt;a href=&#34;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&#34;&gt;https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html&lt;/a&gt;
 将与header.html同目录的navigation.html文件修改为：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;hr class=&amp;quot;nav-site-separator&amp;quot;&amp;gt;
@@ -996,9 +1120,12 @@ hello hugo! I am test.md
 &lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg&#34; alt=&#34;add links&#34; /&gt;
 &lt;p/&gt;
 &lt;p/&gt;
-&lt;strong&gt;3. 只需要github follow&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;3. 只需要github follow&lt;/strong&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
 
-&lt;p&gt;crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
+&lt;p&gt;=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; origin/master
+crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。
 下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）
 将同目录下的follow.html修改如下：&lt;/p&gt;
 
@@ -1077,7 +1204,7 @@ hello hugo! I am test.md
     <item>
       <title>如何使用hugo搭建个人博客（一）：在win7上使用hugo</title>
       <link>http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/</link>
-      <pubDate>Thu, 02 Jun 2016 17:04:40 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 19:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/</guid>
       <description>
@@ -1124,9 +1251,8 @@ hello hugo! I am test.md
 hugo new site  mysite
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;运行结果：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg&#34; alt=&#34;hugo new site mysite&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;运行结果：
+&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg&#34; alt=&#34;hugo new site mysite&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;文件结构的含义是：
 原文解释见 &lt;a href=&#34;https://gohugo.io/content/&#34;&gt;https://gohugo.io/content/&lt;/a&gt;
@@ -1191,8 +1317,7 @@ hugo server &amp;ndash;theme=hugo-theme-crisp &amp;ndash;buildDrafts &amp;ndash;
       <pubDate>Wed, 01 Jun 2016 05:04:40 +0000</pubDate>
       <author>penn201500@gmail.com (penn)</author>
       <guid>http://learnbetter.club/2016/06/go_is_cool/</guid>
-      <description>&lt;p&gt;test hugo pages&lt;/p&gt;
-</description>
+      <description></description>
     </item>
     
   </channel>
