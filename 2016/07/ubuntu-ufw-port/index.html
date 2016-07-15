@@ -4,7 +4,7 @@
     <head>
         
             
-                <title>获取string中的最长回文字符串</title>
+                <title>ubuntu的ufw如何开放特定端口?</title>
             
         
 
@@ -16,7 +16,7 @@
 
         
         
-            <meta name="description" content="python奇思妙解">
+            <meta name="description" content="Linux ubuntu">
         
 
         
@@ -25,18 +25,18 @@
 
 
 
-<meta name="twitter:title" content="获取string中的最长回文字符串"/>
-<meta name="twitter:description" content="python奇思妙解"/>
+<meta name="twitter:title" content="ubuntu的ufw如何开放特定端口?"/>
+<meta name="twitter:description" content="Linux ubuntu"/>
 
 
 
-        <meta property="og:title" content="获取string中的最长回文字符串" />
-<meta property="og:description" content="python奇思妙解" />
+        <meta property="og:title" content="ubuntu的ufw如何开放特定端口?" />
+<meta property="og:description" content="Linux ubuntu" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://learnbetter.club/2016/06/longest_palindrome/" />
+<meta property="og:url" content="http://learnbetter.club/2016/07/ubuntu-ufw-port/" />
 
 
-<meta property="og:updated_time" content="2016-06-26T19:04:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-07-15T23:04:40&#43;00:00"/>
 
 
 
@@ -48,12 +48,12 @@
 
 
         
-<meta itemprop="name" content="获取string中的最长回文字符串">
-<meta itemprop="description" content="python奇思妙解">
+<meta itemprop="name" content="ubuntu的ufw如何开放特定端口?">
+<meta itemprop="description" content="Linux ubuntu">
 
 
-<meta itemprop="dateModified" content="2016-06-26T19:04:40&#43;00:00" />
-<meta itemprop="wordCount" content="135">
+<meta itemprop="dateModified" content="2016-07-15T23:04:40&#43;00:00" />
+<meta itemprop="wordCount" content="97">
 
 
 
@@ -709,7 +709,7 @@ footer a:hover
                                          
             
             <h1><a href="http://learnbetter.club/">learn better， learn more</a></h1>
-            <p>python奇思妙解</p>
+            <p>Linux ubuntu</p>
 
             
             <div id="follow-icons">
@@ -746,15 +746,15 @@ footer a:hover
         
     
         
-            <li><a href="/tags/golang">golang (1)</a></li>
-        
-    
-        
             <li><a href="/tags/ufw">ufw (1)</a></li>
         
     
         
             <li><a href="/tags/vim">vim (1)</a></li>
+        
+    
+        
+            <li><a href="/tags/golang">golang (1)</a></li>
         
     
 </ul>
@@ -781,14 +781,14 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-26T19:04:40Z">
-            26 Jun 2016
+        <time datetime="2016-07-15T23:04:40Z">
+            15 Jul 2016
         </time>
         <span class="taglist">
         
         &middot;
         
-            <a href="http://learnbetter.club/tags/python3/">python3</a>
+            <a href="http://learnbetter.club/tags/ufw/">ufw</a>
         
         
         </span>
@@ -802,71 +802,142 @@ footer a:hover
 </div>       
     </div>
     
-    <h1 class="post-title">获取string中的最长回文字符串</h1>
+    <h1 class="post-title">ubuntu的ufw如何开放特定端口?</h1>
     
 
 <hr />
 
-<h2 id="例题:44af3760fc3194ac830c03427bef8298"><strong>例题</strong></h2>
+<p>ufw是一个主机端的iptables类防火墙配置工具</p>
 
-<p>获取string中的最长回文字符串</p>
+<h2 id="安装:d4b58ec88c86c6762eea88f811bd1ed2">安装：</h2>
 
-<p>所谓回文字符串，即该字符串从左到右读和从右到左读是完全一样的。如“123454321”就是一个长度为9的回文字符串。
-现要求使用python完成：对一个字符串s，找出其中为回文字符串的部分，并返回回文字符串的长度。规则为：
-1. 如果s是1个字符，则长度为1，如“a”
-2. 如果s为空“”，则长度为0
-3. 如果s中有部分是回文字符串，返回最长回文字符串及其长度，如“aab”，最长回文字符串为“aa”，长度为2</p>
+<blockquote>
+<p>sudo apt-get install ufw</p>
+</blockquote>
 
-<p>例子：
-&gt;&ldquo;a&rdquo; -&gt; 1
-&ldquo;aab&rdquo; -&gt; 2<br />
-&ldquo;abcde&rdquo; -&gt; 1
-&ldquo;zzbaabcd&rdquo; -&gt; 4
-&ldquo;&rdquo; -&gt; 0</p>
+<h2 id="开启-建议默认关闭所有外部访问:d4b58ec88c86c6762eea88f811bd1ed2">开启，建议默认关闭所有外部访问</h2>
 
-<h2 id="解法:44af3760fc3194ac830c03427bef8298"><strong>解法</strong></h2>
+<blockquote>
+<p>sudo ufw enable</p>
 
-<p>对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串</p>
+<p>sudo ufw default deny</p>
+</blockquote>
 
-<pre><code class="language-python">#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+<h2 id="查看ufw现在已经开放的端口:d4b58ec88c86c6762eea88f811bd1ed2">查看ufw现在已经开放的端口：</h2>
 
-def longest_palindrome (s):
-    longest = 0
-    if s == '': return ''
-    for left in range(len(s)):
-        for right in range(len(s), left, -1):
-            if s[left:right] in (s[left:right])[::-1]:
-                #longest = max(right-left, longest)
-                if (right-left)&gt;longest:
-                    longest = right-left
-                    palindrome = s[left:right]
-                    break
-                else: break
-    return palindrome
+<blockquote>
+<p>ubuntu@localhost:~$ sudo ufw status
+[sudo] password for ubuntu:
+Status: active</p>
 
-if __name__ == &quot;__main__&quot;:
-    assert longest_palindrome('abcdab123454321') == '123454321'
-    assert len(longest_palindrome('abcdab123454321')) == 9
-    assert longest_palindrome('ab') == 'a'
-    assert len(longest_palindrome('ab')) == 1
-    assert longest_palindrome('aa') == 'aa'
-    assert len(longest_palindrome('aa')) == 2
-    assert longest_palindrome('') == ''
-    assert len(longest_palindrome('')) == 0
-    assert longest_palindrome('abcdefba') == 'a'
-    assert len(longest_palindrome('abcdefba')) == 1
+<table>
+<thead>
+<tr>
+<th align="left">To</th>
+<th align="center">Action</th>
+<th align="center">From</th>
+</tr>
+</thead>
 
-    print('assert complete!')
-</code></pre>
+<tbody>
+<tr>
+<td align="left">--</td>
+<td align="center">-&mdash;&ndash;</td>
+<td align="center">-&mdash;</td>
+</tr>
 
-<p>运行结果：</p>
+<tr>
+<td align="left">16430</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere</td>
+</tr>
 
-<pre><code class="language-python">C:\Anaconda3\python.exe E:/python_projects/test.py
-assert complete!
+<tr>
+<td align="left">30000</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere</td>
+</tr>
 
-Process finished with exit code 0
-</code></pre>
+<tr>
+<td align="left">30001</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere</td>
+</tr>
+
+<tr>
+<td align="left">1194/tcp</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere</td>
+</tr>
+
+<tr>
+<td align="left">16430 (v6)</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere (v6)</td>
+</tr>
+
+<tr>
+<td align="left">30000 (v6)</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere (v6)</td>
+</tr>
+
+<tr>
+<td align="left">30001 (v6)</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere (v6)</td>
+</tr>
+
+<tr>
+<td align="left">1194/tcp (v6)</td>
+<td align="center">ALLOW</td>
+<td align="center">Anywhere (v6)</td>
+</tr>
+
+<tr>
+<td align="left">ubuntu@localhost:~$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+<h2 id="新增端口:d4b58ec88c86c6762eea88f811bd1ed2">新增端口</h2>
+
+<blockquote>
+<p>sudo ufw allow 8080</p>
+</blockquote>
+
+<h2 id="删除端口:d4b58ec88c86c6762eea88f811bd1ed2">删除端口</h2>
+
+<blockquote>
+<p>sudo ufw delete allow 8080</p>
+</blockquote>
+
+<h2 id="允许特定来源的ip地址访问:d4b58ec88c86c6762eea88f811bd1ed2">允许特定来源的ip地址访问</h2>
+
+<blockquote>
+<p>sudo ufw allow from 192.168.1.1</p>
+</blockquote>
+
+<h2 id="其他命令可以如此查看:d4b58ec88c86c6762eea88f811bd1ed2">其他命令可以如此查看：</h2>
+
+<blockquote>
+<p>ubuntu@localhost:~$ sudo ufw &ndash;help</p>
+
+<p>Usage: ufw COMMAND</p>
+
+<p>Commands:</p>
+
+<p>enable:enables the firewall</p>
+
+<p>disable:disables the firewall</p>
+
+<p>&hellip;&hellip;</p>
+</blockquote>
+
+<hr />
 
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
@@ -875,16 +946,11 @@ Process finished with exit code 0
     
         <li>
         <font size="5" color="green"><b>Prev:</b></font>
-        <a href="http://learnbetter.club/2016/06/python3-sorted/"
-                class="button big previous">python3 sorted的用法</a></li>
+        <a href="http://learnbetter.club/2016/07/python3-reversed/"
+                class="button big previous">python3 reversed&#43;zip 顺时针遍历二维list</a></li>
     
 
     
-       
-        <li>
-        <font size="5" color="green"><b>Next:</b></font>
-        <a href="http://learnbetter.club/2016/06/longest-common-substring/"
-                class="button big next">获取两个字符串中最长的公共字符串</a></li>
     
 </ul>
 </section>
