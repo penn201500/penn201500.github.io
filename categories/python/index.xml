@@ -8,8 +8,67 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Sun, 10 Jul 2016 21:04:40 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Jul 2016 22:04:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python脚本爬取今日百度热点新闻</title>
+      <link>http://learnbetter.club/2016/07/python3-get-baidu-hotnews/</link>
+      <pubDate>Mon, 25 Jul 2016 22:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/07/python3-get-baidu-hotnews/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;p&gt;python脚本爬取今日百度热点新闻&lt;/p&gt;
+
+&lt;h2 id=&#34;目标:51d7ec03a9202dc68598c4c34fbad920&#34;&gt;目标：&lt;/h2&gt;
+
+&lt;p&gt;python脚本爬取今日百度热点新闻&lt;/p&gt;
+
+&lt;h2 id=&#34;知识点:51d7ec03a9202dc68598c4c34fbad920&#34;&gt;知识点：&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;python3使用 urllib.request.urlopen 去打开一个特定网址&lt;/li&gt;
+&lt;li&gt;中文可以加 decode(&amp;lsquo;gbk&amp;rsquo;) 来避免乱码&lt;/li&gt;
+&lt;li&gt;re.S 用来解决跨行匹配的问题，用法： re.compile(pattern, re.S)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;代码:51d7ec03a9202dc68598c4c34fbad920&#34;&gt;代码&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib.request
+import re
+
+url = &#39;http://news.baidu.com/&#39;
+content = urllib.request.urlopen(url).read().decode(&#39;gbk&#39;)
+
+#Example：
+#&amp;lt;li class=&amp;quot;hdline0&amp;quot;&amp;gt;
+#&amp;lt;i class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+#&amp;lt;strong&amp;gt;
+#&amp;lt;a href=&amp;quot;http://china.huanqiu.com/article/2016-07/9209287.html?from=bdwz &amp;quot; target=&amp;quot;_blank&amp;quot; class=&amp;quot;a3&amp;quot; mon=&amp;quot;ct=1&amp;amp;amp;a=1&amp;amp;amp;c=top&amp;amp;amp;pn=0&amp;quot;&amp;gt;xxx：扶贫工作不搞层层加码&amp;lt;/a&amp;gt;
+#&amp;lt;/strong&amp;gt;
+#&amp;lt;/li&amp;gt;
+
+pattern = re.compile(&#39;&amp;lt;li class=&amp;quot;hd.*?&amp;lt;strong&amp;gt;.*?&amp;lt;a.*?&amp;gt;(.*?)&amp;lt;/a&amp;gt;.*?strong&amp;gt;&#39;, re.S)
+hotNews = re.findall(pattern, content)
+
+for i in hotNews:
+  print(i)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;hotnews-from-baidu:51d7ec03a9202dc68598c4c34fbad920&#34;&gt;hotnews from baidu:&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/baidu%20hotnews.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;script-excute-result:51d7ec03a9202dc68598c4c34fbad920&#34;&gt;script excute result:&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/crawler%20baidu%20hotNews.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
     
     <item>
       <title>python3 reversed&#43;zip 顺时针遍历二维list</title>
