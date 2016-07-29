@@ -4,7 +4,7 @@
     <head>
         
             
-                <title>获取string中的最长回文字符串</title>
+                <title>python3 比较两个list的结构</title>
             
         
 
@@ -16,7 +16,7 @@
 
         
         
-            <meta name="description" content="python奇思妙解">
+            <meta name="description" content="python3 比较两个list的结构">
         
 
         
@@ -25,18 +25,18 @@
 
 
 
-<meta name="twitter:title" content="获取string中的最长回文字符串"/>
-<meta name="twitter:description" content="python奇思妙解"/>
+<meta name="twitter:title" content="python3 比较两个list的结构"/>
+<meta name="twitter:description" content="python3 比较两个list的结构"/>
 
 
 
-        <meta property="og:title" content="获取string中的最长回文字符串" />
-<meta property="og:description" content="python奇思妙解" />
+        <meta property="og:title" content="python3 比较两个list的结构" />
+<meta property="og:description" content="python3 比较两个list的结构" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://learnbetter.club/2016/06/longest_palindrome/" />
+<meta property="og:url" content="http://learnbetter.club/2016/07/python3-compare-2-list-structure/" />
 
 
-<meta property="og:updated_time" content="2016-06-26T19:04:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-07-29T22:04:40&#43;00:00"/>
 
 
 
@@ -48,12 +48,12 @@
 
 
         
-<meta itemprop="name" content="获取string中的最长回文字符串">
-<meta itemprop="description" content="python奇思妙解">
+<meta itemprop="name" content="python3 比较两个list的结构">
+<meta itemprop="description" content="python3 比较两个list的结构">
 
 
-<meta itemprop="dateModified" content="2016-06-26T19:04:40&#43;00:00" />
-<meta itemprop="wordCount" content="135">
+<meta itemprop="dateModified" content="2016-07-29T22:04:40&#43;00:00" />
+<meta itemprop="wordCount" content="125">
 
 
 
@@ -709,7 +709,7 @@ footer a:hover
                                          
             
             <h1><a href="http://learnbetter.club/">learn better， learn more</a></h1>
-            <p>python奇思妙解</p>
+            <p>python3 比较两个list的结构</p>
 
             
             <div id="follow-icons">
@@ -785,14 +785,14 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-26T19:04:40Z">
-            26 Jun 2016
+        <time datetime="2016-07-29T22:04:40Z">
+            29 Jul 2016
         </time>
         <span class="taglist">
         
         &middot;
         
-            <a href="http://learnbetter.club/tags/python3/">python3</a>
+            <a href="http://learnbetter.club/tags/python/">python</a>
         
         
         </span>
@@ -806,71 +806,84 @@ footer a:hover
 </div>       
     </div>
     
-    <h1 class="post-title">获取string中的最长回文字符串</h1>
+    <h1 class="post-title">python3 比较两个list的结构</h1>
     
 
 <hr />
 
-<h2 id="例题:44af3760fc3194ac830c03427bef8298"><strong>例题</strong></h2>
+<h2 id="题目:a06e0b8a1a0fcadb915c5192e88ddda3">题目：</h2>
 
-<p>获取string中的最长回文字符串</p>
+<p>比较两个list的结构，如：
+a = [1,2,3]
+b = [4,5,6]
+则两个list的结构相同
+如：
+a = [1,2,3,[4,5,6,[7]]]
+b = [1,[2],[3]]
+则两个list的结构不同</p>
 
-<p>所谓回文字符串，即该字符串从左到右读和从右到左读是完全一样的。如“123454321”就是一个长度为9的回文字符串。
-现要求使用python完成：对一个字符串s，找出其中为回文字符串的部分，并返回回文字符串的长度。规则为：
-1. 如果s是1个字符，则长度为1，如“a”
-2. 如果s为空“”，则长度为0
-3. 如果s中有部分是回文字符串，返回最长回文字符串及其长度，如“aab”，最长回文字符串为“aa”，长度为2</p>
+<h2 id="思路:a06e0b8a1a0fcadb915c5192e88ddda3">思路：</h2>
 
-<p>例子：
-&gt;&ldquo;a&rdquo; -&gt; 1
-&ldquo;aab&rdquo; -&gt; 2<br />
-&ldquo;abcde&rdquo; -&gt; 1
-&ldquo;zzbaabcd&rdquo; -&gt; 4
-&ldquo;&rdquo; -&gt; 0</p>
+<p>print list的时候会将list的括号、逗号都打印出来。获取打印结果中的括号、逗号作为list的结构。比较即可得知两个list结构是否相同</p>
 
-<h2 id="解法:44af3760fc3194ac830c03427bef8298"><strong>解法</strong></h2>
+<h2 id="代码:a06e0b8a1a0fcadb915c5192e88ddda3">代码：</h2>
 
-<p>对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串</p>
+<pre><code class="language-python">import sys
+from io import StringIO
 
-<pre><code class="language-python">#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+a = [1,2,3]
+b = [1,2]
+c = [1,2,3,[4,5,6,[7]]]
+d = [2,3,4,[5,6,7,[8]]]
 
-def longest_palindrome (s):
-    longest = 0
-    if s == '': return ''
-    for left in range(len(s)):
-        for right in range(len(s), left, -1):
-            if s[left:right] in (s[left:right])[::-1]:
-                #longest = max(right-left, longest)
-                if (right-left)&gt;longest:
-                    longest = right-left
-                    palindrome = s[left:right]
-                    break
-                else: break
-    return palindrome
+def compare(a,b):
+    #get print out
+    #how to use StringIO()
+    stdout = sys.stdout 
+    stream = StringIO()
+    sys.stdout = stream
+    print(a)
+    print(b)
+    sys.stdout = stdout
+    
+    variable = str(stream.getvalue())
+    res = variable.split('\n')
+    # print(variable.split('\n'))
+    
+    str_a = res[0]
+    str_b = res[1]
+    
+    struct_a = ''.join([x for x in res[0] if x in [',','[',']']])
+    struct_b = ''.join([x for x in res[1] if x in [',','[',']']])
+    
+    
+    # print(str_a)
+    # print(str_b)
+    # print(type(str_a))
+    # print(struct_a)
+    # print(struct_b)
+    
+    if struct_a == struct_b: return 'True'
+    else: return 'False'
 
-if __name__ == &quot;__main__&quot;:
-    assert longest_palindrome('abcdab123454321') == '123454321'
-    assert len(longest_palindrome('abcdab123454321')) == 9
-    assert longest_palindrome('ab') == 'a'
-    assert len(longest_palindrome('ab')) == 1
-    assert longest_palindrome('aa') == 'aa'
-    assert len(longest_palindrome('aa')) == 2
-    assert longest_palindrome('') == ''
-    assert len(longest_palindrome('')) == 0
-    assert longest_palindrome('abcdefba') == 'a'
-    assert len(longest_palindrome('abcdefba')) == 1
+print(compare(a,b))
 
-    print('assert complete!')
 </code></pre>
 
 <p>运行结果：</p>
 
-<pre><code class="language-python">C:\Anaconda3\python.exe E:/python_projects/test.py
-assert complete!
-
-Process finished with exit code 0
+<pre><code>&gt;&gt;&gt;print(compare(a,b))
+False
+&gt;&gt;&gt;print(compare(c,d))
+True
 </code></pre>
+
+<hr />
+
+<p><strong>参考：</strong>
+<a href="http://stackoverflow.com/questions/14197009/how-can-i-redirect-print-output-of-a-function-in-python">http://stackoverflow.com/questions/14197009/how-can-i-redirect-print-output-of-a-function-in-python</a></p>
+
+<hr />
 
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
@@ -879,16 +892,11 @@ Process finished with exit code 0
     
         <li>
         <font size="5" color="green"><b>Prev:</b></font>
-        <a href="http://learnbetter.club/2016/06/python3-sorted/"
-                class="button big previous">python3 sorted的用法</a></li>
+        <a href="http://learnbetter.club/2016/07/python3-get-baidu-hotnews-and-store-in-mysqldb/"
+                class="button big previous">python3 脚本爬取今日百度热点新闻并存放到mysql数据库</a></li>
     
 
     
-       
-        <li>
-        <font size="5" color="green"><b>Next:</b></font>
-        <a href="http://learnbetter.club/2016/06/longest-common-substring/"
-                class="button big next">获取两个字符串中最长的公共字符串</a></li>
     
 </ul>
 </section>

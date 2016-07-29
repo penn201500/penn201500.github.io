@@ -8,8 +8,94 @@
     <language>en-us</language>
     <managingEditor>penn201500@gmail.com (penn)</managingEditor>
     <webMaster>penn201500@gmail.com (penn)</webMaster>
-    <lastBuildDate>Mon, 25 Jul 2016 23:04:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jul 2016 22:04:40 +0000</lastBuildDate>
     <atom:link href="http://learnbetter.club/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python3 比较两个list的结构</title>
+      <link>http://learnbetter.club/2016/07/python3-compare-2-list-structure/</link>
+      <pubDate>Fri, 29 Jul 2016 22:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/07/python3-compare-2-list-structure/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;题目:a06e0b8a1a0fcadb915c5192e88ddda3&#34;&gt;题目：&lt;/h2&gt;
+
+&lt;p&gt;比较两个list的结构，如：
+a = [1,2,3]
+b = [4,5,6]
+则两个list的结构相同
+如：
+a = [1,2,3,[4,5,6,[7]]]
+b = [1,[2],[3]]
+则两个list的结构不同&lt;/p&gt;
+
+&lt;h2 id=&#34;思路:a06e0b8a1a0fcadb915c5192e88ddda3&#34;&gt;思路：&lt;/h2&gt;
+
+&lt;p&gt;print list的时候会将list的括号、逗号都打印出来。获取打印结果中的括号、逗号作为list的结构。比较即可得知两个list结构是否相同&lt;/p&gt;
+
+&lt;h2 id=&#34;代码:a06e0b8a1a0fcadb915c5192e88ddda3&#34;&gt;代码：&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+from io import StringIO
+
+a = [1,2,3]
+b = [1,2]
+c = [1,2,3,[4,5,6,[7]]]
+d = [2,3,4,[5,6,7,[8]]]
+
+def compare(a,b):
+    #get print out
+    #how to use StringIO()
+    stdout = sys.stdout 
+    stream = StringIO()
+    sys.stdout = stream
+    print(a)
+    print(b)
+    sys.stdout = stdout
+    
+    variable = str(stream.getvalue())
+    res = variable.split(&#39;\n&#39;)
+    # print(variable.split(&#39;\n&#39;))
+    
+    str_a = res[0]
+    str_b = res[1]
+    
+    struct_a = &#39;&#39;.join([x for x in res[0] if x in [&#39;,&#39;,&#39;[&#39;,&#39;]&#39;]])
+    struct_b = &#39;&#39;.join([x for x in res[1] if x in [&#39;,&#39;,&#39;[&#39;,&#39;]&#39;]])
+    
+    
+    # print(str_a)
+    # print(str_b)
+    # print(type(str_a))
+    # print(struct_a)
+    # print(struct_b)
+    
+    if struct_a == struct_b: return &#39;True&#39;
+    else: return &#39;False&#39;
+
+print(compare(a,b))
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;print(compare(a,b))
+False
+&amp;gt;&amp;gt;&amp;gt;print(compare(c,d))
+True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;参考：&lt;/strong&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/14197009/how-can-i-redirect-print-output-of-a-function-in-python&#34;&gt;http://stackoverflow.com/questions/14197009/how-can-i-redirect-print-output-of-a-function-in-python&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
     
     <item>
       <title>python3 脚本爬取今日百度热点新闻并存放到mysql数据库</title>
