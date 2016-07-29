@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python 迭代 递归 on learn better， learn more</title>
+    <link>http://learnbetter.club/tags/python-%E8%BF%AD%E4%BB%A3-%E9%80%92%E5%BD%92/</link>
+    <description>Recent content in Python 迭代 递归 on learn better， learn more</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>penn201500@gmail.com (penn)</managingEditor>
+    <webMaster>penn201500@gmail.com (penn)</webMaster>
+    <lastBuildDate>Thu, 28 Jul 2016 22:04:40 +0000</lastBuildDate>
+    <atom:link href="http://learnbetter.club/tags/python-%E8%BF%AD%E4%BB%A3-%E9%80%92%E5%BD%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python3 fibonacci的高效解法</title>
+      <link>http://learnbetter.club/2016/07/python3-fibonacci-recursion-and-iteration/</link>
+      <pubDate>Thu, 28 Jul 2016 22:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/07/python3-fibonacci-recursion-and-iteration/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;目标:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;目标：&lt;/h2&gt;
+
+&lt;p&gt;使用python求解fibonacci函数&lt;/p&gt;
+
+&lt;h2 id=&#34;解法一:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;解法一：&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def fib(n):
+    if n in [0,1]:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print(fib(10))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;该方法直观好理解，但是效率低下。当n为50时，需要等好久才能得出结果。这是因为
+fib(n) = fib(n-1) + fib(n-2)
+fib(n-1) = fib(n-2) + fib(n-3)
+&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;当n的值越大时，重复的次数越多，导致效率低下。&lt;/p&gt;
+
+&lt;h2 id=&#34;解法二:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;解法二：&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+f_num = {}
+def fib(n):
+    #print(f_num)
+    #print(n)
+
+    if n in [0,1]:
+        f_num[n] = n
+        return f_num[n]
+    elif n in f_num:
+        print(f_num[n])
+        return f_num[n]
+    else:
+        f_num[n] = fib(n-1) + fib(n-2)
+        return f_num[n]
+
+print(fib(986))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;效率高了很多，原因在于，已经计算出来的 fib(x) 存储在了dictionary中，不用再去重复计算。&lt;/p&gt;
+
+&lt;p&gt;还有一种不必递归的解法（迭代）：&lt;/p&gt;
+
+&lt;h2 id=&#34;解法三:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;解法三&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def fib_iter(n):
+    pre = 1
+    next = 1
+    result = 0
+    i = 2
+    while i &amp;lt; n:
+        result = pre + next
+        pre = next
+        next = result
+        i += 1
+    return result
+
+print(fib_iter(986))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

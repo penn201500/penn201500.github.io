@@ -98,6 +98,86 @@ True
     </item>
     
     <item>
+      <title>python3 fibonacci的高效解法</title>
+      <link>http://learnbetter.club/2016/07/python3-fibonacci-recursion-and-iteration/</link>
+      <pubDate>Thu, 28 Jul 2016 22:04:40 +0000</pubDate>
+      <author>penn201500@gmail.com (penn)</author>
+      <guid>http://learnbetter.club/2016/07/python3-fibonacci-recursion-and-iteration/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;目标:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;目标：&lt;/h2&gt;
+
+&lt;p&gt;使用python求解fibonacci函数&lt;/p&gt;
+
+&lt;h2 id=&#34;解法一:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;解法一：&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def fib(n):
+    if n in [0,1]:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print(fib(10))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;该方法直观好理解，但是效率低下。当n为50时，需要等好久才能得出结果。这是因为
+fib(n) = fib(n-1) + fib(n-2)
+fib(n-1) = fib(n-2) + fib(n-3)
+&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;当n的值越大时，重复的次数越多，导致效率低下。&lt;/p&gt;
+
+&lt;h2 id=&#34;解法二:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;解法二：&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+f_num = {}
+def fib(n):
+    #print(f_num)
+    #print(n)
+
+    if n in [0,1]:
+        f_num[n] = n
+        return f_num[n]
+    elif n in f_num:
+        print(f_num[n])
+        return f_num[n]
+    else:
+        f_num[n] = fib(n-1) + fib(n-2)
+        return f_num[n]
+
+print(fib(986))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;效率高了很多，原因在于，已经计算出来的 fib(x) 存储在了dictionary中，不用再去重复计算。&lt;/p&gt;
+
+&lt;p&gt;还有一种不必递归的解法（迭代）：&lt;/p&gt;
+
+&lt;h2 id=&#34;解法三:4b4d891c0e915832df5589e8c39cd5f7&#34;&gt;解法三&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def fib_iter(n):
+    pre = 1
+    next = 1
+    result = 0
+    i = 2
+    while i &amp;lt; n:
+        result = pre + next
+        pre = next
+        next = result
+        i += 1
+    return result
+
+print(fib_iter(986))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
+    
+    <item>
       <title>python3 脚本爬取今日百度热点新闻并存放到mysql数据库</title>
       <link>http://learnbetter.club/2016/07/python3-get-baidu-hotnews-and-store-in-mysqldb/</link>
       <pubDate>Mon, 25 Jul 2016 23:04:40 +0000</pubDate>
@@ -1748,116 +1828,6 @@ hello hugo! I am test.md
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;如果有其他好的博客主题，且托管在github上，可以clone到本地进行修改尝试&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>如何使用hugo搭建个人博客（一）：在win7上使用hugo</title>
-      <link>http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/</link>
-      <pubDate>Sun, 12 Jun 2016 19:04:40 +0000</pubDate>
-      <author>penn201500@gmail.com (penn)</author>
-      <guid>http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/</guid>
-      <description>
-
-&lt;p&gt;如何使用hugo搭建个人博客？
-按照创建步骤有：
-1. 在win7上使用hugo，能够本地预览（就是本文了）
-2. 修改主题：颜色，字体，布局（后续）
-3. 添加follow与修改share的方式（后续）
-3. 添加评论系统disqus（后续）
-4. 添加站内搜索（后续）
-5. 放到个人vps或者推到第三方托管（推荐阅读）&lt;/p&gt;
-
-&lt;p&gt;Hugo 是一个用 Go 语言编写的静态网站生成器，简单易用。类似的静态网站生成器还有&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; 。&lt;/p&gt;
-
-&lt;p&gt;Hugo在windows 7上的使用如下：&lt;/p&gt;
-
-&lt;h2 id=&#34;1-安装hugo:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;1. 安装hugo&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;h3 id=&#34;1-1-安装go:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;1.1 安装go&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;可以在go github上下载 &lt;a href=&#34;https://golang.org/dl/&#34;&gt;go 1.6&lt;/a&gt;
-双击exe文件，一路next安装。安装完成之后，查看go安装结果：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/go_valid.jpg&#34; alt=&#34;go&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;1-2-安装hugo:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;1.2 安装hugo&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://download.csdn.net/detail/justheretobe/9529014&#34;&gt;hugo for win64&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;或者官网下载：&lt;a href=&#34;https://gohugo.io/&#34;&gt;https://gohugo.io/&lt;/a&gt;
-下载后双击exe，一路next即可。查看安装结果：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo_install_ok.jpg&#34; alt=&#34;hugo install ok&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;1-3-安装git-用来下载主题和管理博客文件的修改信息:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;1.3. 安装git（用来下载主题和管理博客文件的修改信息）&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;博客文件中的修改可以使用git进行版本管理，快速使用教程见: [廖雪峰 git教程]（&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）&#34;&gt;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;2-创建站点:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;2. 创建站点&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;创建一个目录，用来存放站点文件，然后使用hugo命令生成新站点：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-hugo&#34;&gt;mkdir my_logs
-hugo new site  mysite
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;运行结果：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg&#34; alt=&#34;hugo new site mysite&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;文件结构的含义是：
-原文解释见 &lt;a href=&#34;https://gohugo.io/content/&#34;&gt;https://gohugo.io/content/&lt;/a&gt;
-|- archetypes           ：存放default.md，头文件格式
-|- content                ：content目录存放博客文章（markdown文件）
-|- data                     ：存放自定义模版，导入的toml文件（或json，yaml）
-|- layouts                ：layouts目录存放的是网站的模板文件
-|- static                   ：static目录存放图片，css等静态资源
-|- config.toml         ：config.toml是网站的配置文件&lt;/p&gt;
-
-&lt;h2 id=&#34;3-选择主题:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;3. 选择主题&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;在mysite目录下新建一个themes文件夹，存放主题文件。
-本例选择使用crisp主题，可以直接下载crisp主题：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-hugo&#34;&gt;mkdir themes
-cd themes
-git clone https://github.com/Zenithar/hugo-theme-crisp.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下载完成后：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20download%20crisp%20theme.jpg&#34; alt=&#34;hugo download crisp theme&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;4-本地预览:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;4. 本地预览&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;在cmd中启动hugo server：
-hugo server &amp;ndash;theme=hugo-theme-crisp &amp;ndash;buildDrafts &amp;ndash;watch&lt;/p&gt;
-
-&lt;p&gt;启动命令说明：
-&amp;ndash;theme 用于选择主题
-&amp;ndash;watch 用于实时监控博客文件（配置文件和博客内容）的变化，方便调试&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20start%20local%20server.jpg&#34; alt=&#34;hugo start local server&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;然后在浏览器中打开 &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20local%20server.jpg&#34; alt=&#34;hugo local server view&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;5-编写博客内容:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;5. 编写博客内容&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;在content目录中创建和编写test.md：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20.jpg&#34; alt=&#34;hugo new post test.md file&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;可以在localserver:1313中看到效果：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view1.jpg&#34; alt=&#34;localserver view test.md&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;打开test ：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view2.jpg&#34; alt=&#34;localserver view test.md  2&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;6-查看更多themes以及主题demo:1b0e02e01d53cd8c42d3f417a290b58b&#34;&gt;&lt;strong&gt;6. 查看更多themes以及主题Demo&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;查看更多主题可以访问：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/hugo%20themes%20view--crisp.jpg&#34; alt=&#34;hugo themes&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;查看crisp主题的Demo：
-&lt;img src=&#34;http://o7ubfyghw.bkt.clouddn.com/crisp%20demo%20site%20with%20blogs.jpg&#34; alt=&#34;huto crisp theme demo&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

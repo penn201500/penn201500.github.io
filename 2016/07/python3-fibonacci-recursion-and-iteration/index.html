@@ -4,7 +4,7 @@
     <head>
         
             
-                <title>Go is cool</title>
+                <title>python3 fibonacci的高效解法</title>
             
         
 
@@ -16,7 +16,7 @@
 
         
         
-            <meta name="description" content="My short description">
+            <meta name="description" content="python3 fibonacci的高效解法">
         
 
         
@@ -25,18 +25,18 @@
 
 
 
-<meta name="twitter:title" content="Go is cool"/>
-<meta name="twitter:description" content="My short description"/>
+<meta name="twitter:title" content="python3 fibonacci的高效解法"/>
+<meta name="twitter:description" content="python3 fibonacci的高效解法"/>
 
 
 
-        <meta property="og:title" content="Go is cool" />
-<meta property="og:description" content="My short description" />
+        <meta property="og:title" content="python3 fibonacci的高效解法" />
+<meta property="og:description" content="python3 fibonacci的高效解法" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://learnbetter.club/2016/06/go_is_cool/" />
+<meta property="og:url" content="http://learnbetter.club/2016/07/python3-fibonacci-recursion-and-iteration/" />
 
 
-<meta property="og:updated_time" content="2016-06-01T05:04:40&#43;00:00"/>
+<meta property="og:updated_time" content="2016-07-28T22:04:40&#43;00:00"/>
 
 
 
@@ -48,12 +48,12 @@
 
 
         
-<meta itemprop="name" content="Go is cool">
-<meta itemprop="description" content="My short description">
+<meta itemprop="name" content="python3 fibonacci的高效解法">
+<meta itemprop="description" content="python3 fibonacci的高效解法">
 
 
-<meta itemprop="dateModified" content="2016-06-01T05:04:40&#43;00:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="dateModified" content="2016-07-28T22:04:40&#43;00:00" />
+<meta itemprop="wordCount" content="109">
 
 
 
@@ -709,7 +709,7 @@ footer a:hover
                                          
             
             <h1><a href="http://learnbetter.club/">learn better， learn more</a></h1>
-            <p>My short description</p>
+            <p>python3 fibonacci的高效解法</p>
 
             
             <div id="follow-icons">
@@ -738,15 +738,19 @@ footer a:hover
 <ul class="sitetaglist">
     
         
-            <li><a href="/tags/python3">python3 (5)</a></li>
-        
-    
-        
             <li><a href="/tags/hugo">hugo (5)</a></li>
         
     
         
+            <li><a href="/tags/python3">python3 (5)</a></li>
+        
+    
+        
             <li><a href="/tags/python">python (3)</a></li>
+        
+    
+        
+            <li><a href="/tags/vim">vim (1)</a></li>
         
     
         
@@ -759,10 +763,6 @@ footer a:hover
     
         
             <li><a href="/tags/ufw">ufw (1)</a></li>
-        
-    
-        
-            <li><a href="/tags/vim">vim (1)</a></li>
         
     
 </ul>
@@ -789,14 +789,14 @@ footer a:hover
 
 <article id="" class="post">
     <div class="post-stamp">
-        <time datetime="2016-06-01T05:04:40Z">
-            1 Jun 2016
+        <time datetime="2016-07-28T22:04:40Z">
+            28 Jul 2016
         </time>
         <span class="taglist">
         
         &middot;
         
-            <a href="http://learnbetter.club/tags/golang/">golang</a>
+            <a href="http://learnbetter.club/tags/python-%E8%BF%AD%E4%BB%A3-%E9%80%92%E5%BD%92/">python 迭代 递归</a>
         
         
         </span>
@@ -810,20 +810,96 @@ footer a:hover
 </div>       
     </div>
     
-    <h1 class="post-title">Go is cool</h1>
+    <h1 class="post-title">python3 fibonacci的高效解法</h1>
     
+
+<hr />
+
+<h2 id="目标:4b4d891c0e915832df5589e8c39cd5f7">目标：</h2>
+
+<p>使用python求解fibonacci函数</p>
+
+<h2 id="解法一:4b4d891c0e915832df5589e8c39cd5f7">解法一：</h2>
+
+<pre><code class="language-python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def fib(n):
+    if n in [0,1]:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print(fib(10))
+</code></pre>
+
+<p>该方法直观好理解，但是效率低下。当n为50时，需要等好久才能得出结果。这是因为
+fib(n) = fib(n-1) + fib(n-2)
+fib(n-1) = fib(n-2) + fib(n-3)
+&hellip;</p>
+
+<p>当n的值越大时，重复的次数越多，导致效率低下。</p>
+
+<h2 id="解法二:4b4d891c0e915832df5589e8c39cd5f7">解法二：</h2>
+
+<pre><code class="language-python">
+f_num = {}
+def fib(n):
+    #print(f_num)
+    #print(n)
+
+    if n in [0,1]:
+        f_num[n] = n
+        return f_num[n]
+    elif n in f_num:
+        print(f_num[n])
+        return f_num[n]
+    else:
+        f_num[n] = fib(n-1) + fib(n-2)
+        return f_num[n]
+
+print(fib(986))
+</code></pre>
+
+<p>效率高了很多，原因在于，已经计算出来的 fib(x) 存储在了dictionary中，不用再去重复计算。</p>
+
+<p>还有一种不必递归的解法（迭代）：</p>
+
+<h2 id="解法三:4b4d891c0e915832df5589e8c39cd5f7">解法三</h2>
+
+<pre><code class="language-python">def fib_iter(n):
+    pre = 1
+    next = 1
+    result = 0
+    i = 2
+    while i &lt; n:
+        result = pre + next
+        pre = next
+        next = result
+        i += 1
+    return result
+
+print(fib_iter(986))
+</code></pre>
+
+<hr />
+
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 
 <section>
 <ul >
+    
+        <li>
+        <font size="5" color="green"><b>Prev:</b></font>
+        <a href="http://learnbetter.club/2016/07/python3-get-baidu-hotnews-and-store-in-mysqldb/"
+                class="button big previous">python3 脚本爬取今日百度热点新闻并存放到mysql数据库</a></li>
     
 
     
        
         <li>
         <font size="5" color="green"><b>Next:</b></font>
-        <a href="http://learnbetter.club/2016/06/hugo-1-use-it-in-win7/"
-                class="button big next">如何使用hugo搭建个人博客（一）：在win7上使用hugo</a></li>
+        <a href="http://learnbetter.club/2016/07/python3-compare-2-list-structure/"
+                class="button big next">python3 比较两个list的结构</a></li>
     
 </ul>
 </section>
