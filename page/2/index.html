@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -101,7 +101,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -124,6 +124,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-79129383-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -280,6 +289,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -319,109 +347,12 @@
 
       
         
-          
-            <hr>
-<hr>
-<h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a><strong>例题：</strong></h2><pre><code>先来看一个例题：
-给你一个其中包含不同的英文字母和标点符号的文本，你要找到其中出现最多的字母，返回的字母必须是小写形式，
-当检查最想要的字母时，不区分大小写，所以在你的搜索中 &quot;A&quot; == &quot;a&quot;。 请确保你不计算标点符号，数字和空格，只计算字母。
-如果你找到 两个或两个以上的具有相同的频率的字母， 返回那个先出现在字母表中的字母。 例如 -- “one”包含“o”，“n”，“e”每个字母一次，因此我们选择“e”。
-**输入:** 用于分析的文本 (str, unicode).
-**输出:** 最常见的字母的小写形式。
-**前提::**
-密码只包含ASCII码符号
-0 &lt; len(text) ≤ 105
-</code></pre><p>使用sorted的解法如下：</p>
-<pre><code>def checkio(text):
-    #filter out not-alphebet char
-    if text.isalpha():  text = text.lower()
-    else:  text = &apos;&apos;.join([x.lower() for x in text if x.isalpha()])
-    #print(text)
-
-    from collections import Counter
-    str_count = Counter(text)
-    #print(str_count)
-    #sorted with two parameters, the first parameter is the count of every char,the second is alphabet
-    str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))
-    #print(str_sorted)
-    #get the most wanted chars
-    most_wanted_letters = [item for item in str_sorted if item[1] == str_sorted[len(str_sorted) - 1][1]]
-    return most_wanted_letters[0][0]
-
-if __name__ == &apos;__main__&apos;:
-    #These &quot;asserts&quot; using only for self-checking and not necessary for auto-testing
-    assert checkio(&quot;Hello World!&quot;) == &quot;l&quot;, &quot;Hello test&quot;
-    assert checkio(&quot;How do you do?&quot;) == &quot;o&quot;, &quot;O is most wanted&quot;
-    assert checkio(&quot;One&quot;) == &quot;e&quot;, &quot;All letter only once.&quot;
-    assert checkio(&quot;Oops!&quot;) == &quot;o&quot;, &quot;Don&apos;t forget about lower case.&quot;
-    assert checkio(&quot;AAaooo!!!!&quot;) == &quot;a&quot;, &quot;Only letters.&quot;
-    assert checkio(&quot;abe&quot;) == &quot;a&quot;, &quot;The First.&quot;
-    print(&quot;Start the long test&quot;)
-    assert checkio(&quot;a&quot; * 9000 + &quot;b&quot; * 1000) == &quot;a&quot;, &quot;Long.&quot;
-    print(&quot;The local tests are done.&quot;)
-</code></pre><p>测试结果如下：<br><img src="http://o7ubfyghw.bkt.clouddn.com/checkio%20most%20wanted%20letter.jpg" alt="the most wanted letter"></p>
-<h2 id="sorted的用法："><a href="#sorted的用法：" class="headerlink" title="sorted的用法："></a><strong>sorted的用法：</strong></h2><p>分析解法的关键代码</p>
-<pre><code>str_sorted = sorted(Counter(text).items(), key=lambda k: (k[1],k[0]))    增加print测试:
-#print(text)
-&gt;&gt;&gt;checkio(&quot;Lorem ipsum dolor sit amet&quot;)
-loremipsumdolorsitamet
-&lt;&lt;&lt; &apos;m&apos;
-#print(str_sorted)
-&gt;&gt;&gt;checkio(&quot;Lorem ipsum dolor sit amet&quot;)
-loremipsumdolorsitamet
-Counter({&apos;m&apos;: 3, &apos;o&apos;: 3, &apos;i&apos;: 2, &apos;l&apos;: 2, &apos;s&apos;: 2, &apos;e&apos;: 2, &apos;t&apos;: 2, &apos;r&apos;: 2, &apos;d&apos;: 1, &apos;p&apos;: 1, &apos;a&apos;: 1, &apos;u&apos;: 1})
-&lt;&lt;&lt; &apos;m&apos;
-</code></pre><p>这里sorted使用<strong>两个关键字</strong>进行排序：<br>先按照每个字母出现的次数k[1]进行排序，然后安装字母表顺序对测试text中的内容k[0]进行排序.</p>
-<p>python3手册对sorted的用法描述如下：</p>
-<pre><code>sorted(iterable[, key][, reverse])
-
-Return a new sorted list from the items in iterable.
-
-Has two optional arguments which must be specified as keyword arguments.
-
-key specifies a function of one argument that is used to extract a comparison key from each list element: key=str.lower. The default value is None (compare the elements directly).
-
-reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.
-
-Use functools.cmp_to_key() to convert an old-style cmp function to a key function.
-
-The built-in sorted() function is guaranteed to be stable. A sort is stable if it guarantees not to change the relative order of elements that compare equal — this is helpful for sorting in multiple passes (for example, sort by department, then by salary grade).
-
-For sorting examples and a brief sorting tutorial, see Sorting HOW TO.
-</code></pre><p>sorted的第一个参数是一个迭代器，第二个参数是用来排序的key，第三个参数的排序数序：正序还是倒序<br>如：<br>第一个参数是迭代器</p>
-<pre><code>&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
-[-21, -12, 5, 9, 36]
-</code></pre><p>第二个参数是用来排序的key</p>
-<pre><code>&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
-[5, 9, -12, -21, 36]    key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
-list = [36, 5, -12, 9, -21]
-keys = [36, 5,  12, 9,  21]
-然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素：
-keys排序结果 =&gt; [5, 9,  12,  21, 36]
-最终结果     ====&gt; [5, 9, -12, -21, 36]
-</code></pre><p>第三个参数决定正向还是反向排序：<br>要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：</p>
-<pre><code>&gt;&gt;&gt; sorted([&apos;bob&apos;, &apos;about&apos;, &apos;Zoo&apos;, &apos;Credit&apos;], key=str.lower, reverse=True)
-[&apos;Zoo&apos;, &apos;Credit&apos;, &apos;bob&apos;, &apos;about&apos;]
-</code></pre><p><strong>注：</strong>例题解法来自 <a href="https://checkio.org/user/penn201500/" target="_blank" rel="external">https://checkio.org/user/penn201500/</a><br>更优解法为：</p>
-<pre><code>import string
-​
-def checkio(text):
-    &quot;&quot;&quot;
-    We iterate through latyn alphabet and count each letter in the text.
-    Then &apos;max&apos; selects the most frequent letter.
-    For the case when we have several equal letter,
-    &apos;max&apos; selects the first from they.
-    &quot;&quot;&quot;
-    text = text.lower()
-    return max(string.ascii_lowercase, key=text.count)
-</code></pre><hr>
-<p><strong>参考：</strong></p>
-<p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000" target="_blank" rel="external">廖雪峰官网 sorted方法</a></p>
-<p><a href="https://checkio.org/mission/most-wanted-letter/" target="_blank" rel="external">checkio: most wanted letter</a></p>
-<p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318230588782cac105d0d8a40c6b450a232748dc854000" target="_blank" rel="external">sorted()函数</a></p>
-<hr>
-
-          
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/19/python3 sorted/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -489,6 +420,25 @@ def checkio(text):
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -528,188 +478,12 @@ def checkio(text):
 
       
         
-          
-            <hr>
-<hr>
-<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a><strong>例子：</strong></h2><blockquote>
-<p>井字游戏，有时也被称为“进攻和防守”，是一个两人玩家（X和O）轮流标志着3×3的网格的空间的连珠游戏。最先在任意一条直线（水平线，垂直线或对角线）上成功连接三个标记的一方获胜。</p>
-<p>但我们不去玩这个游戏。你将是这个游戏的裁判。你被赋予游戏的结果，以及你必须判断游戏是平局还是有人胜出，以及谁将会成为最后的赢家。如果X玩家获胜，返回“X”。如果O玩家获胜，返回“O”。如果比赛是平局，返回“D”。</p>
-<p>x-o-referee</p>
-<p>游戏的结果是作为字符串形式的列表，其中“X”和“O”是玩家的标志，“.”是空格。</p>
-<p><strong>输入:</strong> 游戏结果作为字符串形式的列表(Unicode)。</p>
-<p><strong>输出:</strong> “X”，“O”或“D”作为字符串形式。</p>
-<p><strong>范例:</strong></p>
-<p>checkio([<br>    “X.O”,<br>    “XX.”,<br>    “XOO”]) == “X”</p>
-<p>checkio([<br>    “OO.”,<br>    “XOX”,<br>    “XOX”]) == “O”</p>
-<p>checkio([<br>    “OOX”,<br>    “XXO”,<br>    “OXX”]) == “D”</p>
-<p><strong>如何使用：</strong> 此任务中的概念将有助于您遍历数据类型。这还可以用在游戏的算法上，让你知道如何去检查结果。</p>
-</blockquote>
-<p><strong>最多推荐的解法：</strong></p>
-<pre><code>def checkio(result):
-    rows = result
-    cols = map(&apos;&apos;.join, zip(*rows))
-    diags = map(&apos;&apos;.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
-    lines = rows + list(cols) + list(diags)
-​
-    return &apos;X&apos; if (&apos;XXX&apos; in lines) else &apos;O&apos; if (&apos;OOO&apos; in lines) else &apos;D&apos;
-</code></pre><p>上面的最多推荐的解法，步骤是：</p>
-<p><strong>1.将列表result中的3个元素拆开成3个tuple（tuple是列的元素组合）</strong></p>
-<blockquote>
-<p>>&gt;&gt; result = [<br>…     “OOX”,<br>…     “XXO”,<br>…     “OXX”]</p>
-<p>>&gt;&gt; rows = result</p>
-<p>>&gt;&gt; for i in zip(*rows):</p>
-<p>…   print(i)</p>
-<p>…</p>
-<p>(‘O’, ‘X’, ‘O’)</p>
-<p>(‘O’, ‘X’, ‘X’)</p>
-<p>(‘X’, ‘O’, ‘X’)</p>
-<p>>&gt;&gt;</p>
-</blockquote>
-<p><strong>2.获取对角线上的元素组合</strong></p>
-<p><strong>3.行上的元素组合+列上的元素组合+对角线元素组合，然后判断胜利方</strong></p>
-<h2 id="zip的用法："><a href="#zip的用法：" class="headerlink" title="zip的用法："></a><strong>zip的用法：</strong></h2><pre><code>&gt;help(zip)
-
-Help on class zip in module builtins:
-
-class zip(object)
-
- |  zip(iter1 [,iter2 [...]]) --&gt; zip object
- |
- |  Return a zip object whose .__next__() method returns a tuple where
- |  the i-th element comes from the i-th iterable argument.  The .__next__()
- |  method continues until the shortest iterable in the argument sequence
- |  is exhausted and then it raises StopIteration.
- |
- |  Methods defined here:
- |
- |  __getattribute__(self, name, /)
- |      Return getattr(self, name).
- |
- |  __iter__(self, /)
- |      Implement iter(self).
- |
- |  __new__(*args, **kwargs) from builtins.type
- |      Create and return a new object.  See help(type) for accurate signature.
- |
- |  __next__(self, /)
- |      Implement next(self).
- |
- |  __reduce__(...)
- |      Return state information for pickling.
-</code></pre><p>zip输入参数是一些迭代器，执行完成之后返回zip object（迭代器 ,tuple list）。</p>
-<p><strong>zip用法中需要注意的是：</strong></p>
-<p><strong>1.zip是将每个可迭代对象的对应位置元素打包成一个tuple组，例如：</strong></p>
-<pre><code>二维矩阵变换（矩阵的行列互换）
-比如我们有一个由列表描述的二维矩阵
-a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-利用zip函数：
-&gt;&gt;&gt; a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-&gt;&gt;&gt; zip(*a)
-[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
-&gt;&gt;&gt; map(list,zip(*a))
-[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-</code></pre><p><strong>2.(<em>)操作符与zip函数配合可以实现与zip相反的功能,即将合并的序列拆成多个tuple，如解法中的zip(</em>rows)。如：</strong></p>
-<pre><code>&gt;&gt;&gt;x=[1,2,3],y=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]
-&gt;&gt;&gt;zip(*zip(x,y))
-[(1,2,3),(&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)]
-</code></pre><p><strong>3.新的序列的长度以参数中最短的序列为准.</strong></p>
-<pre><code>&gt;&gt;&gt;x=[1,2],y=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]
-&gt;&gt;&gt;zip(x,y)
-[(1,&apos;a&apos;),(2,&apos;b&apos;)]
-</code></pre><p><strong>zip另有一些高级用法：**</strong>1.python列表相邻元素压缩：**</p>
-<pre><code>group_adjacent = lambda a, k: zip(*([iter(a)] * k))
-</code></pre><p>强烈推荐阅读：<a href="https://segmentfault.com/q/1010000000612945" target="_blank" rel="external">https://segmentfault.com/q/1010000000612945</a></p>
-<p>关键摘录：<br>iter() 能把一个序列生成为一个和迭代器，迭代器的特点是可以用 for in 语句迭代，原理是迭代器对象有一个next方法，可以每次移动迭代的指针，一旦迭代完，没有下一个元素的时候，会应发一个 StopIteration 异常。</p>
-<p>迭代器的特点就是，迭代了一次之后，指针就移动了，不会自动回溯。例如可以用 for in 列表 a 无数次，却只能for in 迭代器 x 一次。</p>
-<p>如果不用迭代器？</p>
-<pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
-&gt;&gt;&gt; x = iter(a)
-&gt;&gt;&gt; t = [a, a]
-&gt;&gt;&gt; zip(*t)                 # 1
-[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)]  
-&gt;&gt;&gt; tx = [x, x]                                   
-&gt;&gt;&gt; zip(*tx)                # 2
-[(1, 2), (3, 4), (5, 6)]
-&gt;&gt;&gt; 
-
-#1 这里的含义表示zip 传了两个参数a，a1 a2 都是a，所以就打包了这两个序列。
-#2 这里面因为 x 是迭代器对象，迭代就调用 next 方法，之后就不会有了。也就是 zip 执行打包的过程先调用第一个参数的 x 的 next 方法得 1，然后调用第二个参数的 x 的next，因为这两个x对象实际上是一样的，调用第二个 x 的 next 方法的时候，迭代的指针已经移动，实际得到的时2，以次类推，过程模拟如下表示
-     x.next -&gt; 1
-     x.next -&gt; 2
-     zip(x.next(), x.next()) ---&gt; zip(1, 2)
-     x.next -&gt; 3
-     x.next -&gt; 4
-     zip(x.next(), x.next()) ---&gt; zip(3, 4)
-    ....
-</code></pre><p>等价于下面的方式</p>
-<pre><code>zip([1, 3, 5], [2, 4, 6])
-</code></pre><p>所以代码：</p>
-<pre><code>group_adjacent = lambda a, k: zip(*([iter(a)] * k))
-</code></pre><p>表示定义一个匿名函数，参数是 a和k，并绑定变量 group_adjacent。匿名函数的主体内容是，用iter将序列迭代化，然后用zip打包这个迭代器对象。</p>
-<p><strong>2.使用zip反转字典</strong></p>
-<pre><code>&gt;&gt;&gt; m = {&apos;a&apos;: 1, &apos;b&apos;: 2, &apos;c&apos;: 3, &apos;d&apos;: 4}
-&gt;&gt;&gt; m.items()
-[(&apos;a&apos;, 1), (&apos;c&apos;, 3), (&apos;b&apos;, 2), (&apos;d&apos;, 4)]
-&gt;&gt;&gt; zip(m.values(), m.keys())
-[(1, &apos;a&apos;), (3, &apos;c&apos;), (2, &apos;b&apos;), (4, &apos;d&apos;)]
-&gt;&gt;&gt; mi = dict(zip(m.values(), m.keys()))
-&gt;&gt;&gt; mi
-{1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;, 4: &apos;d&apos;}
-</code></pre><p><strong>3.使用zip和iterators生成滑动窗口 (n -grams)</strong></p>
-<pre><code>&gt;&gt;&gt; from itertools import islice
-&gt;&gt;&gt; def n_grams(a, n):
-...     z = (islice(a, i, None) for i in range(n))
-...     return zip(*z)
-...
-&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
-&gt;&gt;&gt; n_grams(a, 3)
-[(1, 2, 3), (2, 3, 4), (3, 4, 5), (4, 5, 6)]
-&gt;&gt;&gt; n_grams(a, 2)
-[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
-&gt;&gt;&gt; n_grams(a, 4)
-[(1, 2, 3, 4), (2, 3, 4, 5), (3, 4, 5, 6)]
-#
-islice的用法：
-islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  islice(&apos;ABCDEFG&apos;, 2, None) --&gt; C D E F G
-测试islice：
-&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
-&gt;&gt;&gt; for x in islice(a,0,None):
-...   print(x)
-...
-1
-2
-3
-4
-5
-6
-&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
-&gt;&gt;&gt; for x in islice(a,1,None):
-...   print(x)
-...
-2
-3
-4
-5
-6
-&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6]
-&gt;&gt;&gt; for x in islice(a,2,None):
-...   print(x)
-...
-3
-4
-5
-6
-&gt;&gt;&gt;
-</code></pre><p><strong>注：</strong>例题解法来自 <a href="https://checkio.org/" target="_blank" rel="external">https://checkio.org/</a></p>
-<p>我在 <a href="https://checkio.org/user/penn201500/" target="_blank" rel="external">https://checkio.org/user/penn201500/</a> ：）</p>
-<hr>
-<p><strong>参考：</strong></p>
-<p><a href="http://wklken.me/posts/2013/08/20/python-extra-itertools.html" target="_blank" rel="external">PYTHON-进阶-ITERTOOLS模块小结</a></p>
-<p><a href="http://www.cnblogs.com/BeginMan/archive/2013/03/14/2959447.html" target="_blank" rel="external">Python零碎知识(2):强大的zip</a></p>
-<p><a href="https://segmentfault.com/q/1010000000612945" target="_blank" rel="external">python列表相邻元素压缩器</a></p>
-<hr>
-
-          
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/19/python3 zip/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -777,6 +551,25 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -816,25 +609,12 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 
       
         
-          
-            <p>站内搜索推荐使用google custom search engine(gsce)。<br>gcse的使用方法强烈推荐阅读：<a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
-<h2 id="关键部分："><a href="#关键部分：" class="headerlink" title="关键部分："></a><strong>关键部分：</strong></h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg" alt=""><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%202.jpg" alt=""><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%203.jpg" alt=""></p>
-<p></p><p><br>下面介绍如何在crisp的侧边栏中添加search box。</p>
-<h2 id="获取search-thml"><a href="#获取search-thml" class="headerlink" title="获取search.thml"></a><strong>获取search.thml</strong></h2><p>在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。<br><a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html</a></p>
-<h2 id="修改hearder-html："><a href="#修改hearder-html：" class="headerlink" title="修改hearder.html："></a><strong>修改hearder.html：</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;header id:&quot;header&quot;&gt;</div><div class="line">   &lt;!--</div><div class="line">    &lt;a id:&quot;logo&quot; href:&quot;&#123;&#123; .Site.BaseURL &#125;&#125;&quot;&gt;&lt;img src:&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt:&quot;&#123;&#123; .Site.Title &#125;&#125;&quot; /&gt;&lt;/a&gt;</div><div class="line">    --&gt;</div><div class="line">    &lt;h1&gt;&lt;a href:&quot;&#123;&#123;.Site.BaseURL&#125;&#125;&quot;&gt;&#123;&#123;.Site.Title&#125;&#125;&lt;/a&gt;&lt;/h1&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;.Description&#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">    &#123;&#123; partial &quot;follow.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;navigation.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;tags.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;search.html&quot; . &#125;&#125;     &lt;!--这里添加search box--&gt;       </div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
-<h2 id="3-在crisp主题下新建search文件夹"><a href="#3-在crisp主题下新建search文件夹" class="headerlink" title="3. 在crisp主题下新建search文件夹"></a>3. 在crisp主题下新建search文件夹</h2><p>从<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html</a> 获取index.html放到search文件夹中。<br>将从google search engine中得到的搜索结果代码粘贴到index.html中的script部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    &lt;h1 class:&quot;post-title&quot;&gt;Search Results&lt;/h1&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">  (function() &#123;</div><div class="line">    var cx : &apos;009059558632698478175:4wpqidijmx4&apos;;</div><div class="line">    var gcse : document.createElement(&apos;script&apos;);</div><div class="line">    gcse.type : &apos;text/javascript&apos;;</div><div class="line">    gcse.async : true;</div><div class="line">    gcse.src : &apos;https://cse.google.com/cse.js?cx:&apos; + cx;</div><div class="line">    var s : document.getElementsByTagName(&apos;script&apos;)[0];</div><div class="line">    s.parentNode.insertBefore(gcse, s);</div><div class="line">  &#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;gcse:searchresults-only&gt;&lt;/gcse:searchresults-only&gt;</div></pre></td></tr></table></figure>
-<p>此时在侧边栏能看到search box但是不能搜索到结果:<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20blog%20add%20gcse.jpg" alt=""></p>
-<h2 id="4-生成public并发布到服务器"><a href="#4-生成public并发布到服务器" class="headerlink" title="4. 生成public并发布到服务器"></a>4. 生成public并发布到服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hugo -t crisp</div></pre></td></tr></table></figure>
-<p>在mysite目录执行以上命令，生成public目录。将public目录发布到服务器即可。<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20published%20and%20can%20search%20in%20site.jpg" alt=""></p>
-<p>如果是发布到github-pages，可以参考：<br><a href="http://www.liuhaihua.cn/archives/133615.html" target="_blank" rel="external">http://www.liuhaihua.cn/archives/133615.html</a><br><a href="https://www.zhihu.com/question/20962496" target="_blank" rel="external">https://www.zhihu.com/question/20962496</a></p>
-<hr>
-<p><strong>参考：</strong></p>
-<p><a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
-<p><a href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/" target="_blank" rel="external">Hexo博客第四站：搜索引擎+小插件+配置结构分析</a></p>
-<p><a href="https://kb.iu.edu/d/bckj" target="_blank" rel="external">How do I use Google Custom Search on my website?</a></p>
-
-          
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/17/hugo 5 add gcse/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -902,6 +682,25 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -941,20 +740,12 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 
       
         
-          
-            <p>按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。</p>
-<p><strong>1.注册disqus</strong><br>官网注册帐号 <a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a><br>使用方式可以参考 <a href="http://alfred-sun.github.io/blog/2014/12/05/github-pages/" target="_blank" rel="external">http://alfred-sun.github.io/blog/2014/12/05/github-pages/</a></p>
-<p></p><p><br><strong>2.使用disqus</strong><br>这里使用universal code的方式，将生成的code放到新文件comments.html中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div id:&quot;disqus_thread&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">/**</div><div class="line">* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.</div><div class="line">* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables</div><div class="line">*/</div><div class="line">/*</div><div class="line">var disqus_config : function () &#123;</div><div class="line">this.page.url : PAGE_URL; // Replace PAGE_URL with your page&apos;s canonical URL variable</div><div class="line">this.page.identifier : PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&apos;s unique identifier variable</div><div class="line">&#125;;</div><div class="line">*/</div><div class="line">(function() &#123; // DON&apos;T EDIT BELOW THIS LINE</div><div class="line">var d : document, s : d.createElement(&apos;script&apos;);</div><div class="line"></div><div class="line">s.src : &apos;//wwwlearnbetterclub.disqus.com/embed.js&apos;;</div><div class="line"></div><div class="line">s.setAttribute(&apos;data-timestamp&apos;, +new Date());</div><div class="line">(d.head || d.body).appendChild(s);</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;noscript&gt;Please enable JavaScript to view the &lt;a href:&quot;https://disqus.com/?ref_noscript&quot; rel:&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong>s.src请修改为自己的帐号信息<br>comments.html与header.html在同一个目录。</p>
-<p>显示效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg" alt="hugo add disqus"></p>
-<p></p><p><br><strong>3.博文中的comments可以关闭disqus功能</strong><br>可以对某篇博文单独关闭disqus功能。如test.md</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">+++</div><div class="line">Categories : [&quot;test&quot;]</div><div class="line">Description : &quot;test&quot;</div><div class="line">Tags : [&quot;test&quot;]</div><div class="line">menu : &quot;main&quot;</div><div class="line">title : &quot;test hugo&quot;</div><div class="line">comments : false      #这里的comments取值为false，disqus则不可见</div><div class="line">date : 2014-08-09T05:04:40Z</div><div class="line">+++</div><div class="line"></div><div class="line"></div><div class="line">hello hugo! I am test.md</div></pre></td></tr></table></figure>
-<p>comments取值为false的显示效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg" alt="hugo blog comments is false and disqus no display"></p>
-<hr>
-<p><strong>注：</strong>如果使用多说评论，请参考 <a href="http://tonybai.com/2015/09/23/intro-of-gohugo/" target="_blank" rel="external">http://tonybai.com/2015/09/23/intro-of-gohugo/</a></p>
-
-          
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/16/hugo 4 add disqus/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1022,6 +813,25 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1061,24 +871,12 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 
       
         
-          
-            <p>本文继续介绍如何添加follow方式与修改share的方式。</p>
-<h2 id="添加mailto的功能"><a href="#添加mailto的功能" class="headerlink" title="添加mailto的功能"></a><strong>添加mailto的功能</strong></h2><p>在侧边栏的follow方式中，只留下了github follow。现增加mail to 的follow方式，便于读者使用邮件方式与博主沟通。</p>
-<p>follow方式添加mail to邮箱follow方式中也可以添加mail，图标使用fontawesome的fa fa-envelope-o。<br>fontqwesome的图标可以调整大小和颜色，具体讨论见：<br><a href="http://stackoverflow.com/questions/12272372/how-to-style-icon-color-size-and-shadow-of-font-awesome-icons" target="_blank" rel="external">http://stackoverflow.com/questions/12272372/how-to-style-icon-color-size-and-shadow-of-font-awesome-icons</a></p>
-<p>修改  E:\github_projects\hugo-crisp-theme-for-blog\mysite\themes\crisp\layouts\partials\follow.html文件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id:&quot;follow-icons&quot;&gt;</div><div class="line">	&lt;a href:&quot;https://github.com/penn201500&quot; rel:&quot;me&quot;&gt;&lt;i class:&quot;fa fa-github-square fa-2x&quot;&gt;&lt;/i&gt;&lt;/a&gt;</div><div class="line">    &lt;a href:&quot;mailto:penn201500@gmail.com&quot; title:&quot;Gmail&quot;&gt;&lt;i class:&quot;fa fa-envelope-o fa-2x&quot; style:&quot;color:green&quot; style:&quot;font-size: 13px;&quot;&gt;&lt;/i&gt;    &lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p><strong>提醒：</strong>请将mail地址和github地址修改为自己的帐号</p>
-<p>显示效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20mailto%20follow%20method.jpg" alt="add mail to"></p>
-<p></p><p></p>
-<p></p><p></p>
-<h2 id="修改share方式"><a href="#修改share方式" class="headerlink" title="修改share方式"></a><strong>修改share方式</strong></h2><p>test.md内容修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">+++</div><div class="line">Categories : [&quot;test&quot;]</div><div class="line">Description : &quot;test&quot;</div><div class="line">Tags : [&quot;test&quot;]</div><div class="line">menu : &quot;main&quot;</div><div class="line">title : &quot;test hugo&quot;</div><div class="line">comments : true</div><div class="line">date : 2014-08-09T05:04:40Z</div><div class="line">+++</div><div class="line"></div><div class="line"></div><div class="line">hello hugo! I am test.md</div></pre></td></tr></table></figure>
-<p>默认的crisp主题在博文后面都有share方式，如红色框线部分：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20post%20share%20method.jpg" alt="hugo post share method"></p>
-<p>如果想要删除这些share方式，可以删除header.html同目录下的share.html文件（或者注释）。删除share.html之后的显示结果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20delete%20share.jpg" alt="hugo delete share"></p><p></p>
-<p></p><p></p>
-<h2 id="删除author信息"><a href="#删除author信息" class="headerlink" title="删除author信息"></a><strong>删除author信息</strong></h2><p>删除share之后，博文后面还有author信息，可以注释或删除掉header.html同目录下的author.html文件。删除author.html之后的效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20delete%20author%20info%20after%20deleting%20share.jpg" alt="hugo delete author"></p>
-
-          
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/15/hugo 3 update follow and share method/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1146,6 +944,25 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1185,74 +1002,12 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 
       
         
-          
-            <p>上一篇博文中谈到了如何在本地使用hugo预览特定主题crisp，本文介绍主题的颜色，字体，布局的修改。</p>
-<h2 id="修改主题侧边栏颜色"><a href="#修改主题侧边栏颜色" class="headerlink" title="修改主题侧边栏颜色"></a><strong>修改主题侧边栏颜色</strong></h2><p>crisp主题的侧边栏默认是白色，如果想改个颜色咋办？<br>到github仓库 <a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/</a> 获取 hugo-crisp-theme-for-blog/mysite/themes/crisp/layouts/partials/criticalpath.html  文件，替换本地themes目录下的同名文件，如<br> E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials\criticalpath.html<br> 替换之后效果：<br> <img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20bgcolor.jpg" alt="hugo update sidebar bgcolor"></p>
-<h2 id="修改主题字体"><a href="#修改主题字体" class="headerlink" title="修改主题字体"></a><strong>修改主题字体</strong></h2><p>在criticalpath.html文件中，查找font-family。然后修改字体类型，大小，颜色等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">body,html</div><div class="line">&#123;</div><div class="line">	font-size: 1em;</div><div class="line">	line-height: 1.65em;</div><div class="line">    font-family:&quot;Open Sans&quot;,sans-serif;</div><div class="line">    font-weight:300;color:#444</div><div class="line">	background-color: #ecf0f1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>:::::::</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master</p>
-<h2 id="修改侧边栏布局"><a href="#修改侧边栏布局" class="headerlink" title="修改侧边栏布局"></a><strong>修改侧边栏布局</strong></h2><p>侧边栏不想要头像？想添加links？只要github follow？<br>下面介绍如何实现这些需求</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><strong>1.去掉头像</strong><br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>:::::::</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master<br>编辑layouts/partial目录下的header.html文件：<br>如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;header id:&quot;header&quot;&gt;</div><div class="line">    &lt;a id:&quot;logo&quot; href:&quot;&#123;&#123; .Site.BaseURL &#125;&#125;&quot;&gt;&lt;img src:&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt:&quot;&#123;&#123; .Site.Title &#125;&#125;&quot; /&gt;&lt;/a&gt;</div><div class="line">    &lt;h1&gt;&lt;a href:&quot;&#123;&#123;.Site.BaseURL&#125;&#125;&quot;&gt;&#123;&#123;.Site.Title&#125;&#125;&lt;/a&gt;&lt;/h1&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;.Description&#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">    &#123;&#123; partial &quot;follow.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;navigation.html&quot; . &#125;&#125;</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
-<p>id : “logo”的这一行既是图片信息，替换图片，则将 imgsrc 连接替换。 取消图片则将这行注释或者删除。注释后效果如下：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg" alt="delete logo"></p>
-<p><strong>2. 添加links</strong><br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>:::::::</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master<br>可以参考配置文件：<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html</a><br>将与header.html同目录的navigation.html文件修改为：</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;hr class:&quot;nav-site-separator&quot;&gt;</div><div class="line">&lt;h6&gt;Links&lt;/h6&gt;</div><div class="line">&lt;nav class:&quot;nav&quot;&gt;</div><div class="line">      &lt;ul class:&quot;nav-list&quot;&gt;</div><div class="line">        &lt;font size:&quot;3&quot;&gt;</div><div class="line">	    </div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://lilydjwg.is-programmer.com/&quot; target:&quot;_blank&quot;&gt;依云的博客&lt;/a&gt;&lt;/li&gt;</div><div class="line">		</div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://evilbinary.org/&quot; target:&quot;_blank&quot;&gt;邪恶二进制&lt;/a&gt;&lt;/li&gt;</div><div class="line">		</div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://www.wlman.cc/&quot; target:&quot;_blank&quot;&gt;Consec &apos;s Blog&lt;/a&gt;&lt;/li&gt;</div><div class="line">		</div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://www.linuxzen.com/&quot; target:&quot;_blank&quot;&gt;cold&apos;s world&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;/font&gt;</div><div class="line">	  &lt;/ul&gt;</div><div class="line">&lt;/nav&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>class:"nav-site"> ``` 这一行可以编辑一个链接。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">修改后效果如下：</div><div class="line">![add links](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg)</div><div class="line"></div><div class="line"></div><div class="line">**3. 只需要github follow**</div><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line"></div><div class="line">:::::::</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</div><div class="line">crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。</div><div class="line">下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）</div><div class="line">将同目录下的follow.html修改如下：</div></pre></td></tr></table></figure>
-<p><div id:"follow-icons"=""><br>    <a href:"https:="" github.com="" penn201500"="" rel:"me"=""><i class:"fa="" fa-github-square="" fa-2x"=""></i></a><br></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">图标使用的是fontawesome，可以从github fork：</div><div class="line">https://github.com/penn201500/Font-Awesome.git</div><div class="line">或者访问fontawesome：</div><div class="line">http://fontawesome.io/icons/</div><div class="line"></div><div class="line">修改follow.html的效果：</div><div class="line">![update follow method](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20follow%20method.jpg)</div><div class="line"></div><div class="line"></div><div class="line">**4.增加tags和修改title**</div><div class="line">4.1 修改title</div><div class="line">将E:\github_projects\my_blogs\mysite目录下的config.toml文件修改为：</div></pre></td></tr></table></figure></p>
-<p>baseurl : “<a href="http://www.learnbetter.club" target="_blank" rel="external">http://www.learnbetter.club</a>“<br>languageCode : “en-us”<br>title : “My Blog”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">4.2 add tags</div><div class="line">1.增加tags.html文件到header.html文件所在的目录。tags.html文件的内容为：</div><div class="line">![](http://o7ubfyghw.bkt.clouddn.com/tags.jpg)</div><div class="line"></div><div class="line">2.并修改header.html：</div><div class="line">![](http://o7ubfyghw.bkt.clouddn.com/header.jpg)</div><div class="line"></div><div class="line">3.修改E:\github_projects\my_blogs\mysite\content\content\test.md文件为：</div></pre></td></tr></table></figure></p>
-<p>+++<br>date : “2016-05-29T23:56:41+08:00”<br>draft : true<br>title : “test”<br>tags : “test”<br>+++</p>
-<p>hello hugo! I am test.md<br>```<br>显示效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20title%20add%20tags.jpg" alt="add tags and update title"></p>
-<hr>
-<p><strong>注：</strong>如果有其他好的博客主题，且托管在github上，可以clone到本地进行修改尝试</p>
-
-          
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/14/hugo 2 update sidebar/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1320,6 +1075,25 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1359,41 +1133,12 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 
       
         
-          
-            <p>如何使用hugo搭建个人博客？<br>按照创建步骤有：</p>
-<ol>
-<li>在win7上使用hugo，能够本地预览（就是本文了）</li>
-<li>修改主题：颜色，字体，布局（后续）</li>
-<li>添加follow与修改share的方式（后续）</li>
-<li>添加评论系统disqus（后续）</li>
-<li>添加站内搜索（后续）</li>
-<li>放到个人vps或者推到第三方托管（推荐阅读）</li>
-</ol>
-<p>Hugo 是一个用 Go 语言编写的静态网站生成器，简单易用。类似的静态网站生成器还有<a href="https://jekyllrb.com/" target="_blank" rel="external">Jekyll</a> 。</p>
-<p>Hugo在windows 7上的使用如下：</p>
-<h2 id="1-安装hugo"><a href="#1-安装hugo" class="headerlink" title="1. 安装hugo"></a><strong>1. 安装hugo</strong></h2><h3 id="1-1-安装go"><a href="#1-1-安装go" class="headerlink" title="1.1 安装go"></a><strong>1.1 安装go</strong></h3><p>可以在go github上下载 <a href="https://golang.org/dl/" target="_blank" rel="external">go 1.6</a><br>双击exe文件，一路next安装。安装完成之后，查看go安装结果：</p>
-<p><img src="http://o7ubfyghw.bkt.clouddn.com/go_valid.jpg" alt="go"></p>
-<h3 id="1-2-安装hugo"><a href="#1-2-安装hugo" class="headerlink" title="1.2 安装hugo"></a><strong>1.2 安装hugo</strong></h3><p><a href="http://download.csdn.net/detail/justheretobe/9529014" target="_blank" rel="external">hugo for win64</a></p>
-<p>或者官网下载：<a href="https://gohugo.io/" target="_blank" rel="external">https://gohugo.io/</a><br>下载后双击exe，一路next即可。查看安装结果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo_install_ok.jpg" alt="hugo install ok"></p>
-<h3 id="1-3-安装git（用来下载主题和管理博客文件的修改信息）"><a href="#1-3-安装git（用来下载主题和管理博客文件的修改信息）" class="headerlink" title="1.3. 安装git（用来下载主题和管理博客文件的修改信息）"></a><strong>1.3. 安装git（用来下载主题和管理博客文件的修改信息）</strong></h3><p>博客文件中的修改可以使用git进行版本管理，快速使用教程见: [廖雪峰 git教程]（<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）</a></p>
-<h2 id="2-创建站点"><a href="#2-创建站点" class="headerlink" title="2. 创建站点"></a><strong>2. 创建站点</strong></h2><p>创建一个目录，用来存放站点文件，然后使用hugo命令生成新站点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir my_logs</div><div class="line">hugo new site  mysite</div></pre></td></tr></table></figure>
-<p>运行结果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg" alt="hugo new site mysite"></p>
-<p>文件结构的含义是：<br>原文解释见 <a href="https://gohugo.io/content/" target="_blank" rel="external">https://gohugo.io/content/</a><br>|- archetypes           ：存放default.md，头文件格式<br>|- content                ：content目录存放博客文章（markdown文件）<br>|- data                     ：存放自定义模版，导入的toml文件（或json，yaml）<br>|- layouts                ：layouts目录存放的是网站的模板文件<br>|- static                   ：static目录存放图片，css等静态资源<br>|- config.toml         ：config.toml是网站的配置文件</p>
-<h2 id="3-选择主题"><a href="#3-选择主题" class="headerlink" title="3. 选择主题"></a><strong>3. 选择主题</strong></h2><p>在mysite目录下新建一个themes文件夹，存放主题文件。<br>本例选择使用crisp主题，可以直接下载crisp主题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir themes</div><div class="line">cd themes</div><div class="line">git clone https://github.com/Zenithar/hugo-theme-crisp.git</div></pre></td></tr></table></figure>
-<p>下载完成后：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20download%20crisp%20theme.jpg" alt="hugo download crisp theme"></p>
-<h2 id="4-本地预览"><a href="#4-本地预览" class="headerlink" title="4. 本地预览"></a><strong>4. 本地预览</strong></h2><p>在cmd中启动hugo server：<br>hugo server –theme=hugo-theme-crisp –buildDrafts –watch</p>
-<p>启动命令说明：<br>–theme 用于选择主题<br>–watch 用于实时监控博客文件（配置文件和博客内容）的变化，方便调试</p>
-<p><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20start%20local%20server.jpg" alt="hugo start local server"></p>
-<p>然后在浏览器中打开 <a href="http://localhost:1313/" target="_blank" rel="external">http://localhost:1313/</a><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20local%20server.jpg" alt="hugo local server view"></p>
-<h2 id="5-编写博客内容"><a href="#5-编写博客内容" class="headerlink" title="5. 编写博客内容"></a><strong>5. 编写博客内容</strong></h2><p>在content目录中创建和编写test.md：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20.jpg" alt="hugo new post test.md file"></p>
-<p>可以在localserver:1313中看到效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view1.jpg" alt="localserver view test.md"></p>
-<p>打开test ：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view2.jpg" alt="localserver view test.md  2"></p>
-<h2 id="6-查看更多themes以及主题Demo"><a href="#6-查看更多themes以及主题Demo" class="headerlink" title="6. 查看更多themes以及主题Demo"></a><strong>6. 查看更多themes以及主题Demo</strong></h2><p>查看更多主题可以访问：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20themes%20view--crisp.jpg" alt="hugo themes"></p>
-<p>查看crisp主题的Demo：<br><img src="http://o7ubfyghw.bkt.clouddn.com/crisp%20demo%20site%20with%20blogs.jpg" alt="huto crisp theme demo"></p>
-
-          
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/12/hugo 1 use it in win7/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1471,7 +1216,21 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -1526,7 +1285,7 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -1624,7 +1383,7 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
   
 
     <script type="text/javascript">
-      var disqus_shortname = 'learnbetterclub.disqus.com/admin/';
+      var disqus_shortname = 'wwwlearnbetterclub';
       var disqus_identifier = 'page/2/index.html';
       var disqus_title = "";
       var disqus_url = '';
