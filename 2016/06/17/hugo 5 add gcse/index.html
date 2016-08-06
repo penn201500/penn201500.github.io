@@ -86,25 +86,31 @@
 
 
 
-<meta name="description" content="按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。
-1.注册disqus官网注册帐号 https://disqus.com/使用方式可以参考 http://alfred-sun.github.io/blog/2014/12/05/github-pages/
-2.使用">
+<meta name="description" content="站内搜索推荐使用google custom search engine(gsce)。gcse的使用方法强烈推荐阅读：Hexo博客优化配置之–为自己博客添加站内搜索
+关键部分：
+下面介绍如何在crisp的侧边栏中添加search box。
+获取search.thml在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。https://github.co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
-<meta property="og:url" content="http://learnbetter.club/2016/06/16/hugo 4 add disqus/index.html">
+<meta property="og:title" content="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
+<meta property="og:url" content="http://learnbetter.club/2016/06/17/hugo 5 add gcse/index.html">
 <meta property="og:site_name" content="Learn Better, Learn More">
-<meta property="og:description" content="按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。
-1.注册disqus官网注册帐号 https://disqus.com/使用方式可以参考 http://alfred-sun.github.io/blog/2014/12/05/github-pages/
-2.使用">
-<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg">
-<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg">
-<meta property="og:updated_time" content="2016-08-06T17:55:13.020Z">
+<meta property="og:description" content="站内搜索推荐使用google custom search engine(gsce)。gcse的使用方法强烈推荐阅读：Hexo博客优化配置之–为自己博客添加站内搜索
+关键部分：
+下面介绍如何在crisp的侧边栏中添加search box。
+获取search.thml在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。https://github.co">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%202.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%203.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20blog%20add%20gcse.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20published%20and%20can%20search%20in%20site.jpg">
+<meta property="og:updated_time" content="2016-08-06T17:48:09.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
-<meta name="twitter:description" content="按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。
-1.注册disqus官网注册帐号 https://disqus.com/使用方式可以参考 http://alfred-sun.github.io/blog/2014/12/05/github-pages/
-2.使用">
-<meta name="twitter:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg">
+<meta name="twitter:title" content="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
+<meta name="twitter:description" content="站内搜索推荐使用google custom search engine(gsce)。gcse的使用方法强烈推荐阅读：Hexo博客优化配置之–为自己博客添加站内搜索
+关键部分：
+下面介绍如何在crisp的侧边栏中添加search box。
+获取search.thml在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。https://github.co">
+<meta name="twitter:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg">
 
 
 
@@ -125,9 +131,9 @@
 
 
 
-  <link rel="canonical" href="http://learnbetter.club/2016/06/16/hugo 4 add disqus/"/>
+  <link rel="canonical" href="http://learnbetter.club/2016/06/17/hugo 5 add gcse/"/>
 
-  <title> 如何使用hugo搭建个人博客（四）:添加评论系统disqus | Learn Better, Learn More </title>
+  <title> 如何使用hugo搭建个人博客（五）：添加站内搜索（gcse） | Learn Better, Learn More </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +273,7 @@
             
             
               
-                如何使用hugo搭建个人博客（四）:添加评论系统disqus
+                如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）
               
             
           </h1>
@@ -279,8 +285,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T15:04:40+08:00" content="2016-06-16">
-              2016-06-16
+            <time itemprop="dateCreated" datetime="2016-06-17T21:04:40+08:00" content="2016-06-17">
+              2016-06-17
             </time>
           </span>
 
@@ -290,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/16/hugo 4 add disqus/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/hugo 4 add disqus/" itemprop="commentsCount"></span>
+                <a href="/2016/06/17/hugo 5 add gcse/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/hugo 5 add gcse/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,7 +307,7 @@
 
           
           
-             <span id="/2016/06/16/hugo 4 add disqus/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
+             <span id="/2016/06/17/hugo 5 add gcse/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -328,17 +334,22 @@
       
 
       
-        <p>按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。</p>
-<p><strong>1.注册disqus</strong><br>官网注册帐号 <a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a><br>使用方式可以参考 <a href="http://alfred-sun.github.io/blog/2014/12/05/github-pages/" target="_blank" rel="external">http://alfred-sun.github.io/blog/2014/12/05/github-pages/</a></p>
-<p></p><p><br><strong>2.使用disqus</strong><br>这里使用universal code的方式，将生成的code放到新文件comments.html中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div id:&quot;disqus_thread&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">/**</div><div class="line">* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.</div><div class="line">* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables</div><div class="line">*/</div><div class="line">/*</div><div class="line">var disqus_config : function () &#123;</div><div class="line">this.page.url : PAGE_URL; // Replace PAGE_URL with your page&apos;s canonical URL variable</div><div class="line">this.page.identifier : PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&apos;s unique identifier variable</div><div class="line">&#125;;</div><div class="line">*/</div><div class="line">(function() &#123; // DON&apos;T EDIT BELOW THIS LINE</div><div class="line">var d : document, s : d.createElement(&apos;script&apos;);</div><div class="line"></div><div class="line">s.src : &apos;//wwwlearnbetterclub.disqus.com/embed.js&apos;;</div><div class="line"></div><div class="line">s.setAttribute(&apos;data-timestamp&apos;, +new Date());</div><div class="line">(d.head || d.body).appendChild(s);</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;noscript&gt;Please enable JavaScript to view the &lt;a href:&quot;https://disqus.com/?ref_noscript&quot; rel:&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong>s.src请修改为自己的帐号信息<br>comments.html与header.html在同一个目录。</p>
-<p>显示效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg" alt="hugo add disqus"></p>
-<p></p><p><br><strong>3.博文中的comments可以关闭disqus功能</strong><br>可以对某篇博文单独关闭disqus功能。如test.md</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">+++</div><div class="line">Categories : [&quot;test&quot;]</div><div class="line">Description : &quot;test&quot;</div><div class="line">Tags : [&quot;test&quot;]</div><div class="line">menu : &quot;main&quot;</div><div class="line">title : &quot;test hugo&quot;</div><div class="line">comments : false      #这里的comments取值为false，disqus则不可见</div><div class="line">date : 2014-08-09T05:04:40Z</div><div class="line">+++</div><div class="line"></div><div class="line"></div><div class="line">hello hugo! I am test.md</div></pre></td></tr></table></figure>
-<p>comments取值为false的显示效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg" alt="hugo blog comments is false and disqus no display"></p>
+        <p>站内搜索推荐使用google custom search engine(gsce)。<br>gcse的使用方法强烈推荐阅读：<a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
+<h2 id="关键部分："><a href="#关键部分：" class="headerlink" title="关键部分："></a><strong>关键部分：</strong></h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg" alt=""><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%202.jpg" alt=""><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%203.jpg" alt=""></p>
+<p></p><p><br>下面介绍如何在crisp的侧边栏中添加search box。</p>
+<h2 id="获取search-thml"><a href="#获取search-thml" class="headerlink" title="获取search.thml"></a><strong>获取search.thml</strong></h2><p>在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。<br><a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html</a></p>
+<h2 id="修改hearder-html："><a href="#修改hearder-html：" class="headerlink" title="修改hearder.html："></a><strong>修改hearder.html：</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;header id:&quot;header&quot;&gt;</div><div class="line">   &lt;!--</div><div class="line">    &lt;a id:&quot;logo&quot; href:&quot;&#123;&#123; .Site.BaseURL &#125;&#125;&quot;&gt;&lt;img src:&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt:&quot;&#123;&#123; .Site.Title &#125;&#125;&quot; /&gt;&lt;/a&gt;</div><div class="line">    --&gt;</div><div class="line">    &lt;h1&gt;&lt;a href:&quot;&#123;&#123;.Site.BaseURL&#125;&#125;&quot;&gt;&#123;&#123;.Site.Title&#125;&#125;&lt;/a&gt;&lt;/h1&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;.Description&#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">    &#123;&#123; partial &quot;follow.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;navigation.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;tags.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;search.html&quot; . &#125;&#125;     &lt;!--这里添加search box--&gt;       </div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
+<h2 id="3-在crisp主题下新建search文件夹"><a href="#3-在crisp主题下新建search文件夹" class="headerlink" title="3. 在crisp主题下新建search文件夹"></a>3. 在crisp主题下新建search文件夹</h2><p>从<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html</a> 获取index.html放到search文件夹中。<br>将从google search engine中得到的搜索结果代码粘贴到index.html中的script部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    &lt;h1 class:&quot;post-title&quot;&gt;Search Results&lt;/h1&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">  (function() &#123;</div><div class="line">    var cx : &apos;009059558632698478175:4wpqidijmx4&apos;;</div><div class="line">    var gcse : document.createElement(&apos;script&apos;);</div><div class="line">    gcse.type : &apos;text/javascript&apos;;</div><div class="line">    gcse.async : true;</div><div class="line">    gcse.src : &apos;https://cse.google.com/cse.js?cx:&apos; + cx;</div><div class="line">    var s : document.getElementsByTagName(&apos;script&apos;)[0];</div><div class="line">    s.parentNode.insertBefore(gcse, s);</div><div class="line">  &#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;gcse:searchresults-only&gt;&lt;/gcse:searchresults-only&gt;</div></pre></td></tr></table></figure>
+<p>此时在侧边栏能看到search box但是不能搜索到结果:<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20blog%20add%20gcse.jpg" alt=""></p>
+<h2 id="4-生成public并发布到服务器"><a href="#4-生成public并发布到服务器" class="headerlink" title="4. 生成public并发布到服务器"></a>4. 生成public并发布到服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hugo -t crisp</div></pre></td></tr></table></figure>
+<p>在mysite目录执行以上命令，生成public目录。将public目录发布到服务器即可。<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20published%20and%20can%20search%20in%20site.jpg" alt=""></p>
+<p>如果是发布到github-pages，可以参考：<br><a href="http://www.liuhaihua.cn/archives/133615.html" target="_blank" rel="external">http://www.liuhaihua.cn/archives/133615.html</a><br><a href="https://www.zhihu.com/question/20962496" target="_blank" rel="external">https://www.zhihu.com/question/20962496</a></p>
 <hr>
-<p><strong>注：</strong>如果使用多说评论，请参考 <a href="http://tonybai.com/2015/09/23/intro-of-gohugo/" target="_blank" rel="external">http://tonybai.com/2015/09/23/intro-of-gohugo/</a></p>
+<p><strong>参考：</strong></p>
+<p><a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
+<p><a href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/" target="_blank" rel="external">Hexo博客第四站：搜索引擎+小插件+配置结构分析</a></p>
+<p><a href="https://kb.iu.edu/d/bckj" target="_blank" rel="external">How do I use Google Custom Search on my website?</a></p>
 
       
     </div>
@@ -364,16 +375,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/15/hugo 3 update follow and share method/" rel="next" title="如何使用hugo搭建个人博客（三）:添加follow与修改share的方式">
-                <i class="fa fa-chevron-left"></i> 如何使用hugo搭建个人博客（三）:添加follow与修改share的方式
+              <a href="/2016/06/16/hugo 4 add disqus/" rel="next" title="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
+                <i class="fa fa-chevron-left"></i> 如何使用hugo搭建个人博客（四）:添加评论系统disqus
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/17/hugo 5 add gcse/" rel="prev" title="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
-                如何使用hugo搭建个人博客（五）：添加站内搜索（gcse） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/19/python3 zip/" rel="prev" title="python3 zip的用法">
+                python3 zip的用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +499,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键部分："><span class="nav-number">1.</span> <span class="nav-text">关键部分：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取search-thml"><span class="nav-number">2.</span> <span class="nav-text">获取search.thml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改hearder-html："><span class="nav-number">3.</span> <span class="nav-text">修改hearder.html：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在crisp主题下新建search文件夹"><span class="nav-number">4.</span> <span class="nav-text">3. 在crisp主题下新建search文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-生成public并发布到服务器"><span class="nav-number">5.</span> <span class="nav-text">4. 生成public并发布到服务器</span></a></li></ol></div>
             
           </div>
         </section>
@@ -624,9 +635,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'learnbetterclub.disqus.com/admin/';
-      var disqus_identifier = '2016/06/16/hugo 4 add disqus/';
-      var disqus_title = "如何使用hugo搭建个人博客（四）:添加评论系统disqus";
-      var disqus_url = 'http://learnbetter.club/2016/06/16/hugo 4 add disqus/';
+      var disqus_identifier = '2016/06/17/hugo 5 add gcse/';
+      var disqus_title = "如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）";
+      var disqus_url = 'http://learnbetter.club/2016/06/17/hugo 5 add gcse/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

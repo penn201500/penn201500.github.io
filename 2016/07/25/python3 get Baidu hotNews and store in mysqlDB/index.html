@@ -86,25 +86,22 @@
 
 
 
-<meta name="description" content="按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。
-1.注册disqus官网注册帐号 https://disqus.com/使用方式可以参考 http://alfred-sun.github.io/blog/2014/12/05/github-pages/
-2.使用">
+<meta name="description" content="目标 python3.x 脚本爬取今日百度热点新闻并存放到mysql数据库
+环境准备
+安装pymysqlinstall pymysql```123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
-<meta property="og:url" content="http://learnbetter.club/2016/06/16/hugo 4 add disqus/index.html">
+<meta property="og:title" content="python3 脚本爬取今日百度热点新闻并存放到mysql数据库">
+<meta property="og:url" content="http://learnbetter.club/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/index.html">
 <meta property="og:site_name" content="Learn Better, Learn More">
-<meta property="og:description" content="按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。
-1.注册disqus官网注册帐号 https://disqus.com/使用方式可以参考 http://alfred-sun.github.io/blog/2014/12/05/github-pages/
-2.使用">
-<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg">
-<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg">
-<meta property="og:updated_time" content="2016-08-06T17:55:13.020Z">
+<meta property="og:description" content="目标 python3.x 脚本爬取今日百度热点新闻并存放到mysql数据库
+环境准备
+安装pymysqlinstall pymysql```123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869">
+<meta property="og:updated_time" content="2016-08-06T17:46:43.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
-<meta name="twitter:description" content="按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。
-1.注册disqus官网注册帐号 https://disqus.com/使用方式可以参考 http://alfred-sun.github.io/blog/2014/12/05/github-pages/
-2.使用">
-<meta name="twitter:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg">
+<meta name="twitter:title" content="python3 脚本爬取今日百度热点新闻并存放到mysql数据库">
+<meta name="twitter:description" content="目标 python3.x 脚本爬取今日百度热点新闻并存放到mysql数据库
+环境准备
+安装pymysqlinstall pymysql```123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869">
 
 
 
@@ -125,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://learnbetter.club/2016/06/16/hugo 4 add disqus/"/>
+  <link rel="canonical" href="http://learnbetter.club/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/"/>
 
-  <title> 如何使用hugo搭建个人博客（四）:添加评论系统disqus | Learn Better, Learn More </title>
+  <title> python3 脚本爬取今日百度热点新闻并存放到mysql数据库 | Learn Better, Learn More </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +264,7 @@
             
             
               
-                如何使用hugo搭建个人博客（四）:添加评论系统disqus
+                python3 脚本爬取今日百度热点新闻并存放到mysql数据库
               
             
           </h1>
@@ -279,8 +276,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T15:04:40+08:00" content="2016-06-16">
-              2016-06-16
+            <time itemprop="dateCreated" datetime="2016-07-25T23:04:40+08:00" content="2016-07-25">
+              2016-07-25
             </time>
           </span>
 
@@ -290,8 +287,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/16/hugo 4 add disqus/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/hugo 4 add disqus/" itemprop="commentsCount"></span>
+                <a href="/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/25/python3 get Baidu hotNews and store in mysqlDB/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,7 +298,7 @@
 
           
           
-             <span id="/2016/06/16/hugo 4 add disqus/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
+             <span id="/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/" class="leancloud_visitors" data-flag-title="python3 脚本爬取今日百度热点新闻并存放到mysql数据库">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -328,17 +325,18 @@
       
 
       
-        <p>按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。</p>
-<p><strong>1.注册disqus</strong><br>官网注册帐号 <a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a><br>使用方式可以参考 <a href="http://alfred-sun.github.io/blog/2014/12/05/github-pages/" target="_blank" rel="external">http://alfred-sun.github.io/blog/2014/12/05/github-pages/</a></p>
-<p></p><p><br><strong>2.使用disqus</strong><br>这里使用universal code的方式，将生成的code放到新文件comments.html中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div id:&quot;disqus_thread&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">/**</div><div class="line">* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.</div><div class="line">* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables</div><div class="line">*/</div><div class="line">/*</div><div class="line">var disqus_config : function () &#123;</div><div class="line">this.page.url : PAGE_URL; // Replace PAGE_URL with your page&apos;s canonical URL variable</div><div class="line">this.page.identifier : PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&apos;s unique identifier variable</div><div class="line">&#125;;</div><div class="line">*/</div><div class="line">(function() &#123; // DON&apos;T EDIT BELOW THIS LINE</div><div class="line">var d : document, s : d.createElement(&apos;script&apos;);</div><div class="line"></div><div class="line">s.src : &apos;//wwwlearnbetterclub.disqus.com/embed.js&apos;;</div><div class="line"></div><div class="line">s.setAttribute(&apos;data-timestamp&apos;, +new Date());</div><div class="line">(d.head || d.body).appendChild(s);</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;noscript&gt;Please enable JavaScript to view the &lt;a href:&quot;https://disqus.com/?ref_noscript&quot; rel:&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong>s.src请修改为自己的帐号信息<br>comments.html与header.html在同一个目录。</p>
-<p>显示效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg" alt="hugo add disqus"></p>
-<p></p><p><br><strong>3.博文中的comments可以关闭disqus功能</strong><br>可以对某篇博文单独关闭disqus功能。如test.md</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">+++</div><div class="line">Categories : [&quot;test&quot;]</div><div class="line">Description : &quot;test&quot;</div><div class="line">Tags : [&quot;test&quot;]</div><div class="line">menu : &quot;main&quot;</div><div class="line">title : &quot;test hugo&quot;</div><div class="line">comments : false      #这里的comments取值为false，disqus则不可见</div><div class="line">date : 2014-08-09T05:04:40Z</div><div class="line">+++</div><div class="line"></div><div class="line"></div><div class="line">hello hugo! I am test.md</div></pre></td></tr></table></figure>
-<p>comments取值为false的显示效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg" alt="hugo blog comments is false and disqus no display"></p>
+        <hr>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p> python3.x 脚本爬取今日百度热点新闻并存放到mysql数据库</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
+<li>安装pymysql<figure class="highlight plain"><figcaption><span>install pymysql```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">2. 下载安装mysql 5.x</div><div class="line"></div><div class="line">## 知识点</div><div class="line"></div><div class="line">1. python3.x 使用pymysql来与mysqlDB交互；可以使用 pip install pymysql 命令安装pymysql</div><div class="line">2. pymysql的使用： http://www.runoob.com/python3/python3-mysql.html</div><div class="line">3. mysql的一些用法：</div><div class="line">   show databases;</div><div class="line">   use test;</div><div class="line">   show tables;</div><div class="line">   drop tables;</div><div class="line">4. 格式化时间：time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;,time.localtime(time.time()))</div><div class="line">5. 某表不存在时创建该表：</div><div class="line">   sql : &quot;&quot;&quot;CREATE TABLE IF NOT EXISTS %s (</div><div class="line">               text  VARCHAR(200),</div><div class="line">               time  VARCHAR(200),</div><div class="line">               date VARCHAR(200))&quot;&quot;&quot; % (table,)</div><div class="line"></div><div class="line"></div><div class="line">## 代码</div><div class="line"></div><div class="line">```python</div><div class="line">#!/usr/bin/env python3</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">from urllib.error import URLError, HTTPError</div><div class="line">import urllib.request</div><div class="line">import re</div><div class="line">import time</div><div class="line">import pymysql</div><div class="line"></div><div class="line">class GetAndStore:</div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line"></div><div class="line">    #function</div><div class="line">    def printHotNews(self,url):</div><div class="line">        content : urllib.request.urlopen(url).read().decode(&apos;gbk&apos;)</div><div class="line">        pattern : re.compile(&apos;&lt;li class:&quot;hd.*?&lt;strong&gt;.*?&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?strong&gt;&apos;, re.S)</div><div class="line">        hotNews : re.findall(pattern, content)</div><div class="line">        for i in hotNews:</div><div class="line">            print(i) </div><div class="line">        return hotNews    </div><div class="line">    </div><div class="line">    #function can be reused</div><div class="line">    def storeDB(self,table,news):</div><div class="line">        #use dict store news</div><div class="line">        news_date : time.strftime(&apos;%Y-%m-%d&apos;,time.localtime(time.time()))</div><div class="line">        news_time : time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;,time.localtime(time.time()))</div><div class="line">        #test insert only 1 record</div><div class="line">        text : &quot;&apos;&quot; + news[0] + &quot;&apos;&quot;  #Chinese character and symbol</div><div class="line">        time_now : &quot;&apos;&quot; + news_time + &quot;&apos;&quot;</div><div class="line">        date : &quot;&apos;&quot; + news_date + &quot;&apos;&quot;</div><div class="line"></div><div class="line">        #connect mysqlDB</div><div class="line">        conn : pymysql.connect(</div><div class="line">            host:&apos;127.0.0.1&apos;, </div><div class="line">            port:3306, </div><div class="line">            user:&apos;root&apos;, </div><div class="line">            passwd:&apos;root&apos;, </div><div class="line">            db:&apos;test&apos;,</div><div class="line">            use_unicode:1,</div><div class="line">            charset:&apos;utf8&apos;)</div><div class="line">    </div><div class="line">        try:</div><div class="line">            with conn.cursor() as cursor:</div><div class="line">                #create a table</div><div class="line">                sql : &quot;&quot;&quot;CREATE TABLE IF NOT EXISTS %s (</div><div class="line">                            text  VARCHAR(200),</div><div class="line">                            time  VARCHAR(200),</div><div class="line">                            date VARCHAR(200))&quot;&quot;&quot; % (table,)</div><div class="line">                cursor.execute(sql)</div><div class="line">                # Create a new record</div><div class="line">                sql : &quot;INSERT INTO %s (%s,%s,%s) VALUES (%s,%s,%s)&quot; % (table, &apos;text&apos;, &apos;date&apos;, &apos;time&apos;, text, date, time_now)</div><div class="line">                cursor.execute(sql)</div><div class="line">                # connection is not autocommit by default. So you must commit to save</div><div class="line">                # your changes.</div><div class="line">                conn.commit()</div><div class="line">    </div><div class="line">            with conn.cursor() as cursor:</div><div class="line">                # Read all records</div><div class="line">                sql : &quot;SELECT * FROM (%s) &quot; %(table,)</div><div class="line">                cursor.execute(sql)</div><div class="line">                result : cursor.fetchall()</div><div class="line">                print(result)</div><div class="line">                cursor.close()</div><div class="line">        finally:</div><div class="line">            conn.close()</div><div class="line"></div><div class="line">        </div><div class="line">if __name__ :: &quot;__main__&quot;:    </div><div class="line">    #variable</div><div class="line">    url : &apos;http://news.baidu.com/&apos;</div><div class="line">    instance1 : GetAndStore()  #create an instance</div><div class="line">    </div><div class="line">    try:</div><div class="line">        response : urllib.request.urlopen(url)</div><div class="line">    except HTTPError as e:</div><div class="line">        # http error</div><div class="line">        print(&apos;Error code: &apos;, e.code)</div><div class="line">    except URLError as e:</div><div class="line">        # url error</div><div class="line">        print(&apos;Reason: &apos;, e.reason)</div><div class="line">    else:</div><div class="line">        # excute function</div><div class="line">        instance1.printHotNews(url)</div><div class="line">        instance1.storeDB(&quot;table1&quot;, instance1.printHotNews(url))</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="脚本执行结果"><a href="#脚本执行结果" class="headerlink" title="脚本执行结果"></a>脚本执行结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">E:\github_projects\python-crawler&gt;python 2_get_hotNews_and_store_data_in_mysqldb.py</div><div class="line">习近平：扶贫工作不搞层层加码</div><div class="line">7月20日的国务院常务会定了这3件大事</div><div class="line">《寒战2》3D电影引争议 特效渣渣有圈钱之嫌</div><div class="line"></div><div class="line">习近平：扶贫工作不搞层层加码</div><div class="line">7月20日的国务院常务会定了这3件大事</div><div class="line">《寒战2》3D电影引争议 特效渣渣有圈钱之嫌</div><div class="line"></div><div class="line">((&apos;习近平：扶贫工作不搞层层加码&apos;, &apos;2016-07-22 03:12:12&apos;, &apos;2016-07-22&apos;),)</div></pre></td></tr></table></figure>
 <hr>
-<p><strong>注：</strong>如果使用多说评论，请参考 <a href="http://tonybai.com/2015/09/23/intro-of-gohugo/" target="_blank" rel="external">http://tonybai.com/2015/09/23/intro-of-gohugo/</a></p>
+<p><strong>参考：</strong></p>
+<p><a href="http://stackoverflow.com/questions/14011160/how-to-use-python-mysqldb-to-insert-many-rows-at-once" target="_blank" rel="external">http://stackoverflow.com/questions/14011160/how-to-use-python-mysqldb-to-insert-many-rows-at-once</a></p>
+<p><a href="http://www.mysqltutorial.org/python-mysql-insert/" target="_blank" rel="external">http://www.mysqltutorial.org/python-mysql-insert/</a></p>
+<hr>
 
       
     </div>
@@ -364,16 +362,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/15/hugo 3 update follow and share method/" rel="next" title="如何使用hugo搭建个人博客（三）:添加follow与修改share的方式">
-                <i class="fa fa-chevron-left"></i> 如何使用hugo搭建个人博客（三）:添加follow与修改share的方式
+              <a href="/2016/07/25/python3 get Baidu hotNews/" rel="next" title="python脚本爬取今日百度热点新闻">
+                <i class="fa fa-chevron-left"></i> python脚本爬取今日百度热点新闻
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/17/hugo 5 add gcse/" rel="prev" title="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
-                如何使用hugo搭建个人博客（五）：添加站内搜索（gcse） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/28/python3 fibonacci recursion and iteration/" rel="prev" title="python3 fibonacci的高效解法">
+                python3 fibonacci的高效解法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +486,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本执行结果"><span class="nav-number">3.</span> <span class="nav-text">脚本执行结果</span></a></li></ol></div>
             
           </div>
         </section>
@@ -624,9 +622,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'learnbetterclub.disqus.com/admin/';
-      var disqus_identifier = '2016/06/16/hugo 4 add disqus/';
-      var disqus_title = "如何使用hugo搭建个人博客（四）:添加评论系统disqus";
-      var disqus_url = 'http://learnbetter.club/2016/06/16/hugo 4 add disqus/';
+      var disqus_identifier = '2016/07/25/python3 get Baidu hotNews and store in mysqlDB/';
+      var disqus_title = "python3 脚本爬取今日百度热点新闻并存放到mysql数据库";
+      var disqus_url = 'http://learnbetter.club/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

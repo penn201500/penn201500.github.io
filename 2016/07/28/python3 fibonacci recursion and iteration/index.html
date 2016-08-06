@@ -86,16 +86,22 @@
 
 
 
-<meta name="description" content="学不可以已">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://learnbetter.club/tags/index.html">
+<meta name="description" content="目标：使用python求解fibonacci函数
+解法一：123456789#!/usr/bin/env python3# -*- coding: utf-8 -*-def fib(n):    if n in [0,1]:        return n    return fib(n-1) + fib(n-2)print(fib(10))
+该方法直观好理解，但是效率低下。当n为50时，需要等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3 fibonacci的高效解法">
+<meta property="og:url" content="http://learnbetter.club/2016/07/28/python3 fibonacci recursion and iteration/index.html">
 <meta property="og:site_name" content="Learn Better, Learn More">
-<meta property="og:description" content="学不可以已">
-<meta property="og:updated_time" content="2016-08-06T17:01:00.426Z">
+<meta property="og:description" content="目标：使用python求解fibonacci函数
+解法一：123456789#!/usr/bin/env python3# -*- coding: utf-8 -*-def fib(n):    if n in [0,1]:        return n    return fib(n-1) + fib(n-2)print(fib(10))
+该方法直观好理解，但是效率低下。当n为50时，需要等">
+<meta property="og:updated_time" content="2016-08-06T17:47:01.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="学不可以已">
+<meta name="twitter:title" content="python3 fibonacci的高效解法">
+<meta name="twitter:description" content="目标：使用python求解fibonacci函数
+解法一：123456789#!/usr/bin/env python3# -*- coding: utf-8 -*-def fib(n):    if n in [0,1]:        return n    return fib(n-1) + fib(n-2)print(fib(10))
+该方法直观好理解，但是效率低下。当n为50时，需要等">
 
 
 
@@ -116,15 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://learnbetter.club/tags/"/>
+  <link rel="canonical" href="http://learnbetter.club/2016/07/28/python3 fibonacci recursion and iteration/"/>
 
-  <title>
-  
-
-  
-    标签 | Learn Better, Learn More
-  
-</title>
+  <title> python3 fibonacci的高效解法 | Learn Better, Learn More </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,16 +245,147 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            暂无标签
-        </div>
-        <div class="tag-cloud-tags">
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python3 fibonacci的高效解法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-28T22:04:40+08:00" content="2016-07-28">
+              2016-07-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/28/python3 fibonacci recursion and iteration/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/28/python3 fibonacci recursion and iteration/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/28/python3 fibonacci recursion and iteration/" class="leancloud_visitors" data-flag-title="python3 fibonacci的高效解法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
           
         </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><p>使用python求解fibonacci函数</p>
+<h2 id="解法一："><a href="#解法一：" class="headerlink" title="解法一："></a>解法一：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>]:</div><div class="line">        <span class="keyword">return</span> n</div><div class="line">    <span class="keyword">return</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line"></div><div class="line">print(fib(<span class="number">10</span>))</div></pre></td></tr></table></figure>
+<p>该方法直观好理解，但是效率低下。当n为50时，需要等好久才能得出结果。这是因为<br>fib(n) : fib(n-1) + fib(n-2)<br>fib(n-1) : fib(n-2) + fib(n-3)<br>…</p>
+<p>当n的值越大时，重复的次数越多，导致效率低下。</p>
+<h2 id="解法二："><a href="#解法二：" class="headerlink" title="解法二："></a>解法二：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">f_num : &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="comment">#print(f_num)</span></div><div class="line">    <span class="comment">#print(n)</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>]:</div><div class="line">        f_num[n] : n</div><div class="line">        <span class="keyword">return</span> f_num[n]</div><div class="line">    <span class="keyword">elif</span> n <span class="keyword">in</span> f_num:</div><div class="line">        print(f_num[n])</div><div class="line">        <span class="keyword">return</span> f_num[n]</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        f_num[n] : fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line">        <span class="keyword">return</span> f_num[n]</div><div class="line"></div><div class="line">print(fib(<span class="number">986</span>))</div></pre></td></tr></table></figure>
+<p>效率高了很多，原因在于，已经计算出来的 fib(x) 存储在了dictionary中，不用再去重复计算。</p>
+<p>还有一种不必递归的解法（迭代）：</p>
+<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n)</span>:</span></div><div class="line">    pre : <span class="number">1</span></div><div class="line">    next : <span class="number">1</span></div><div class="line">    result : <span class="number">0</span></div><div class="line">    i : <span class="number">2</span></div><div class="line">    <span class="keyword">while</span> i &lt; n:</div><div class="line">        result : pre + next</div><div class="line">        pre : next</div><div class="line">        next : result</div><div class="line">        i +: <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line">print(fib_iter(<span class="number">986</span>))</div></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/" rel="next" title="python3 脚本爬取今日百度热点新闻并存放到mysql数据库">
+                <i class="fa fa-chevron-left"></i> python3 脚本爬取今日百度热点新闻并存放到mysql数据库
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/29/python3 compare 2 list structure/" rel="prev" title="python3 比较两个list的结构">
+                python3 比较两个list的结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -293,8 +424,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -337,6 +477,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标："><span class="nav-number">1.</span> <span class="nav-text">目标：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法一："><span class="nav-number">2.</span> <span class="nav-text">解法一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法二："><span class="nav-number">3.</span> <span class="nav-text">解法二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法三"><span class="nav-number">4.</span> <span class="nav-text">解法三</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -449,6 +600,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -465,9 +620,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'learnbetterclub.disqus.com/admin/';
-      var disqus_identifier = 'tags/index.html';
-      var disqus_title = "tags";
-      var disqus_url = 'http://learnbetter.club/tags/index.html';
+      var disqus_identifier = '2016/07/28/python3 fibonacci recursion and iteration/';
+      var disqus_title = "python3 fibonacci的高效解法";
+      var disqus_url = 'http://learnbetter.club/2016/07/28/python3 fibonacci recursion and iteration/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
