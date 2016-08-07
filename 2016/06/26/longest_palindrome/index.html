@@ -68,12 +68,10 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learn Better, Learn More, Python" />
+  <meta name="keywords" content="python3," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="Learn Better, Learn More" type="application/atom+xml" />
@@ -88,13 +86,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Learn Better, Learn More">
-<meta property="og:url" content="http://learnbetter.club/404.html">
+<meta name="description" content="python奇思妙解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取string中的最长回文字符串">
+<meta property="og:url" content="http://learnbetter.club/2016/06/26/longest_palindrome /index.html">
 <meta property="og:site_name" content="Learn Better, Learn More">
-<meta property="og:updated_time" content="2016-08-06T17:07:37.500Z">
+<meta property="og:description" content="python奇思妙解">
+<meta property="og:updated_time" content="2016-08-07T04:31:00.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn Better, Learn More">
+<meta name="twitter:title" content="获取string中的最长回文字符串">
+<meta name="twitter:description" content="python奇思妙解">
 
 
 
@@ -115,15 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://learnbetter.club/404.html"/>
+  <link rel="canonical" href="http://learnbetter.club/2016/06/26/longest_palindrome /"/>
 
-  <title>
-  
-
-  
-     | Learn Better, Learn More
-  
-</title>
+  <title> 获取string中的最长回文字符串 | Learn Better, Learn More </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,23 +239,177 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-</head>
-<body>
 
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="your site url " homepagename="�ص��ҵ���ҳ">
-</script>
+  
+  
 
-</body>
-</html>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                获取string中的最长回文字符串
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-26T19:04:40+08:00" content="2016-06-26">
+              2016-06-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/26/longest_palindrome /#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/26/longest_palindrome /" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/26/longest_palindrome /" class="leancloud_visitors" data-flag-title="获取string中的最长回文字符串">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a><strong>例题</strong></h2><p>获取string中的最长回文字符串</p>
+<p>所谓回文字符串，即该字符串从左到右读和从右到左读是完全一样的。如“123454321”就是一个长度为9的回文字符串。<br>现要求使用python完成：对一个字符串s，找出其中为回文字符串的部分，并返回回文字符串的长度。规则为：</p>
+<ol>
+<li>如果s是1个字符，则长度为1，如“a”</li>
+<li>如果s为空“”，则长度为0</li>
+<li>如果s中有部分是回文字符串，返回最长回文字符串及其长度，如“aab”，最长回文字符串为“aa”，长度为2</li>
+</ol>
+<p>例子：</p>
+<blockquote>
+<p>“a” -&gt; 1<br>“aab” -&gt; 2<br>“abcde” -&gt; 1<br>“zzbaabcd” -&gt; 4<br>“” -&gt; 0</p>
+</blockquote>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a><strong>解法</strong></h2><p>对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">longest_palindrome</span> <span class="params">(s)</span>:</span></div><div class="line">    longest : <span class="number">0</span></div><div class="line">    <span class="keyword">if</span> s :: <span class="string">''</span>: <span class="keyword">return</span> <span class="string">''</span></div><div class="line">    <span class="keyword">for</span> left <span class="keyword">in</span> range(len(s)):</div><div class="line">        <span class="keyword">for</span> right <span class="keyword">in</span> range(len(s), left, <span class="number">-1</span>):</div><div class="line">            <span class="keyword">if</span> s[left:right] <span class="keyword">in</span> (s[left:right])[::<span class="number">-1</span>]:</div><div class="line">                <span class="comment">#longest : max(right-left, longest)</span></div><div class="line">                <span class="keyword">if</span> (right-left)&gt;longest:</div><div class="line">                    longest : right-left</div><div class="line">                    palindrome : s[left:right]</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                <span class="keyword">else</span>: <span class="keyword">break</span></div><div class="line">    <span class="keyword">return</span> palindrome</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ :: <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'abcdab123454321'</span>) :: <span class="string">'123454321'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'abcdab123454321'</span>)) :: <span class="number">9</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'ab'</span>) :: <span class="string">'a'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'ab'</span>)) :: <span class="number">1</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'aa'</span>) :: <span class="string">'aa'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'aa'</span>)) :: <span class="number">2</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">''</span>) :: <span class="string">''</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">''</span>)) :: <span class="number">0</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'abcdefba'</span>) :: <span class="string">'a'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'abcdefba'</span>)) :: <span class="number">1</span></div><div class="line"></div><div class="line">    print(<span class="string">'assert complete!'</span>)</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Anaconda3\python.exe E:/python_projects/test.py</div><div class="line"><span class="keyword">assert</span> complete!</div><div class="line"></div><div class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python3/" rel="tag">#python3</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/19/python3 sorted/" rel="next" title="python3 sorted的用法">
+                <i class="fa fa-chevron-left"></i> python3 sorted的用法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/26/longest common substring/" rel="prev" title="获取两个字符串中最长的公共字符串">
+                获取两个字符串中最长的公共字符串 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -299,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -357,6 +515,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例题"><span class="nav-number">1.</span> <span class="nav-text">例题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -469,6 +638,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -485,9 +658,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'wwwlearnbetterclub';
-      var disqus_identifier = '404.html';
-      var disqus_title = "";
-      var disqus_url = 'http://learnbetter.club/404.html';
+      var disqus_identifier = '2016/06/26/longest_palindrome /';
+      var disqus_title = "获取string中的最长回文字符串";
+      var disqus_url = 'http://learnbetter.club/2016/06/26/longest_palindrome /';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

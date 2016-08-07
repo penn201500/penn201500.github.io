@@ -398,6 +398,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -437,17 +456,12 @@
 
       
         
-          
-            <hr>
-<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>比较两个list的结构，如：<br>a : [1,2,3]<br>b : [4,5,6]<br>则两个list的结构相同<br>如：<br>a : [1,2,3,[4,5,6,[7]]]<br>b : [1,[2],[3]]<br>则两个list的结构不同</p>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>print list的时候会将list的括号、逗号都打印出来。获取打印结果中的括号、逗号作为list的结构。比较即可得知两个list结构是否相同</p>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</div><div class="line"></div><div class="line">a : [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line">b : [<span class="number">1</span>,<span class="number">2</span>]</div><div class="line">c : [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,[<span class="number">7</span>]]]</div><div class="line">d : [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,[<span class="number">8</span>]]]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare</span><span class="params">(a,b)</span>:</span></div><div class="line">    <span class="comment">#get print out</span></div><div class="line">    <span class="comment">#how to use StringIO()</span></div><div class="line">    stdout : sys.stdout </div><div class="line">    stream : StringIO()</div><div class="line">    sys.stdout : stream</div><div class="line">    print(a)</div><div class="line">    print(b)</div><div class="line">    sys.stdout : stdout</div><div class="line">    </div><div class="line">    variable : str(stream.getvalue())</div><div class="line">    res : variable.split(<span class="string">'\n'</span>)</div><div class="line">    <span class="comment"># print(variable.split('\n'))</span></div><div class="line">    </div><div class="line">    str_a : res[<span class="number">0</span>]</div><div class="line">    str_b : res[<span class="number">1</span>]</div><div class="line">    </div><div class="line">    struct_a : <span class="string">''</span>.join([x <span class="keyword">for</span> x <span class="keyword">in</span> res[<span class="number">0</span>] <span class="keyword">if</span> x <span class="keyword">in</span> [<span class="string">','</span>,<span class="string">'['</span>,<span class="string">']'</span>]])</div><div class="line">    struct_b : <span class="string">''</span>.join([x <span class="keyword">for</span> x <span class="keyword">in</span> res[<span class="number">1</span>] <span class="keyword">if</span> x <span class="keyword">in</span> [<span class="string">','</span>,<span class="string">'['</span>,<span class="string">']'</span>]])</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment"># print(str_a)</span></div><div class="line">    <span class="comment"># print(str_b)</span></div><div class="line">    <span class="comment"># print(type(str_a))</span></div><div class="line">    <span class="comment"># print(struct_a)</span></div><div class="line">    <span class="comment"># print(struct_b)</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> struct_a :: struct_b: <span class="keyword">return</span> <span class="string">'True'</span></div><div class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="string">'False'</span></div><div class="line"></div><div class="line">print(compare(a,b))</div></pre></td></tr></table></figure>
-<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print(compare(a,b))</div><div class="line">False</div><div class="line">&gt;&gt;&gt;print(compare(c,d))</div><div class="line">True</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>参考：</strong><br><a href="http://stackoverflow.com/questions/14197009/how-can-i-redirect-print-output-of-a-function-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/14197009/how-can-i-redirect-print-output-of-a-function-in-python</a></p>
-<hr>
-
-          
+          python3 比较两个list的结构
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/29/python3 compare 2 list structure/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -515,6 +529,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -554,19 +587,12 @@
 
       
         
-          
-            <hr>
-<h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><p>使用python求解fibonacci函数</p>
-<h2 id="解法一："><a href="#解法一：" class="headerlink" title="解法一："></a>解法一：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>]:</div><div class="line">        <span class="keyword">return</span> n</div><div class="line">    <span class="keyword">return</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line"></div><div class="line">print(fib(<span class="number">10</span>))</div></pre></td></tr></table></figure>
-<p>该方法直观好理解，但是效率低下。当n为50时，需要等好久才能得出结果。这是因为<br>fib(n) : fib(n-1) + fib(n-2)<br>fib(n-1) : fib(n-2) + fib(n-3)<br>…</p>
-<p>当n的值越大时，重复的次数越多，导致效率低下。</p>
-<h2 id="解法二："><a href="#解法二：" class="headerlink" title="解法二："></a>解法二：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">f_num : &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="comment">#print(f_num)</span></div><div class="line">    <span class="comment">#print(n)</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>]:</div><div class="line">        f_num[n] : n</div><div class="line">        <span class="keyword">return</span> f_num[n]</div><div class="line">    <span class="keyword">elif</span> n <span class="keyword">in</span> f_num:</div><div class="line">        print(f_num[n])</div><div class="line">        <span class="keyword">return</span> f_num[n]</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        f_num[n] : fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line">        <span class="keyword">return</span> f_num[n]</div><div class="line"></div><div class="line">print(fib(<span class="number">986</span>))</div></pre></td></tr></table></figure>
-<p>效率高了很多，原因在于，已经计算出来的 fib(x) 存储在了dictionary中，不用再去重复计算。</p>
-<p>还有一种不必递归的解法（迭代）：</p>
-<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n)</span>:</span></div><div class="line">    pre : <span class="number">1</span></div><div class="line">    next : <span class="number">1</span></div><div class="line">    result : <span class="number">0</span></div><div class="line">    i : <span class="number">2</span></div><div class="line">    <span class="keyword">while</span> i &lt; n:</div><div class="line">        result : pre + next</div><div class="line">        pre : next</div><div class="line">        next : result</div><div class="line">        i +: <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line">print(fib_iter(<span class="number">986</span>))</div></pre></td></tr></table></figure>
-<hr>
-
-          
+          python3 fibonacci的高效解法
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/28/python3 fibonacci recursion and iteration/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -634,6 +660,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -673,21 +718,12 @@
 
       
         
-          
-            <hr>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p> python3.x 脚本爬取今日百度热点新闻并存放到mysql数据库</p>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
-<li>安装pymysql<figure class="highlight plain"><figcaption><span>install pymysql```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">2. 下载安装mysql 5.x</div><div class="line"></div><div class="line">## 知识点</div><div class="line"></div><div class="line">1. python3.x 使用pymysql来与mysqlDB交互；可以使用 pip install pymysql 命令安装pymysql</div><div class="line">2. pymysql的使用： http://www.runoob.com/python3/python3-mysql.html</div><div class="line">3. mysql的一些用法：</div><div class="line">   show databases;</div><div class="line">   use test;</div><div class="line">   show tables;</div><div class="line">   drop tables;</div><div class="line">4. 格式化时间：time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;,time.localtime(time.time()))</div><div class="line">5. 某表不存在时创建该表：</div><div class="line">   sql : &quot;&quot;&quot;CREATE TABLE IF NOT EXISTS %s (</div><div class="line">               text  VARCHAR(200),</div><div class="line">               time  VARCHAR(200),</div><div class="line">               date VARCHAR(200))&quot;&quot;&quot; % (table,)</div><div class="line"></div><div class="line"></div><div class="line">## 代码</div><div class="line"></div><div class="line">```python</div><div class="line">#!/usr/bin/env python3</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">from urllib.error import URLError, HTTPError</div><div class="line">import urllib.request</div><div class="line">import re</div><div class="line">import time</div><div class="line">import pymysql</div><div class="line"></div><div class="line">class GetAndStore:</div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line"></div><div class="line">    #function</div><div class="line">    def printHotNews(self,url):</div><div class="line">        content : urllib.request.urlopen(url).read().decode(&apos;gbk&apos;)</div><div class="line">        pattern : re.compile(&apos;&lt;li class:&quot;hd.*?&lt;strong&gt;.*?&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?strong&gt;&apos;, re.S)</div><div class="line">        hotNews : re.findall(pattern, content)</div><div class="line">        for i in hotNews:</div><div class="line">            print(i) </div><div class="line">        return hotNews    </div><div class="line">    </div><div class="line">    #function can be reused</div><div class="line">    def storeDB(self,table,news):</div><div class="line">        #use dict store news</div><div class="line">        news_date : time.strftime(&apos;%Y-%m-%d&apos;,time.localtime(time.time()))</div><div class="line">        news_time : time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;,time.localtime(time.time()))</div><div class="line">        #test insert only 1 record</div><div class="line">        text : &quot;&apos;&quot; + news[0] + &quot;&apos;&quot;  #Chinese character and symbol</div><div class="line">        time_now : &quot;&apos;&quot; + news_time + &quot;&apos;&quot;</div><div class="line">        date : &quot;&apos;&quot; + news_date + &quot;&apos;&quot;</div><div class="line"></div><div class="line">        #connect mysqlDB</div><div class="line">        conn : pymysql.connect(</div><div class="line">            host:&apos;127.0.0.1&apos;, </div><div class="line">            port:3306, </div><div class="line">            user:&apos;root&apos;, </div><div class="line">            passwd:&apos;root&apos;, </div><div class="line">            db:&apos;test&apos;,</div><div class="line">            use_unicode:1,</div><div class="line">            charset:&apos;utf8&apos;)</div><div class="line">    </div><div class="line">        try:</div><div class="line">            with conn.cursor() as cursor:</div><div class="line">                #create a table</div><div class="line">                sql : &quot;&quot;&quot;CREATE TABLE IF NOT EXISTS %s (</div><div class="line">                            text  VARCHAR(200),</div><div class="line">                            time  VARCHAR(200),</div><div class="line">                            date VARCHAR(200))&quot;&quot;&quot; % (table,)</div><div class="line">                cursor.execute(sql)</div><div class="line">                # Create a new record</div><div class="line">                sql : &quot;INSERT INTO %s (%s,%s,%s) VALUES (%s,%s,%s)&quot; % (table, &apos;text&apos;, &apos;date&apos;, &apos;time&apos;, text, date, time_now)</div><div class="line">                cursor.execute(sql)</div><div class="line">                # connection is not autocommit by default. So you must commit to save</div><div class="line">                # your changes.</div><div class="line">                conn.commit()</div><div class="line">    </div><div class="line">            with conn.cursor() as cursor:</div><div class="line">                # Read all records</div><div class="line">                sql : &quot;SELECT * FROM (%s) &quot; %(table,)</div><div class="line">                cursor.execute(sql)</div><div class="line">                result : cursor.fetchall()</div><div class="line">                print(result)</div><div class="line">                cursor.close()</div><div class="line">        finally:</div><div class="line">            conn.close()</div><div class="line"></div><div class="line">        </div><div class="line">if __name__ :: &quot;__main__&quot;:    </div><div class="line">    #variable</div><div class="line">    url : &apos;http://news.baidu.com/&apos;</div><div class="line">    instance1 : GetAndStore()  #create an instance</div><div class="line">    </div><div class="line">    try:</div><div class="line">        response : urllib.request.urlopen(url)</div><div class="line">    except HTTPError as e:</div><div class="line">        # http error</div><div class="line">        print(&apos;Error code: &apos;, e.code)</div><div class="line">    except URLError as e:</div><div class="line">        # url error</div><div class="line">        print(&apos;Reason: &apos;, e.reason)</div><div class="line">    else:</div><div class="line">        # excute function</div><div class="line">        instance1.printHotNews(url)</div><div class="line">        instance1.storeDB(&quot;table1&quot;, instance1.printHotNews(url))</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="脚本执行结果"><a href="#脚本执行结果" class="headerlink" title="脚本执行结果"></a>脚本执行结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">E:\github_projects\python-crawler&gt;python 2_get_hotNews_and_store_data_in_mysqldb.py</div><div class="line">习近平：扶贫工作不搞层层加码</div><div class="line">7月20日的国务院常务会定了这3件大事</div><div class="line">《寒战2》3D电影引争议 特效渣渣有圈钱之嫌</div><div class="line"></div><div class="line">习近平：扶贫工作不搞层层加码</div><div class="line">7月20日的国务院常务会定了这3件大事</div><div class="line">《寒战2》3D电影引争议 特效渣渣有圈钱之嫌</div><div class="line"></div><div class="line">((&apos;习近平：扶贫工作不搞层层加码&apos;, &apos;2016-07-22 03:12:12&apos;, &apos;2016-07-22&apos;),)</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考：</strong></p>
-<p><a href="http://stackoverflow.com/questions/14011160/how-to-use-python-mysqldb-to-insert-many-rows-at-once" target="_blank" rel="external">http://stackoverflow.com/questions/14011160/how-to-use-python-mysqldb-to-insert-many-rows-at-once</a></p>
-<p><a href="http://www.mysqltutorial.org/python-mysql-insert/" target="_blank" rel="external">http://www.mysqltutorial.org/python-mysql-insert/</a></p>
-<hr>
-
-          
+          python3 脚本爬取今日百度热点新闻并存放到mysql数据库
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/25/python3 get Baidu hotNews and store in mysqlDB/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -755,6 +791,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -794,21 +849,12 @@
 
       
         
-          
-            <hr>
-<p>python脚本爬取今日百度热点新闻</p>
-<h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><p>python脚本爬取今日百度热点新闻</p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ol>
-<li>python3使用 urllib.request.urlopen 去打开一个特定网址</li>
-<li>中文可以加 decode(‘gbk’) 来避免乱码</li>
-<li>re.S 用来解决跨行匹配的问题，用法： re.compile(pattern, re.S)</li>
-</ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">url : <span class="string">'http://news.baidu.com/'</span></div><div class="line">content : urllib.request.urlopen(url).read().decode(<span class="string">'gbk'</span>)</div><div class="line"></div><div class="line"><span class="comment">#Example：</span></div><div class="line"><span class="comment">#&lt;li class:"hdline0"&gt;</span></div><div class="line"><span class="comment">#&lt;i class:"dot"&gt;&lt;/i&gt;</span></div><div class="line"><span class="comment">#&lt;strong&gt;</span></div><div class="line"><span class="comment">#&lt;a href:"http://china.huanqiu.com/article/2016-07/9209287.html?from:bdwz " target:"_blank" class:"a3" mon:"ct:1&amp;amp;a:1&amp;amp;c:top&amp;amp;pn:0"&gt;xxx：扶贫工作不搞层层加码&lt;/a&gt;</span></div><div class="line"><span class="comment">#&lt;/strong&gt;</span></div><div class="line"><span class="comment">#&lt;/li&gt;</span></div><div class="line"></div><div class="line">pattern : re.compile(<span class="string">'&lt;li class:"hd.*?&lt;strong&gt;.*?&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?strong&gt;'</span>, re.S)</div><div class="line">hotNews : re.findall(pattern, content)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> hotNews:</div><div class="line">  print(i)</div></pre></td></tr></table></figure>
-<h2 id="hotnews-from-baidu"><a href="#hotnews-from-baidu" class="headerlink" title="hotnews from baidu:"></a>hotnews from baidu:</h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/baidu%20hotnews.jpg" alt=""></p>
-<h2 id="script-excute-result"><a href="#script-excute-result" class="headerlink" title="script excute result:"></a>script excute result:</h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/crawler%20baidu%20hotNews.jpg" alt=""></p>
-<hr>
-
-          
+          python脚本爬取今日百度热点新闻
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/25/python3 get Baidu hotNews/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -876,6 +922,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -915,98 +980,12 @@
 
       
         
-          
-            <hr>
-<p>ufw是一个主机端的iptables类防火墙配置工具</p>
-<h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><blockquote>
-<p>sudo apt-get install ufw</p>
-</blockquote>
-<h2 id="开启，建议默认关闭所有外部访问"><a href="#开启，建议默认关闭所有外部访问" class="headerlink" title="开启，建议默认关闭所有外部访问"></a>开启，建议默认关闭所有外部访问</h2><blockquote>
-<p>sudo ufw enable</p>
-<p>sudo ufw default deny</p>
-</blockquote>
-<h2 id="查看ufw现在已经开放的端口："><a href="#查看ufw现在已经开放的端口：" class="headerlink" title="查看ufw现在已经开放的端口："></a>查看ufw现在已经开放的端口：</h2><blockquote>
-<p>ubuntu@localhost:~$ sudo ufw status<br>[sudo] password for ubuntu:<br>Status: active</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">To</th>
-<th style="text-align:center">Action</th>
-<th style="text-align:center">From</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">--</td>
-<td style="text-align:center">-—–</td>
-<td style="text-align:center">-—</td>
-</tr>
-<tr>
-<td style="text-align:left">16430</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere</td>
-</tr>
-<tr>
-<td style="text-align:left">30000</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere</td>
-</tr>
-<tr>
-<td style="text-align:left">30001</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere</td>
-</tr>
-<tr>
-<td style="text-align:left">1194/tcp</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere</td>
-</tr>
-<tr>
-<td style="text-align:left">16430 (v6)</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere (v6)</td>
-</tr>
-<tr>
-<td style="text-align:left">30000 (v6)</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere (v6)</td>
-</tr>
-<tr>
-<td style="text-align:left">30001 (v6)</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere (v6)</td>
-</tr>
-<tr>
-<td style="text-align:left">1194/tcp (v6)</td>
-<td style="text-align:center">ALLOW</td>
-<td style="text-align:center">Anywhere (v6)</td>
-</tr>
-<tr>
-<td style="text-align:left">ubuntu@localhost:~$ </td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<h2 id="新增端口"><a href="#新增端口" class="headerlink" title="新增端口"></a>新增端口</h2><blockquote>
-<p>sudo ufw allow 8080</p>
-</blockquote>
-<h2 id="删除端口"><a href="#删除端口" class="headerlink" title="删除端口"></a>删除端口</h2><blockquote>
-<p>sudo ufw delete allow 8080</p>
-</blockquote>
-<h2 id="允许特定来源的ip地址访问"><a href="#允许特定来源的ip地址访问" class="headerlink" title="允许特定来源的ip地址访问"></a>允许特定来源的ip地址访问</h2><blockquote>
-<p>sudo ufw allow from 192.168.1.1</p>
-</blockquote>
-<h2 id="其他命令可以如此查看："><a href="#其他命令可以如此查看：" class="headerlink" title="其他命令可以如此查看："></a>其他命令可以如此查看：</h2><blockquote>
-<p>ubuntu@localhost:~$ sudo ufw –help</p>
-<p>Usage: ufw COMMAND</p>
-<p>Commands:</p>
-<p>enable:enables the firewall</p>
-<p>disable:disables the firewall</p>
-<p>……</p>
-</blockquote>
-<hr>
-
-          
+          Linux ubuntu
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/15/ubuntu ufw port/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1074,6 +1053,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1113,41 +1111,12 @@
 
       
         
-          
-            <hr>
-<p>之前的博文中谈到了 <a href="http://learnbetter.club/2016/06/python3-zip/">python3 zip的用法</a> ,现在看看reversed与zip配合，顺时针读取二维数组的方法。</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a><strong>例题</strong></h2><p>注：例题来自 <a href="https://www.codewars.com/kata/snail/python" target="_blank" rel="external">https://www.codewars.com/kata/snail/python</a></p>
-<blockquote>
-<ol>
-<li>给定一个n*n的矩阵，通过函数 snail（）得到按顺时针方向读取的list：<br>array : [[1,2,3],<pre><code>[4,5,6],
-[7,8,9]]
-</code></pre>snail(array) #:&gt; [1,2,3,6,9,8,7,4,5]<br>即：<br>[[1–&gt;2–&gt;3],<br> [4–&gt;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6],<br> [7&lt;–8&lt;–9]]</li>
-<li>如果给定的矩阵为0*0，返回[[]]</li>
-</ol>
-</blockquote>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a><strong>解法</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">snail</span><span class="params">(array)</span>:</span></div><div class="line">	<span class="comment">#1. Pop top row</span></div><div class="line">	<span class="comment">#2. Transpose and flip upside-down (same as rotate 90 degrees counter-clockwise)</span></div><div class="line">	<span class="comment">#3. Go to 1</span></div><div class="line">    <span class="comment">#and reference:</span></div><div class="line">    <span class="comment">#http://stackoverflow.com/questions/1655685/traverse-2d-array-in-spiral-pattern-using-recursion</span></div><div class="line">    </div><div class="line">    <span class="keyword">return</span> list(array[<span class="number">0</span>]) + snail(list(reversed(list(zip(*array[<span class="number">1</span>:]))))) <span class="keyword">if</span> array <span class="keyword">else</span> []</div></pre></td></tr></table></figure>
-<p>解题思路是：</p>
-<ol>
-<li>先取到矩阵的第一行元素</li>
-<li>将去除了第一行元素的矩阵逆时针旋转90度：zip方法或transpose方法进行行列转换之后，再使用reverse方法将矩阵上下倒置</li>
-<li>回到第一步</li>
-</ol>
-<h2 id="reverse方法"><a href="#reverse方法" class="headerlink" title="reverse方法"></a><strong>reverse方法</strong></h2><p>python doc：</p>
-<blockquote>
-<p><strong>reversed(seq)</strong><br>Return a reverse iterator. seq must be an object which has a <strong>reversed</strong>() method or supports the sequence protocol (the <strong>len</strong>() method and the <strong>getitem</strong>() method with integer arguments starting at 0).</p>
-</blockquote>
-<p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">list(reversed([&apos;dream&apos;,&apos;a&apos;,&apos;have&apos;,&apos;I&apos;]))</div><div class="line">&gt;&gt;&gt;[&apos;I&apos;, &apos;have&apos;, &apos;a&apos;, &apos;dream&apos;]</div></pre></td></tr></table></figure>
-<p>需要注意的是： reverse（）方法会改变操作对象，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a : [1,2,3,4]</div><div class="line">&gt;&gt;&gt; b : a</div><div class="line">\&gt;&gt;&gt; b</div><div class="line">[1, 2, 3, 4]</div><div class="line">&gt;&gt;&gt; b.reverse()</div><div class="line">&gt;&gt;&gt; b</div><div class="line">[4, 3, 2, 1]</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[4, 3, 2, 1]</div></pre></td></tr></table></figure>
-<p>而reversed（）不会，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a : [1,2,3,4]</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[1, 2, 3, 4]</div><div class="line">&gt;&gt;&gt; b : a</div><div class="line">&gt;&gt;&gt; b</div><div class="line">[1, 2, 3, 4]</div><div class="line">&gt;&gt;&gt; reversed(b)</div><div class="line">&lt;list_reverseiterator object at 0x0000022BD8937B70&gt;</div><div class="line">&gt;&gt;&gt; list(reversed(b))</div><div class="line">[4, 3, 2, 1]</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[1, 2, 3, 4]</div><div class="line">&gt;&gt;&gt; b</div><div class="line">[1, 2, 3, 4]</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>参考</strong></p>
-<p><a href="http://stackoverflow.com/questions/1655685/traverse-2d-array-in-spiral-pattern-using-recursion" target="_blank" rel="external">http://stackoverflow.com/questions/1655685/traverse-2d-array-in-spiral-pattern-using-recursion</a></p>
-<p><a href="http://stackoverflow.com/questions/726756/print-two-dimensional-array-in-spiral-order" target="_blank" rel="external">http://stackoverflow.com/questions/726756/print-two-dimensional-array-in-spiral-order</a></p>
-<hr>
-
-          
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/10/python3 reversed/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1215,6 +1184,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/vim/" itemprop="url" rel="index">
+                    <span itemprop="name">vim</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1254,59 +1242,12 @@
 
       
         
-          
-            <hr>
-<hr>
-<p>vim的终极配置spf13在linux_mint上的安装步骤如下（非gui）：</p>
-<ol>
-<li><p>安装vim<br>菜单–&gt;软件管理器–&gt;搜索“vim”。双击vim，安装<br><img src="http://o7ubfyghw.bkt.clouddn.com/mint%20install%20vim.jpg" alt="search and install vim"></p>
-</li>
-<li><p>安装vim-nox<br>与安装vim一样，搜索vim-nox；使用vim spf13中的neocomplete功能，需要vim有lua特性支持。vim-nox安装之后，查看vim的version信息：<br><img src="http://o7ubfyghw.bkt.clouddn.com/spf13%20lua%20support.jpg" alt="vim version with lua support"></p>
-</li>
-<li><p>安装spf13<br>访问spf13官网：<a href="http://vim.spf13.com/" target="_blank" rel="external">http://vim.spf13.com/</a><br>打开terminal，输入：</p>
-<blockquote>
-<p>curl <a href="http://j.mp/spf13-vim3" target="_blank" rel="external">http://j.mp/spf13-vim3</a> -L -o - | sh</p>
-</blockquote>
-<p>然后等待安装完成。<br>如果安装失败，提示git或者curl未安装:</p>
-<blockquote>
-<p>sudo apt-get install git<br>sudo apt-get install curl</p>
-</blockquote>
-</li>
-<li><p>配置color-scheme，NerdTree，字体<br>安装完成之后，在.spf13-vim-3同一级目录下，有</p>
-<blockquote>
-<p>.vimrc<br>.vimrc.before<br>.vimrc.bundles<br>.viminfo</p>
-</blockquote>
-<p>使用molokai color-scheme：<br>可以在.vimrc.local中配置colorscheme，也可以vim中执行命令，如：<br><img src="http://o7ubfyghw.bkt.clouddn.com/colorshceme%20molokai.jpg" alt="molokai color-scheme"></p>
-<p>配置NerdTree标签：需要在与.spf13-vim-3同一级目录下创建文件.NERDTreeBookmarks 文件中内容如下：</p>
-<blockquote>
-<p>.spf13-vim-3 ~/.spf13-vim-3</p>
-</blockquote>
-<p>这样会在NERDTree的标签中显示标签 <code>.spf13-vim-3</code><br><img src="http://o7ubfyghw.bkt.clouddn.com/spf13%20bookmarks.jpg" alt="nerdtree bookmark"></p>
-<p>添加.vimrc.local:<br>与.spf13-vim-3同一级目录下创建文件.vimrc.local，用来做个性化配置。如：</p>
-<blockquote>
-<p>“::::::::::::::::快捷换行::::::::::::::::::<br>nmap <c-up> ddkP<br>nmap <c-down> ddp<br>vmap <c-up> xkP<code>[V</code>]<br>vmap <c-down> xp<code>[V</code>]<br>“ ::::::: 使nerd-tree 能够copy文件 ::::::: “<br>let g:NERDTreeCopyCmd : ‘cp -r ‘</c-down></c-up></c-down></c-up></p>
-</blockquote>
-<p>配置NerdTree打开时显示的路径：<br>在.vimrc.local中增加</p>
-<blockquote>
-<p>“ ::::::: 设置NERDTree打开时的目录 ::::::: “<br>cd /home/mint/python_projects<br>“ shortcut to toggle NerdTree<br>map <f2> :NERDTreeToggle<cr><br>“ open Nerd Tree in folder of file in active buffer<br>map <leader>nt :NERDTree %:p:h<cr><br>autocmd bufenter * if (winnr(“$”) :: 1 &amp;&amp; exists(“b:NERDTreeType”) &amp;&amp; b:NERDTreeType :: “primary”) |q| endif</cr></leader></cr></f2></p>
-</blockquote>
-<p>添加.vimrc.bundles.local 用来配置自己的插件，如：</p>
-<blockquote>
-<p>Bundle ‘mhinz/vim-startify’</p>
-</blockquote>
-<p>添加自己的插件之后，执行命令插件：</p>
-<blockquote>
-<p>vim +BundleInstall! +BundleClean +q</p>
-</blockquote>
-<p>在.vimrc.local中配置字体：</p>
-<blockquote>
-<p>“ ::::::: 自定义快捷键 ::::::: “<br>“ 设置着色模式和字体<br>colorscheme molokai<br>set guifont:Monaco:h11<br>“ AirLine             彩色状态栏<br>let g:airline_theme : ‘dark’                “ 设置主题</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-
-          
+          vim spf13
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/04/install vim spf13 on linux mint 18/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1374,6 +1315,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1413,51 +1373,12 @@
 
       
         
-          
-            <hr>
-<h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a><strong>例题：</strong></h2><p>longest common substring<br>获取两个字符串中最长的公共字符串<br>如：<br>如果s1:’abcdefgh’，s2:’cdefgh’; s1与s2的最长公共字符串’cd’</p>
-<p>例子：</p>
-<blockquote>
-<p>s1:’abcdefgh’，s2:’cdefgh’<br>lcs(s1,s2) ::&gt; ‘cd’</p>
-</blockquote>
-<h2 id="解法："><a href="#解法：" class="headerlink" title="解法："></a><strong>解法：</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">lcs</span><span class="params">(s1,s2)</span>:</span></div><div class="line">    m : len(s1)</div><div class="line">    n : len(s2)</div><div class="line">    counter : [[<span class="number">0</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(m+<span class="number">1</span>)]</div><div class="line">    longest : <span class="number">0</span></div><div class="line">    lcs_set : set()</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,m+<span class="number">1</span>):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</div><div class="line">            <span class="keyword">if</span> s1[i<span class="number">-1</span>] :: s2[j<span class="number">-1</span>]:</div><div class="line">                c : counter[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></div><div class="line">                counter[i][j] : c</div><div class="line">                <span class="keyword">if</span> c &gt; longest:</div><div class="line">                    lcs_set : set()</div><div class="line">                    longest : c</div><div class="line">                    lcs_set.add(s1[i-c:i])</div><div class="line">                <span class="keyword">elif</span> c :: longest:</div><div class="line">                    lcs_set.add(s1[i-c:i])</div><div class="line">    <span class="keyword">return</span> lcs_set</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ :: <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">assert</span> lcs(<span class="string">'academy'</span>, <span class="string">'abracadabra'</span>) :: &#123;<span class="string">'acad'</span>&#125;</div><div class="line">    <span class="keyword">assert</span> lcs(<span class="string">'ababc'</span>, <span class="string">'abcdaba'</span>) :: &#123;<span class="string">'aba'</span>,<span class="string">'abc'</span>&#125;</div><div class="line">    <span class="keyword">assert</span> lcs(<span class="string">'abcdefgh'</span>, <span class="string">'cdefgh'</span>) :: &#123;<span class="string">'cdefgh'</span>&#125;</div><div class="line">    <span class="keyword">assert</span> lcs(<span class="string">'abcdefgh'</span>, <span class="string">''</span>) :: set()</div><div class="line">    print(<span class="string">'assert complete!'</span>)</div></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Anaconda3\python.exe E:/python_projects/test.py</div><div class="line"><span class="keyword">assert</span> complete!</div><div class="line"></div><div class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></div></pre></td></tr></table></figure>
-<h2 id="解释："><a href="#解释：" class="headerlink" title="解释："></a><strong>解释：</strong></h2><ol>
-<li>创建一个二维矩阵counter用来记录最长相同字符串的长度<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">m : len(S)</div><div class="line">n : len(T)</div><div class="line">counter : [[<span class="number">0</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(m+<span class="number">1</span>)]</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%201.jpg" alt=""></p>
-<ol>
-<li>将s1中的每一个字符与s2中的每一个字符进行比较<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(m):</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</div><div class="line">        <span class="keyword">if</span> S[i] :: T[j]:</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%202.jpg" alt=""></p>
-<ol>
-<li>如果s1的第i个字符和s2的第j个字符相同，则将矩阵counter[i+1][j+1]的值在counter[i][j]的基础上加1<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> S[i] :: T[j]:</div><div class="line">    c : counter[i][j] + <span class="number">1</span></div><div class="line">    counter[i+<span class="number">1</span>][j+<span class="number">1</span>] : c</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%203.jpg" alt=""></p>
-<ol>
-<li>如果现在的最长substring比以前的substring长，更新longest和set为新substring；如果新的substring和以前的substring一样长，直接将新的substring加入到set中<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> c &gt; longest:</div><div class="line">     lcs_set : set()</div><div class="line">     longest : c</div><div class="line">     lcs_set.add(S[i-c+<span class="number">1</span>:i+<span class="number">1</span>])</div><div class="line"><span class="keyword">elif</span> c :: longest:</div><div class="line">     lcs_set.add(S[i-c+<span class="number">1</span>:i+<span class="number">1</span>])</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://o7ubfyghw.bkt.clouddn.com/python%20longest%20common%20substring%204.jpg" alt=""></p>
-<h2 id="寻找最长回文字符串"><a href="#寻找最长回文字符串" class="headerlink" title="寻找最长回文字符串"></a><strong>寻找最长回文字符串</strong></h2><p>上一篇博客<a href="http://blog.csdn.net/justheretobe/article/details/51761575" target="_blank" rel="external">获取string中的最长回文字符串</a>还可以使用寻找两个字符串最长公共substring的方法解答：</p>
-<ol>
-<li>s1:‘给定字符串’</li>
-<li>s2:‘给定字符串的反序’</li>
-<li>比较s1与s2, 获取两个字符串中最长的公共字符串，即为s1最长的回文字符串<br>代码：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">longest_palindrome</span> <span class="params">(s)</span>:</span></div><div class="line">    s1 : s</div><div class="line">    s2 : s1[::<span class="number">-1</span>]</div><div class="line">    <span class="keyword">if</span> len(s) :: <span class="number">1</span> : <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">elif</span> len(s) :: <span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">      <span class="comment">#get the longest common string between s1 and reversed s1</span></div><div class="line">      m : [[<span class="number">0</span>] * (<span class="number">1</span> + len(s2)) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span> + len(s1))]</div><div class="line">      longest, x_longest : <span class="number">0</span>, <span class="number">0</span></div><div class="line">      <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">1</span> + len(s1)):</div><div class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">1</span> + len(s2)):</div><div class="line">          <span class="keyword">if</span> s1[x - <span class="number">1</span>] :: s2[y - <span class="number">1</span>]:</div><div class="line">            m[x][y] : m[x - <span class="number">1</span>][y - <span class="number">1</span>] + <span class="number">1</span></div><div class="line">            <span class="keyword">if</span> m[x][y] &gt; longest:</div><div class="line">              longest : m[x][y]</div><div class="line">              x_longest : x</div><div class="line">          <span class="keyword">else</span>:</div><div class="line">              m[x][y] : <span class="number">0</span></div><div class="line"></div><div class="line">      <span class="comment">#if the longest common string is palindrome, return its length, else return 1</span></div><div class="line">      longest_string : s1[(x_longest-longest):x_longest]</div><div class="line">      <span class="keyword">if</span> longest_string :: longest_string[::<span class="number">-1</span>]: <span class="keyword">return</span> longest</div><div class="line">      <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ :: <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'abcdab123454321'</span>) :: <span class="number">9</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'ab'</span>) :: <span class="number">1</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'aa'</span>) :: <span class="number">2</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">''</span>) :: <span class="number">0</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'abcdefba'</span>) :: <span class="number">1</span></div><div class="line">    print(<span class="string">'assert complete!'</span>)</div></pre></td></tr></table></figure>
-<p>运行结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Anaconda3\python.exe E:/python_projects/test.py</div><div class="line"><span class="keyword">assert</span> complete!</div><div class="line"></div><div class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></div></pre></td></tr></table></figure></p>
-<p>更多longest_palindrome 解法，见：<br><a href="https://www.codewars.com/kata/longest-palindrome/solutions/python" target="_blank" rel="external">https://www.codewars.com/kata/longest-palindrome/solutions/python</a></p>
-<hr>
-<p><strong>Reference：</strong></p>
-<p><a href="http://www.bogotobogo.com/python/python_solutions.php#longest_substring" target="_blank" rel="external">从给定string中找出至多只包含两个不同字符的最长substring</a></p>
-<p>解释和主要代码来自：<br><a href="http://www.bogotobogo.com/python/python_longest_common_substring_lcs_algorithm_generalized_suffix_tree.php" target="_blank" rel="external">python_longest_common_substring_lcs_algorithm_generalized_suffix_tree</a></p>
-
-          
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/longest common substring/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1525,6 +1446,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -1564,24 +1504,929 @@
 
       
         
-          
-            <hr>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a><strong>例题</strong></h2><p>获取string中的最长回文字符串</p>
-<p>所谓回文字符串，即该字符串从左到右读和从右到左读是完全一样的。如“123454321”就是一个长度为9的回文字符串。<br>现要求使用python完成：对一个字符串s，找出其中为回文字符串的部分，并返回回文字符串的长度。规则为：</p>
-<ol>
-<li>如果s是1个字符，则长度为1，如“a”</li>
-<li>如果s为空“”，则长度为0</li>
-<li>如果s中有部分是回文字符串，返回最长回文字符串及其长度，如“aab”，最长回文字符串为“aa”，长度为2</li>
-</ol>
-<p>例子：</p>
-<blockquote>
-<p>“a” -&gt; 1<br>“aab” -&gt; 2<br>“abcde” -&gt; 1<br>“zzbaabcd” -&gt; 4<br>“” -&gt; 0</p>
-</blockquote>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a><strong>解法</strong></h2><p>对该字符串的每个长度的组合都进行比较，如果是回文字符串，记录其长度。返回最长的回文字符串<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">longest_palindrome</span> <span class="params">(s)</span>:</span></div><div class="line">    longest : <span class="number">0</span></div><div class="line">    <span class="keyword">if</span> s :: <span class="string">''</span>: <span class="keyword">return</span> <span class="string">''</span></div><div class="line">    <span class="keyword">for</span> left <span class="keyword">in</span> range(len(s)):</div><div class="line">        <span class="keyword">for</span> right <span class="keyword">in</span> range(len(s), left, <span class="number">-1</span>):</div><div class="line">            <span class="keyword">if</span> s[left:right] <span class="keyword">in</span> (s[left:right])[::<span class="number">-1</span>]:</div><div class="line">                <span class="comment">#longest : max(right-left, longest)</span></div><div class="line">                <span class="keyword">if</span> (right-left)&gt;longest:</div><div class="line">                    longest : right-left</div><div class="line">                    palindrome : s[left:right]</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                <span class="keyword">else</span>: <span class="keyword">break</span></div><div class="line">    <span class="keyword">return</span> palindrome</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ :: <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'abcdab123454321'</span>) :: <span class="string">'123454321'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'abcdab123454321'</span>)) :: <span class="number">9</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'ab'</span>) :: <span class="string">'a'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'ab'</span>)) :: <span class="number">1</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'aa'</span>) :: <span class="string">'aa'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'aa'</span>)) :: <span class="number">2</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">''</span>) :: <span class="string">''</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">''</span>)) :: <span class="number">0</span></div><div class="line">    <span class="keyword">assert</span> longest_palindrome(<span class="string">'abcdefba'</span>) :: <span class="string">'a'</span></div><div class="line">    <span class="keyword">assert</span> len(longest_palindrome(<span class="string">'abcdefba'</span>)) :: <span class="number">1</span></div><div class="line"></div><div class="line">    print(<span class="string">'assert complete!'</span>)</div></pre></td></tr></table></figure></p>
-<p>运行结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Anaconda3\python.exe E:/python_projects/test.py</div><div class="line"><span class="keyword">assert</span> complete!</div><div class="line"></div><div class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></div></pre></td></tr></table></figure>
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/longest_palindrome /">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/19/python3 sorted/" itemprop="url">
+                  python3 sorted的用法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-19T21:04:40+08:00" content="2016-06-19">
+              2016-06-19
+            </time>
+          </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/19/python3 sorted/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/19/python3 sorted/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/19/python3 sorted/" class="leancloud_visitors" data-flag-title="python3 sorted的用法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/19/python3 sorted/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/19/python3 zip/" itemprop="url">
+                  python3 zip的用法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-19T19:04:40+08:00" content="2016-06-19">
+              2016-06-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/19/python3 zip/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/19/python3 zip/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/19/python3 zip/" class="leancloud_visitors" data-flag-title="python3 zip的用法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          python奇思妙解
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/19/python3 zip/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/17/hugo 5 add gcse/" itemprop="url">
+                  如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-17T21:04:40+08:00" content="2016-06-17">
+              2016-06-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/17/hugo 5 add gcse/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/hugo 5 add gcse/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/17/hugo 5 add gcse/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/17/hugo 5 add gcse/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/16/hugo 4 add disqus/" itemprop="url">
+                  如何使用hugo搭建个人博客（四）:添加评论系统disqus
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-16T15:04:40+08:00" content="2016-06-16">
+              2016-06-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/16/hugo 4 add disqus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/hugo 4 add disqus/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/16/hugo 4 add disqus/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/16/hugo 4 add disqus/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/15/hugo 3 update follow and share method/" itemprop="url">
+                  如何使用hugo搭建个人博客（三）:添加follow与修改share的方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T12:04:40+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/hugo 3 update follow and share method/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/hugo 3 update follow and share method/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/15/hugo 3 update follow and share method/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（三）:添加follow与修改share的方式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/15/hugo 3 update follow and share method/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/14/hugo 2 update sidebar/" itemprop="url">
+                  如何使用hugo搭建个人博客（二）：修改主题的颜色，字体，布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T10:04:40+08:00" content="2016-06-14">
+              2016-06-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/hugo 2 update sidebar/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/14/hugo 2 update sidebar/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/14/hugo 2 update sidebar/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（二）：修改主题的颜色，字体，布局">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/14/hugo 2 update sidebar/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/12/hugo 1 use it in win7/" itemprop="url">
+                  如何使用hugo搭建个人博客（一）：在win7上使用hugo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-12T19:04:40+08:00" content="2016-06-12">
+              2016-06-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/12/hugo 1 use it in win7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/hugo 1 use it in win7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/12/hugo 1 use it in win7/" class="leancloud_visitors" data-flag-title="如何使用hugo搭建个人博客（一）：在win7上使用hugo">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          如何使用hugo搭建个人博客
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/12/hugo 1 use it in win7/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1611,10 +2456,6 @@
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1659,7 +2500,21 @@
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -1812,7 +2667,7 @@
   
 
     <script type="text/javascript">
-      var disqus_shortname = 'learnbetterclub.disqus.com/admin/';
+      var disqus_shortname = 'wwwlearnbetterclub';
       var disqus_identifier = 'index.html';
       var disqus_title = "";
       var disqus_url = '';
