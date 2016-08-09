@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://learnbetter.club/2016/08/07/hello-world/</loc>
+    
+    <lastmod>2016-08-09T15:07:22.492Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://learnbetter.club/2016/07/25/python3%20get%20Baidu%20hotNews%20and%20store%20in%20mysqlDB/</loc>
     
     <lastmod>2016-08-09T15:00:31.228Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://learnbetter.club/tags/index.html</loc>
     
     <lastmod>2016-08-06T17:01:00.426Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://learnbetter.club/2016/08/07/hello-world/</loc>
-    
-    <lastmod>2016-03-26T16:17:51.575Z</lastmod>
     
   </url>
   
