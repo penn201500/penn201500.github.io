@@ -1,0 +1,753 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hugo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Learn Better, Learn More" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon_32X32.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="如何使用hugo搭建个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用hugo搭建个人博客（一）：在win7上使用hugo">
+<meta property="og:url" content="http://learnbetter.club/2016/06/12/hugo 1 use it in win7/index.html">
+<meta property="og:site_name" content="Learn Better, Learn More">
+<meta property="og:description" content="如何使用hugo搭建个人博客">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/go_valid.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo_install_ok.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20download%20crisp%20theme.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20start%20local%20server.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20local%20server.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view1.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view2.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20themes%20view--crisp.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/crisp%20demo%20site%20with%20blogs.jpg">
+<meta property="og:updated_time" content="2016-08-07T04:30:11.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用hugo搭建个人博客（一）：在win7上使用hugo">
+<meta name="twitter:description" content="如何使用hugo搭建个人博客">
+<meta name="twitter:image" content="http://o7ubfyghw.bkt.clouddn.com/go_valid.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://learnbetter.club/2016/06/12/hugo 1 use it in win7/"/>
+
+  <title> 如何使用hugo搭建个人博客（一）：在win7上使用hugo | Learn Better, Learn More </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-79129383-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Learn Better, Learn More</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学不可以已</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何使用hugo搭建个人博客（一）：在win7上使用hugo
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-12T19:04:40+08:00" content="2016-06-12">
+              2016-06-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/12/hugo 1 use it in win7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/hugo 1 use it in win7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如何使用hugo搭建个人博客？<br>按照创建步骤有：</p>
+<ol>
+<li>在win7上使用hugo，能够本地预览（就是本文了）</li>
+<li>修改主题：颜色，字体，布局（后续）</li>
+<li>添加follow与修改share的方式（后续）</li>
+<li>添加评论系统disqus（后续）</li>
+<li>添加站内搜索（后续）</li>
+<li>放到个人vps或者推到第三方托管（推荐阅读）</li>
+</ol>
+<p>Hugo 是一个用 Go 语言编写的静态网站生成器，简单易用。类似的静态网站生成器还有<a href="https://jekyllrb.com/" target="_blank" rel="external">Jekyll</a> 。</p>
+<p>Hugo在windows 7上的使用如下：</p>
+<h2 id="1-安装hugo"><a href="#1-安装hugo" class="headerlink" title="1. 安装hugo"></a><strong>1. 安装hugo</strong></h2><h3 id="1-1-安装go"><a href="#1-1-安装go" class="headerlink" title="1.1 安装go"></a><strong>1.1 安装go</strong></h3><p>可以在go github上下载 <a href="https://golang.org/dl/" target="_blank" rel="external">go 1.6</a><br>双击exe文件，一路next安装。安装完成之后，查看go安装结果：</p>
+<p><img src="http://o7ubfyghw.bkt.clouddn.com/go_valid.jpg" alt="go"></p>
+<h3 id="1-2-安装hugo"><a href="#1-2-安装hugo" class="headerlink" title="1.2 安装hugo"></a><strong>1.2 安装hugo</strong></h3><p><a href="http://download.csdn.net/detail/justheretobe/9529014" target="_blank" rel="external">hugo for win64</a></p>
+<p>或者官网下载：<a href="https://gohugo.io/" target="_blank" rel="external">https://gohugo.io/</a><br>下载后双击exe，一路next即可。查看安装结果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo_install_ok.jpg" alt="hugo install ok"></p>
+<h3 id="1-3-安装git（用来下载主题和管理博客文件的修改信息）"><a href="#1-3-安装git（用来下载主题和管理博客文件的修改信息）" class="headerlink" title="1.3. 安装git（用来下载主题和管理博客文件的修改信息）"></a><strong>1.3. 安装git（用来下载主题和管理博客文件的修改信息）</strong></h3><p>博客文件中的修改可以使用git进行版本管理，快速使用教程见: [廖雪峰 git教程]（<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000）</a></p>
+<h2 id="2-创建站点"><a href="#2-创建站点" class="headerlink" title="2. 创建站点"></a><strong>2. 创建站点</strong></h2><p>创建一个目录，用来存放站点文件，然后使用hugo命令生成新站点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir my_logs</div><div class="line">hugo new site  mysite</div></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20site%20mysite.jpg" alt="hugo new site mysite"></p>
+<p>文件结构的含义是：<br>原文解释见 <a href="https://gohugo.io/content/" target="_blank" rel="external">https://gohugo.io/content/</a><br>|- archetypes           ：存放default.md，头文件格式<br>|- content                ：content目录存放博客文章（markdown文件）<br>|- data                     ：存放自定义模版，导入的toml文件（或json，yaml）<br>|- layouts                ：layouts目录存放的是网站的模板文件<br>|- static                   ：static目录存放图片，css等静态资源<br>|- config.toml         ：config.toml是网站的配置文件</p>
+<h2 id="3-选择主题"><a href="#3-选择主题" class="headerlink" title="3. 选择主题"></a><strong>3. 选择主题</strong></h2><p>在mysite目录下新建一个themes文件夹，存放主题文件。<br>本例选择使用crisp主题，可以直接下载crisp主题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir themes</div><div class="line">cd themes</div><div class="line">git clone https://github.com/Zenithar/hugo-theme-crisp.git</div></pre></td></tr></table></figure>
+<p>下载完成后：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20download%20crisp%20theme.jpg" alt="hugo download crisp theme"></p>
+<h2 id="4-本地预览"><a href="#4-本地预览" class="headerlink" title="4. 本地预览"></a><strong>4. 本地预览</strong></h2><p>在cmd中启动hugo server：<br>hugo server –theme=hugo-theme-crisp –buildDrafts –watch</p>
+<p>启动命令说明：<br>–theme 用于选择主题<br>–watch 用于实时监控博客文件（配置文件和博客内容）的变化，方便调试</p>
+<p><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20start%20local%20server.jpg" alt="hugo start local server"></p>
+<p>然后在浏览器中打开 <a href="http://localhost:1313/" target="_blank" rel="external">http://localhost:1313/</a><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20local%20server.jpg" alt="hugo local server view"></p>
+<h2 id="5-编写博客内容"><a href="#5-编写博客内容" class="headerlink" title="5. 编写博客内容"></a><strong>5. 编写博客内容</strong></h2><p>在content目录中创建和编写test.md：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20.jpg" alt="hugo new post test.md file"></p>
+<p>可以在localserver:1313中看到效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view1.jpg" alt="localserver view test.md"></p>
+<p>打开test ：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20new%20content-test-md%20file%20view2.jpg" alt="localserver view test.md  2"></p>
+<h2 id="6-查看更多themes以及主题Demo"><a href="#6-查看更多themes以及主题Demo" class="headerlink" title="6. 查看更多themes以及主题Demo"></a><strong>6. 查看更多themes以及主题Demo</strong></h2><p>查看更多主题可以访问：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20themes%20view--crisp.jpg" alt="hugo themes"></p>
+<p>查看crisp主题的Demo：<br><img src="http://o7ubfyghw.bkt.clouddn.com/crisp%20demo%20site%20with%20blogs.jpg" alt="huto crisp theme demo"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hugo/" rel="tag">#Hugo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/14/hugo 2 update sidebar/" rel="prev" title="如何使用hugo搭建个人博客（二）：修改主题的颜色，字体，布局">
+                如何使用hugo搭建个人博客（二）：修改主题的颜色，字体，布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o7ubfyghw.bkt.clouddn.com/avatar.jpg"
+               alt="penn" />
+          <p class="site-author-name" itemprop="name">penn</p>
+          <p class="site-description motion-element" itemprop="description">学不可以已</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/penn201500" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/justheretobe" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-fire"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.codewars.com/users/penn201500" target="_blank" title="Codewars">
+                  
+                    <i class="fa fa-fw fa-code"></i>
+                  
+                  Codewars
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=AjczOzUyMzI0MEJzcyxhbW8" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.testpub.cn/blog/" title="虫师自动化测试" target="_blank">虫师自动化测试</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装hugo"><span class="nav-number">1.</span> <span class="nav-text">1. 安装hugo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-安装go"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装go</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-安装hugo"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 安装hugo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-安装git（用来下载主题和管理博客文件的修改信息）"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. 安装git（用来下载主题和管理博客文件的修改信息）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建站点"><span class="nav-number">2.</span> <span class="nav-text">2. 创建站点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-选择主题"><span class="nav-number">3.</span> <span class="nav-text">3. 选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-本地预览"><span class="nav-number">4.</span> <span class="nav-text">4. 本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-编写博客内容"><span class="nav-number">5.</span> <span class="nav-text">5. 编写博客内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-查看更多themes以及主题Demo"><span class="nav-number">6.</span> <span class="nav-text">6. 查看更多themes以及主题Demo</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">penn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'wwwlearnbetterclub';
+      var disqus_identifier = '2016/06/12/hugo 1 use it in win7/';
+      var disqus_title = "如何使用hugo搭建个人博客（一）：在win7上使用hugo";
+      var disqus_url = 'http://learnbetter.club/2016/06/12/hugo 1 use it in win7/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

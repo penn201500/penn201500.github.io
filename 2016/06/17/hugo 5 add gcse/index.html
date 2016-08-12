@@ -1,0 +1,735 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hugo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Learn Better, Learn More" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon_32X32.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="如何使用hugo搭建个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
+<meta property="og:url" content="http://learnbetter.club/2016/06/17/hugo 5 add gcse/index.html">
+<meta property="og:site_name" content="Learn Better, Learn More">
+<meta property="og:description" content="如何使用hugo搭建个人博客">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%202.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%203.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20blog%20add%20gcse.jpg">
+<meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20published%20and%20can%20search%20in%20site.jpg">
+<meta property="og:updated_time" content="2016-08-07T04:31:35.013Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）">
+<meta name="twitter:description" content="如何使用hugo搭建个人博客">
+<meta name="twitter:image" content="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://learnbetter.club/2016/06/17/hugo 5 add gcse/"/>
+
+  <title> 如何使用hugo搭建个人博客（五）：添加站内搜索（gcse） | Learn Better, Learn More </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-79129383-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Learn Better, Learn More</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学不可以已</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-17T21:04:40+08:00" content="2016-06-17">
+              2016-06-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/17/hugo 5 add gcse/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/hugo 5 add gcse/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>站内搜索推荐使用google custom search engine(gsce)。<br>gcse的使用方法强烈推荐阅读：<a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
+<h2 id="关键部分："><a href="#关键部分：" class="headerlink" title="关键部分："></a><strong>关键部分：</strong></h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console.jpg" alt=""><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%202.jpg" alt=""><br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20google%20search%20console%203.jpg" alt=""></p>
+<p></p><p><br>下面介绍如何在crisp的侧边栏中添加search box。</p>
+<h2 id="获取search-thml"><a href="#获取search-thml" class="headerlink" title="获取search.thml"></a><strong>获取search.thml</strong></h2><p>在以下github 仓库中获取search.html文件，存放到本地header.html所在的目录。<br><a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/search.html</a></p>
+<h2 id="修改hearder-html："><a href="#修改hearder-html：" class="headerlink" title="修改hearder.html："></a><strong>修改hearder.html：</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;header id:&quot;header&quot;&gt;</div><div class="line">   &lt;!--</div><div class="line">    &lt;a id:&quot;logo&quot; href:&quot;&#123;&#123; .Site.BaseURL &#125;&#125;&quot;&gt;&lt;img src:&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt:&quot;&#123;&#123; .Site.Title &#125;&#125;&quot; /&gt;&lt;/a&gt;</div><div class="line">    --&gt;</div><div class="line">    &lt;h1&gt;&lt;a href:&quot;&#123;&#123;.Site.BaseURL&#125;&#125;&quot;&gt;&#123;&#123;.Site.Title&#125;&#125;&lt;/a&gt;&lt;/h1&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;.Description&#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">    &#123;&#123; partial &quot;follow.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;navigation.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;tags.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;search.html&quot; . &#125;&#125;     &lt;!--这里添加search box--&gt;       </div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
+<h2 id="3-在crisp主题下新建search文件夹"><a href="#3-在crisp主题下新建search文件夹" class="headerlink" title="3. 在crisp主题下新建search文件夹"></a>3. 在crisp主题下新建search文件夹</h2><p>从<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/search/index.html</a> 获取index.html放到search文件夹中。<br>将从google search engine中得到的搜索结果代码粘贴到index.html中的script部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    &lt;h1 class:&quot;post-title&quot;&gt;Search Results&lt;/h1&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">  (function() &#123;</div><div class="line">    var cx : &apos;009059558632698478175:4wpqidijmx4&apos;;</div><div class="line">    var gcse : document.createElement(&apos;script&apos;);</div><div class="line">    gcse.type : &apos;text/javascript&apos;;</div><div class="line">    gcse.async : true;</div><div class="line">    gcse.src : &apos;https://cse.google.com/cse.js?cx:&apos; + cx;</div><div class="line">    var s : document.getElementsByTagName(&apos;script&apos;)[0];</div><div class="line">    s.parentNode.insertBefore(gcse, s);</div><div class="line">  &#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;gcse:searchresults-only&gt;&lt;/gcse:searchresults-only&gt;</div></pre></td></tr></table></figure>
+<p>此时在侧边栏能看到search box但是不能搜索到结果:<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20blog%20add%20gcse.jpg" alt=""></p>
+<h2 id="4-生成public并发布到服务器"><a href="#4-生成public并发布到服务器" class="headerlink" title="4. 生成public并发布到服务器"></a>4. 生成public并发布到服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hugo -t crisp</div></pre></td></tr></table></figure>
+<p>在mysite目录执行以上命令，生成public目录。将public目录发布到服务器即可。<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20published%20and%20can%20search%20in%20site.jpg" alt=""></p>
+<p>如果是发布到github-pages，可以参考：<br><a href="http://www.liuhaihua.cn/archives/133615.html" target="_blank" rel="external">http://www.liuhaihua.cn/archives/133615.html</a><br><a href="https://www.zhihu.com/question/20962496" target="_blank" rel="external">https://www.zhihu.com/question/20962496</a></p>
+<hr>
+<p><strong>参考：</strong></p>
+<p><a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
+<p><a href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/" target="_blank" rel="external">Hexo博客第四站：搜索引擎+小插件+配置结构分析</a></p>
+<p><a href="https://kb.iu.edu/d/bckj" target="_blank" rel="external">How do I use Google Custom Search on my website?</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hugo/" rel="tag">#Hugo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/16/hugo 4 add disqus/" rel="next" title="如何使用hugo搭建个人博客（四）:添加评论系统disqus">
+                <i class="fa fa-chevron-left"></i> 如何使用hugo搭建个人博客（四）:添加评论系统disqus
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/19/python3 zip/" rel="prev" title="python3 zip的用法">
+                python3 zip的用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o7ubfyghw.bkt.clouddn.com/avatar.jpg"
+               alt="penn" />
+          <p class="site-author-name" itemprop="name">penn</p>
+          <p class="site-description motion-element" itemprop="description">学不可以已</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/penn201500" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/justheretobe" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-fire"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.codewars.com/users/penn201500" target="_blank" title="Codewars">
+                  
+                    <i class="fa fa-fw fa-code"></i>
+                  
+                  Codewars
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=AjczOzUyMzI0MEJzcyxhbW8" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.testpub.cn/blog/" title="虫师自动化测试" target="_blank">虫师自动化测试</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键部分："><span class="nav-number">1.</span> <span class="nav-text">关键部分：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取search-thml"><span class="nav-number">2.</span> <span class="nav-text">获取search.thml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改hearder-html："><span class="nav-number">3.</span> <span class="nav-text">修改hearder.html：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在crisp主题下新建search文件夹"><span class="nav-number">4.</span> <span class="nav-text">3. 在crisp主题下新建search文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-生成public并发布到服务器"><span class="nav-number">5.</span> <span class="nav-text">4. 生成public并发布到服务器</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">penn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'wwwlearnbetterclub';
+      var disqus_identifier = '2016/06/17/hugo 5 add gcse/';
+      var disqus_title = "如何使用hugo搭建个人博客（五）：添加站内搜索（gcse）";
+      var disqus_url = 'http://learnbetter.club/2016/06/17/hugo 5 add gcse/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
