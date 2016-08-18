@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://learnbetter.club/"/>
-  <updated>2016-08-09T15:07:22.492Z</updated>
+  <updated>2016-08-18T14:20:22.885Z</updated>
   <id>http://learnbetter.club/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设置shutter的快捷键</title>
+    <link href="http://learnbetter.club/2016/08/18/set_shutter_shortcut/"/>
+    <id>http://learnbetter.club/2016/08/18/set_shutter_shortcut/</id>
+    <published>2016-08-18T14:04:40.000Z</published>
+    <updated>2016-08-18T14:20:22.885Z</updated>
+    
+    <content type="html"><![CDATA[<p>在linux mint上使用shutter，可以通过快捷键提高使用舒适度</p>
+<p>1.找到“键盘”，设置应用程序和快捷键<br><img src="http://o7ubfyghw.bkt.clouddn.com/set%20shutter%20shortcut%2001.jpg" alt=""></p>
+<p>2.设置应用程序快捷键为ctrl+alt+a<br><img src="http://o7ubfyghw.bkt.clouddn.com/set%20shutter%20shortcut%2002.jpg" alt=""></p>
+<p>在需要截图的时候，调用快捷键即可</p>
+<p>在shutter的“编辑–&gt; 首选项” 中可以设置保存路径、行为等</p>
+]]></content>
+    
+    <summary type="html">
+    
+      linux mint shutter
+    
+    </summary>
+    
+      <category term="tools" scheme="http://learnbetter.club/categories/tools/"/>
+    
+    
+      <category term="shutter" scheme="http://learnbetter.club/tags/shutter/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo quick start</title>
