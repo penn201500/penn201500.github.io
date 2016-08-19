@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://learnbetter.club/"/>
-  <updated>2016-08-18T14:20:22.885Z</updated>
+  <updated>2016-08-19T15:14:56.049Z</updated>
   <id>http://learnbetter.club/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux mint wine 安装qq</title>
+    <link href="http://learnbetter.club/2016/08/19/wine_install_qq/"/>
+    <id>http://learnbetter.club/2016/08/19/wine_install_qq/</id>
+    <published>2016-08-19T15:04:40.000Z</published>
+    <updated>2016-08-19T15:14:56.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>平台： linux mint 18</p>
+<p>有些windows的应用在linux下也很需要，如QQ</p>
+<p>可以使用wine来安装</p>
+<p>1.安装wine<br><img src="http://o7ubfyghw.bkt.clouddn.com/install%20wine.jpg" alt=""></p>
+<p>2.安装qq<br>不需要特殊设置wine参数，直接wine安装qq<br><img src="http://o7ubfyghw.bkt.clouddn.com/wine_install_qq.jpg" alt=""></p>
+<p>3.打开qq<br>可以写一个shell脚本 open_qq.sh：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line">   </div><div class="line">   wine /home/penn/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</div></pre></td></tr></table></figure></p>
+<pre><code>然后 
+chmod +x open_qq.sh
+source open_qq.sh 
+即可打开
+
+4.碰到无法输入登录用户名的问题
+![](http://o7ubfyghw.bkt.clouddn.com/wine_cfg_for_qq_login.jpg)
+
+5.登录成功，与windows下的qq效果一样。但不要关闭wine qq运行的terminal，否则qq会无响应
+```
+</code></pre><p>```</p>
+]]></content>
+    
+    <summary type="html">
+    
+      linux wine qq
+    
+    </summary>
+    
+      <category term="tools" scheme="http://learnbetter.club/categories/tools/"/>
+    
+    
+      <category term="wine qq" scheme="http://learnbetter.club/tags/wine-qq/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux mint上推送更新至github的设置，以及git使用(blog)</title>
+    <link href="http://learnbetter.club/2016/08/19/set_local_git_to_github/"/>
+    <id>http://learnbetter.club/2016/08/19/set_local_git_to_github/</id>
+    <published>2016-08-19T14:04:40.000Z</published>
+    <updated>2016-08-19T15:12:46.333Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a><strong>环境</strong></h3><p>Linux Mint 17.3<br>git version 2.7.4</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置:"></a><strong>设置:</strong></h3><p>1.生成密钥对<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~ $ ssh-keygen -t rsa -C &quot;xxxx@gmail.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/home/penn/.ssh/id_rsa): </div><div class="line">Created directory &apos;/home/penn/.ssh&apos;.</div><div class="line">Enter passphrase (empty for no passphrase): </div><div class="line">Enter same passphrase again: </div><div class="line">Your identification has been saved in /home/penn/.ssh/id_rsa.</div><div class="line">Your public key has been saved in /home/penn/.ssh/id_rsa.pub.</div><div class="line">The key fingerprint is:</div><div class="line">SHA256:xxxxxxxxxxxxxxxxxxxxxxxxx xxxx@gmail.com</div><div class="line">The key&apos;s randomart image is:</div><div class="line">+---[RSA 2048]----+</div><div class="line">|              ooo|</div><div class="line">|  .        . . ..|</div><div class="line">| . .    . o . o .|</div><div class="line">|E   . .. o .   + |</div><div class="line">| .   ...S o   .  |</div><div class="line">|     . =.+.    o.|</div><div class="line">|      +   @.X . *|</div><div class="line">|     . =.= +.B.o.|</div><div class="line">|      . . ..++o  |</div><div class="line">+----[SHA256</div><div class="line"></div><div class="line">penn@Linux-Mint18 ~ $ cd .ssh</div><div class="line">penn@Linux-Mint18 ~/.ssh $ ls</div><div class="line">id_rsa  id_rsa.pub</div><div class="line">penn@Linux-Mint18 ~/.ssh $ cat id_rsa.pub </div><div class="line">ssh-rsa xxxxxxxxxxxxxxxxxxxxxx xxxx@gmail.com</div></pre></td></tr></table></figure></p>
+<p>2.将公钥添加到github</p>
+<p>3.检查配置结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/.ssh $ ssh git@github.com</div><div class="line">The authenticity of host &apos;github.com (192.30.253.113)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxx</div><div class="line">Are you sure you want to continue connecting (yes/no)? y</div><div class="line">Please type &apos;yes&apos; or &apos;no&apos;: yes</div><div class="line">Warning: Permanently added &apos;github.com,192.30.253.113&apos; (RSA) to the list of known hosts.</div><div class="line">PTY allocation request failed on channel 0</div><div class="line">Hi xxxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line">Connection to github.com closed.</div></pre></td></tr></table></figure></p>
+<p>4.git全局配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/.ssh $ git config --global user.name &quot;xxxx&quot;</div><div class="line">penn@Linux-Mint18 ~/.ssh $ git config --global user.email &quot;xxxx@gmail.com&quot;</div></pre></td></tr></table></figure></p>
+<p>5.创建本地git目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/.ssh $ cd </div><div class="line">penn@Linux-Mint18 ~ $ cd Desktop/</div><div class="line">penn@Linux-Mint18 ~/Desktop $ cd github_projects/</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects $ ls</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects $ mkdir github_hexo</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects $ ls</div><div class="line">github_hexo</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects $ cd github_hexo/</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ ls</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git init</div><div class="line">初始化空的 Git 仓库于 /home/penn/Desktop/github_projects/github_hexo/.git/</div></pre></td></tr></table></figure></p>
+<p>6.添加github远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git remote add github.io https://github.com/xxxx/xxxx.github.io.git</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git remote</div><div class="line">github.io</div></pre></td></tr></table></figure></p>
+<p>7.拉取github项目到本地git目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git fetch github.io </div><div class="line">来自 https://github.com/xxxx/xxxx.github.io</div><div class="line"> * [新分支]          master     -&gt; github.io/master</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git status</div><div class="line">位于分支 master</div></pre></td></tr></table></figure></p>
+<p>8.提交新文件到remote<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ touch test.md</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git status</div><div class="line">位于分支 master</div><div class="line">未跟踪的文件:</div><div class="line">  （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</div><div class="line"></div><div class="line">	test.md</div><div class="line"></div><div class="line">提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git add .</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git commit -m &quot;test&quot;</div><div class="line">[master 0fe3106] test</div><div class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</div><div class="line"> create mode 100644 test.md</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git status</div><div class="line">位于分支 master</div><div class="line">无文件要提交，干净的工作区</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git push -u github.io master</div><div class="line">Username for &apos;https://github.com&apos;: xxxx</div><div class="line">Password for &apos;https://xxxx@github.com&apos;: </div><div class="line">To https://github.com/xxxx/xxxx.github.io.git</div><div class="line"> ! [rejected]        master -&gt; master (non-fast-forward)</div><div class="line">error: 无法推送一些引用到 &apos;https://github.com/xxxx/xxxx.github.io.git&apos;</div><div class="line">提示：更新被拒绝，因为您当前分支的最新提交落后于其对应的远程分支。</div><div class="line">提示：再次推送前，先与远程变更合并（如 &apos;git pull ...&apos;）。详见</div><div class="line">提示：&apos;git push --help&apos; 中的 &apos;Note about fast-forwards&apos; 小节。</div></pre></td></tr></table></figure></p>
+<p>9.解决冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git merge github.io/master -m &quot;merge local to remote&quot;</div><div class="line">Merge made by the &apos;recursive&apos; strategy.</div><div class="line"> 2016/06/12/hugo 1 use it in win7/index.html                                |  753 ++++++++++++++++++</div><div class="line"> 2016/06/14/hugo 2 update sidebar/index.html                                |  782 ++++++++++++++++++</div><div class="line"> ...</div><div class="line"> ...</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ ls</div><div class="line">2016      archives  categories  commonweal  favicon_32X32.ico            images      js    README.md   sitemap.xml  test.md</div><div class="line">404.html  atom.xml  CNAME       css         google6f9ffd2313a65622.html  index.html  page  robots.txt  tags         vendors</div></pre></td></tr></table></figure></p>
+<p>10.再次push到remote，成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $ git push -u github.io master</div><div class="line">Username for &apos;https://github.com&apos;: xxxx</div><div class="line">Password for &apos;https://xxxx@github.com&apos;: </div><div class="line">对象计数中: 10, 完成.</div><div class="line">Delta compression using up to 8 threads.</div><div class="line">压缩对象中: 100% (5/5), 完成.</div><div class="line">写入对象中: 100% (10/10), 1.05 KiB | 0 bytes/s, 完成.</div><div class="line">Total 10 (delta 1), reused 2 (delta 0)</div><div class="line">To https://github.com/xxxx/xxxx.github.io.git</div><div class="line">   8d2d9fa..accb66c  master -&gt; master</div><div class="line">分支 master 设置为跟踪来自 github.io 的远程分支 master。</div><div class="line">penn@Linux-Mint18 ~/Desktop/github_projects/github_hexo $</div></pre></td></tr></table></figure></p>
+<p>11.git log<br>可以看当前git仓库的修改记录<br>git log 文件名 可以看指定文件或者文件夹的log<br>也可以在指定的文件夹内使用<br>git log ./ 也可以看执行此命令的文件夹的修改记录</p>
+<p>git show <commit-hash-id>查看某次commit的修改内容<br>git log -p <filename>查看某个文件的修改历史<br>git log -p -2查看最近2次的更新内容<br>git log –stat 查阅最近的提交修改</filename></commit-hash-id></p>
+<p>12.在某些情况下我们可能希望查看目标文件两个版本之间的差异。 查看这个文件<strong>任意两个版本的差异</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff &lt;hashcode-before-right&gt; &lt;hashcode&gt; &lt;filename&gt;</div></pre></td></tr></table></figure></p>
+<p>13.团队开发或者做Code Review的时你可能需要用到：<br>查看某个文件的包含提交人员，日期、版本号等记录信息，不包括修改详情：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git whatchanged &lt;filename&gt;</div></pre></td></tr></table></figure></p>
+<p>14.在review时查看某次提交修改详情：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show &lt;hashcode&gt;</div></pre></td></tr></table></figure></p>
+<p>15.我们打算查看某个文件在某次提交中的修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show &lt;hashcode&gt; &lt;filename&gt;</div></pre></td></tr></table></figure></p>
+<p>我们分析后发现不是这几次的修改造成的，所以我们希望查看这个文件所有的提交记录。<br>查看仅这个文件的所有历史记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log --pretty=oneline &lt;filename&gt;</div></pre></td></tr></table></figure></p>
+<p>16.gitignore的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">S1:      touch  .gitignore     #创建gitignore隱藏文件  </div><div class="line">S2:      vim    .gitignore     #编辑文件，加入指定文件  </div><div class="line">         #下面是我的gitignore文件的内容  </div><div class="line">         #忽略gitignore文件  </div><div class="line">         .gitignore  </div><div class="line">         #忽略后缀名为.o和.a的文件  </div><div class="line">         *.[oa]  </div><div class="line">         #显示指定忽略名称为main的文件  </div><div class="line">         main  </div><div class="line">文件.gitignore的格式规范：</div><div class="line">A：#为注释   </div><div class="line">B：可以使用shell所使用的正则表达式来进行模式匹配   </div><div class="line">C：匹配模式最后跟&quot;/&quot;说明要忽略的是目录 </div><div class="line">D：使用！取反（例如目录中包含  test.a，并且gitignore文件中包含  *.[oa]，如果在文件中加入 ！test.a   表明忽略除test.a文件以外的后缀名为.a或者.o的文件）</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      linux git github 
+    
+    </summary>
+    
+      <category term="tools" scheme="http://learnbetter.club/categories/tools/"/>
+    
+    
+      <category term="git" scheme="http://learnbetter.club/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>设置shutter的快捷键</title>
