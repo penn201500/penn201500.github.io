@@ -94,7 +94,7 @@
 <meta property="og:description" content="python脚本爬取今日百度热点新闻">
 <meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/baidu%20hotnews.jpg">
 <meta property="og:image" content="http://o7ubfyghw.bkt.clouddn.com/crawler%20baidu%20hotNews.jpg">
-<meta property="og:updated_time" content="2016-08-12T17:11:18.544Z">
+<meta property="og:updated_time" content="2016-08-07T04:32:17.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python脚本爬取今日百度热点新闻">
 <meta name="twitter:description" content="python脚本爬取今日百度热点新闻">
@@ -344,7 +344,7 @@
 <li>中文可以加 decode(‘gbk’) 来避免乱码</li>
 <li>re.S 用来解决跨行匹配的问题，用法： re.compile(pattern, re.S)</li>
 </ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">url = <span class="string">'http=//news.baidu.com/'</span></div><div class="line">content = urllib.request.urlopen(url).read().decode(<span class="string">'gbk'</span>)</div><div class="line"></div><div class="line">pattern = re.compile(<span class="string">'&lt;li class="hd.*?&lt;strong&gt;.*?&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?strong&gt;'</span>, re.S)</div><div class="line">hotNews = re.findall(pattern, content)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> hotNews:</div><div class="line">  print(i)</div></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">url : <span class="string">'http://news.baidu.com/'</span></div><div class="line">content : urllib.request.urlopen(url).read().decode(<span class="string">'gbk'</span>)</div><div class="line"></div><div class="line"><span class="comment">#Example：</span></div><div class="line"><span class="comment">#&lt;li class:"hdline0"&gt;</span></div><div class="line"><span class="comment">#&lt;i class:"dot"&gt;&lt;/i&gt;</span></div><div class="line"><span class="comment">#&lt;strong&gt;</span></div><div class="line"><span class="comment">#&lt;a href:"http://china.huanqiu.com/article/2016-07/9209287.html?from:bdwz " target:"_blank" class:"a3" mon:"ct:1&amp;amp;a:1&amp;amp;c:top&amp;amp;pn:0"&gt;xxx：扶贫工作不搞层层加码&lt;/a&gt;</span></div><div class="line"><span class="comment">#&lt;/strong&gt;</span></div><div class="line"><span class="comment">#&lt;/li&gt;</span></div><div class="line"></div><div class="line">pattern : re.compile(<span class="string">'&lt;li class:"hd.*?&lt;strong&gt;.*?&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?strong&gt;'</span>, re.S)</div><div class="line">hotNews : re.findall(pattern, content)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> hotNews:</div><div class="line">  print(i)</div></pre></td></tr></table></figure>
 <h2 id="hotnews-from-baidu"><a href="#hotnews-from-baidu" class="headerlink" title="hotnews from baidu:"></a>hotnews from baidu:</h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/baidu%20hotnews.jpg" alt=""></p>
 <h2 id="script-excute-result"><a href="#script-excute-result" class="headerlink" title="script excute result:"></a>script excute result:</h2><p><img src="http://o7ubfyghw.bkt.clouddn.com/crawler%20baidu%20hotNews.jpg" alt=""></p>
 <hr>
@@ -464,7 +464,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -481,7 +481,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
