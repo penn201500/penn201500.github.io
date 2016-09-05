@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://learnbetter.club/"/>
-  <updated>2016-08-30T07:58:29.778Z</updated>
+  <updated>2016-09-05T15:39:57.867Z</updated>
   <id>http://learnbetter.club/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>找到list中差值为k的数值对</title>
+    <link href="http://learnbetter.club/2016/09/05/find_list_k/"/>
+    <id>http://learnbetter.club/2016/09/05/find_list_k/</id>
+    <published>2016-09-05T15:04:40.000Z</published>
+    <updated>2016-09-05T15:39:57.867Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>用python写一个程序，找出数组中差值为K的数共有几对</p>
+<p>示例：</p>
+<p>差值k=4 and 数组是[7, 6, 23,19,10,11, 9, 3, 15]<br>这样的结果是(7,11) (7,3) (6,10) (19,23) (15,19) (15,11) 共6对</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python3</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">def diff_of_element_list(lst, k):</div><div class="line">    newlst = [i + k for i in lst]</div><div class="line">    print(lst)</div><div class="line">    print(newlst)</div><div class="line">    print(set(lst)&amp;set(newlst))</div><div class="line">    return len(set(lst)&amp;set(newlst))</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    lst = [7, 6, 23, 19, 11]</div><div class="line">    k = 4</div><div class="line">    print(diff_of_element_list(lst, k))</div><div class="line"></div><div class="line">    lst = [2, 4, 5, 1, 6, 8, 10, 11]</div><div class="line">    k = 2</div><div class="line">    print(diff_of_element_list(lst, k))</div></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[7, 6, 23, 19, 11] </div><div class="line">[11, 10, 27, 23, 15] </div><div class="line">&#123;11, 23&#125; </div><div class="line">2 </div><div class="line">[2, 4, 5, 1, 6, 8, 10, 11] </div><div class="line">[4, 6, 7, 3, 8, 10, 12, 13] </div><div class="line">&#123;8, 10, 4, 6&#125; </div><div class="line">4</div></pre></td></tr></table></figure></p>
+<hr>
+<p>转自：<br><a href="http://www.oschina.net/code/snippet_1448389_53414" target="_blank" rel="external">http://www.oschina.net/code/snippet_1448389_53414</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      algorithm
+    
+    </summary>
+    
+      <category term="python" scheme="http://learnbetter.club/categories/python/"/>
+    
+    
+      <category term="python algorithm" scheme="http://learnbetter.club/tags/python-algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>汉诺塔游戏</title>
@@ -1078,93 +1108,6 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 <p>如果想要删除这些share方式，可以删除header.html同目录下的share.html文件（或者注释）。删除share.html之后的显示结果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20delete%20share.jpg" alt="hugo delete share"></p><p></p>
 <p></p><p></p>
 <h2 id="删除author信息"><a href="#删除author信息" class="headerlink" title="删除author信息"></a><strong>删除author信息</strong></h2><p>删除share之后，博文后面还有author信息，可以注释或删除掉header.html同目录下的author.html文件。删除author.html之后的效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20delete%20author%20info%20after%20deleting%20share.jpg" alt="hugo delete author"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      如何使用hugo搭建个人博客
-    
-    </summary>
-    
-      <category term="Hugo" scheme="http://learnbetter.club/categories/Hugo/"/>
-    
-    
-      <category term="Hugo" scheme="http://learnbetter.club/tags/Hugo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用hugo搭建个人博客（二）：修改主题的颜色，字体，布局</title>
-    <link href="http://learnbetter.club/2016/06/14/hugo%202%20update%20sidebar/"/>
-    <id>http://learnbetter.club/2016/06/14/hugo 2 update sidebar/</id>
-    <published>2016-06-14T02:04:40.000Z</published>
-    <updated>2016-08-07T04:31:54.131Z</updated>
-    
-    <content type="html"><![CDATA[<p>上一篇博文中谈到了如何在本地使用hugo预览特定主题crisp，本文介绍主题的颜色，字体，布局的修改。</p>
-<h2 id="修改主题侧边栏颜色"><a href="#修改主题侧边栏颜色" class="headerlink" title="修改主题侧边栏颜色"></a><strong>修改主题侧边栏颜色</strong></h2><p>crisp主题的侧边栏默认是白色，如果想改个颜色咋办？<br>到github仓库 <a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/</a> 获取 hugo-crisp-theme-for-blog/mysite/themes/crisp/layouts/partials/criticalpath.html  文件，替换本地themes目录下的同名文件，如<br> E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials\criticalpath.html<br> 替换之后效果：<br> <img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20bgcolor.jpg" alt="hugo update sidebar bgcolor"></p>
-<h2 id="修改主题字体"><a href="#修改主题字体" class="headerlink" title="修改主题字体"></a><strong>修改主题字体</strong></h2><p>在criticalpath.html文件中，查找font-family。然后修改字体类型，大小，颜色等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">body,html</div><div class="line">&#123;</div><div class="line">	font-size: 1em;</div><div class="line">	line-height: 1.65em;</div><div class="line">    font-family:&quot;Open Sans&quot;,sans-serif;</div><div class="line">    font-weight:300;color:#444</div><div class="line">	background-color: #ecf0f1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>:::::::</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master</p>
-<h2 id="修改侧边栏布局"><a href="#修改侧边栏布局" class="headerlink" title="修改侧边栏布局"></a><strong>修改侧边栏布局</strong></h2><p>侧边栏不想要头像？想添加links？只要github follow？<br>下面介绍如何实现这些需求</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><strong>1.去掉头像</strong><br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>:::::::</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master<br>编辑layouts/partial目录下的header.html文件：<br>如：E:\github_projects\my_blogs\mysite\themes\hugo-theme-crisp\layouts\partials</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;header id:&quot;header&quot;&gt;</div><div class="line">    &lt;a id:&quot;logo&quot; href:&quot;&#123;&#123; .Site.BaseURL &#125;&#125;&quot;&gt;&lt;img src:&quot;https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png&quot; alt:&quot;&#123;&#123; .Site.Title &#125;&#125;&quot; /&gt;&lt;/a&gt;</div><div class="line">    &lt;h1&gt;&lt;a href:&quot;&#123;&#123;.Site.BaseURL&#125;&#125;&quot;&gt;&#123;&#123;.Site.Title&#125;&#125;&lt;/a&gt;&lt;/h1&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;.Description&#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">    &#123;&#123; partial &quot;follow.html&quot; . &#125;&#125;</div><div class="line">    &#123;&#123; partial &quot;navigation.html&quot; . &#125;&#125;</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
-<p>id : “logo”的这一行既是图片信息，替换图片，则将 imgsrc 连接替换。 取消图片则将这行注释或者删除。注释后效果如下：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20delete%20logo.jpg" alt="delete logo"></p>
-<p><strong>2. 添加links</strong><br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>:::::::</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master<br>可以参考配置文件：<a href="https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html" target="_blank" rel="external">https://github.com/penn201500/hugo-crisp-theme-for-blog/blob/master/mysite/themes/crisp/layouts/partials/navigation.html</a><br>将与header.html同目录的navigation.html文件修改为：</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;hr class:&quot;nav-site-separator&quot;&gt;</div><div class="line">&lt;h6&gt;Links&lt;/h6&gt;</div><div class="line">&lt;nav class:&quot;nav&quot;&gt;</div><div class="line">      &lt;ul class:&quot;nav-list&quot;&gt;</div><div class="line">        &lt;font size:&quot;3&quot;&gt;</div><div class="line">	    </div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://lilydjwg.is-programmer.com/&quot; target:&quot;_blank&quot;&gt;依云的博客&lt;/a&gt;&lt;/li&gt;</div><div class="line">		</div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://evilbinary.org/&quot; target:&quot;_blank&quot;&gt;邪恶二进制&lt;/a&gt;&lt;/li&gt;</div><div class="line">		</div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://www.wlman.cc/&quot; target:&quot;_blank&quot;&gt;Consec &apos;s Blog&lt;/a&gt;&lt;/li&gt;</div><div class="line">		</div><div class="line">		   &lt;li class:&quot;nav-site&quot;&gt;&lt;a href:&quot;http://www.linuxzen.com/&quot; target:&quot;_blank&quot;&gt;cold&apos;s world&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;/font&gt;</div><div class="line">	  &lt;/ul&gt;</div><div class="line">&lt;/nav&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>class:"nav-site"> ``` 这一行可以编辑一个链接。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">修改后效果如下：</div><div class="line">![add links](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20add%20links.jpg)</div><div class="line"></div><div class="line"></div><div class="line">**3. 只需要github follow**</div><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line"></div><div class="line">:::::::</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</div><div class="line">crisp主题的follow方式有facebook，twitter，linkedin，github，google+, rss 。</div><div class="line">下面介绍如何只留github follow方式（添加或删除其他的follow方式类似）</div><div class="line">将同目录下的follow.html修改如下：</div></pre></td></tr></table></figure>
-<p><div id:"follow-icons"=""><br>    <a href:"https:="" github.com="" penn201500"="" rel:"me"=""><i class:"fa="" fa-github-square="" fa-2x"=""></i></a><br></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">图标使用的是fontawesome，可以从github fork：</div><div class="line">https://github.com/penn201500/Font-Awesome.git</div><div class="line">或者访问fontawesome：</div><div class="line">http://fontawesome.io/icons/</div><div class="line"></div><div class="line">修改follow.html的效果：</div><div class="line">![update follow method](http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20follow%20method.jpg)</div><div class="line"></div><div class="line"></div><div class="line">**4.增加tags和修改title**</div><div class="line">4.1 修改title</div><div class="line">将E:\github_projects\my_blogs\mysite目录下的config.toml文件修改为：</div></pre></td></tr></table></figure></p>
-<p>baseurl : “<a href="http://www.learnbetter.club" target="_blank" rel="external">http://www.learnbetter.club</a>“<br>languageCode : “en-us”<br>title : “My Blog”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">4.2 add tags</div><div class="line">1.增加tags.html文件到header.html文件所在的目录。tags.html文件的内容为：</div><div class="line">![](http://o7ubfyghw.bkt.clouddn.com/tags.jpg)</div><div class="line"></div><div class="line">2.并修改header.html：</div><div class="line">![](http://o7ubfyghw.bkt.clouddn.com/header.jpg)</div><div class="line"></div><div class="line">3.修改E:\github_projects\my_blogs\mysite\content\content\test.md文件为：</div></pre></td></tr></table></figure></p>
-<p>+++<br>date : “2016-05-29T23:56:41+08:00”<br>draft : true<br>title : “test”<br>tags : “test”<br>+++</p>
-<p>hello hugo! I am test.md<br>```<br>显示效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20update%20sidebar%20update%20title%20add%20tags.jpg" alt="add tags and update title"></p>
-<hr>
-<p><strong>注：</strong>如果有其他好的博客主题，且托管在github上，可以clone到本地进行修改尝试</p>
 ]]></content>
     
     <summary type="html">
