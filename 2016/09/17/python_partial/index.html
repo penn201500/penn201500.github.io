@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learn Better, Learn More, Python" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -86,16 +86,16 @@
 
 
 
-<meta name="description" content="学不可以已">
-<meta property="og:type" content="website">
-<meta property="og:title" content="commonweal">
-<meta property="og:url" content="http://learnbetter.club/commonweal/index.html">
+<meta name="description" content="python partial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python partial的使用">
+<meta property="og:url" content="http://learnbetter.club/2016/09/17/python_partial/index.html">
 <meta property="og:site_name" content="Learn Better, Learn More">
-<meta property="og:description" content="学不可以已">
-<meta property="og:updated_time" content="2016-08-06T17:02:42.993Z">
+<meta property="og:description" content="python partial">
+<meta property="og:updated_time" content="2016-09-17T15:18:31.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="commonweal">
-<meta name="twitter:description" content="学不可以已">
+<meta name="twitter:title" content="python partial的使用">
+<meta name="twitter:description" content="python partial">
 
 
 
@@ -116,15 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://learnbetter.club/commonweal/"/>
+  <link rel="canonical" href="http://learnbetter.club/2016/09/17/python_partial/"/>
 
-  <title>
-  
-
-  
-    commonweal | Learn Better, Learn More
-  
-</title>
+  <title> python partial的使用 | Learn Better, Learn More </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +148,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,9 +248,173 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python partial的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T23:04:40+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/python_partial/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/python_partial/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <hr>
+<p>函数的partial应用</p>
+<p>问题四：以下的代码的输出将是什么? 说出你的答案并解释？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def multipliers():</div><div class="line">    return [lambda x : i * x for i in range(4)]</div><div class="line"></div><div class="line">print [m(2) for m in multipliers()]</div></pre></td></tr></table></figure></p>
+<p>你将如何修改 multipliers 的定义来产生期望的结果</p>
+<p>答案</p>
+<p>以上代码的输出是 [6, 6, 6, 6] （而不是 [0, 2, 4, 6]）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">这个的原因是 Python 的闭包的后期绑定导致的 late binding，这意味着在闭包中的变量是在内部函数被调用的时候被查找。所以结果是，当任何 multipliers() 返回的函数被调用，在那时，i 的值是在它被调用时的周围作用域中查找，到那时，无论哪个返回的函数被调用，for 循环都已经完成了，i 最后的值是 3，因此，每个返回的函数 multiplies 的值都是 3。因此一个等于 2 的值被传递进以上代码，它们将返回一个值 6 （比如： 3 x 2）。</div><div class="line"></div><div class="line">（顺便说下，正如在 The Hitchhiker’s Guide to Python 中指出的，这里有一点普遍的误解，是关于 lambda 表达式的一些东西。一个 lambda 表达式创建的函数不是特殊的，和使用一个普通的 def 创建的函数展示的表现是一样的。）</div><div class="line"></div><div class="line">这里有两种方法解决这个问题。</div><div class="line"></div><div class="line">最普遍的解决方案是创建一个闭包，通过使用默认参数立即绑定它的参数。例如：</div><div class="line"></div><div class="line">def multipliers():</div><div class="line">    return [lambda x, i=i : i * x for i in range(4)]</div><div class="line">另外一个选择是，你可以使用 functools.partial 函数：</div><div class="line"></div><div class="line">from functools import partial</div><div class="line">from operator import mul</div><div class="line"></div><div class="line">def multipliers():</div><div class="line">    return [partial(mul, i) for i in range(4)]</div></pre></td></tr></table></figure></p>
+<p>　　函数在执行时，要带上所有必要的参数进行调用。但是，有时参数可以在函数被调用之前提前获知。这种情况下，一个函数有一个或多个参数预先就能用上，以便函数能用更少的参数进行调用。</p>
+<p>例如：</p>
+<p>In [9]: from functools import partial</p>
+<p>In [10]: def add(a,b):<br>….: return a+b<br>….:</p>
+<p>In [11]: add(4,3)<br>Out[11]: 7</p>
+<p>In [12]: plus = partial(add,100)</p>
+<p>In [13]: plus(9)<br>Out[13]: 109</p>
+<p>In [14]: plus2 = partial(add,99)</p>
+<p>In [15]: plus2(9)<br>Out[15]: 108</p>
+<p>其实就是函数调用的时候，有多个参数 参数，但是其中的一个参数已经知道了，我们可以通过这个参数重新绑定一个新的函数，然后去调用这个新函数。</p>
+<p>如果有默认参数的话，他们也可以自动对应上，例如：</p>
+<p>In [17]: def add2(a,b,c=2):<br>….: return a+b+c<br>….:<br>In [18]: plus3 = partail(add,101)</p>
+<hr>
+<p>NameError Traceback (most recent call last)<br>/Users/yupeng/Documents/PhantomJS/<ipython-input-18-d4b7c6a6855d> in <module>()<br>—-&gt; 1 plus3 = partail(add,101)</module></ipython-input-18-d4b7c6a6855d></p>
+<p>NameError: name ‘partail’ is not defined</p>
+<p>In [19]: plus3 = partial(add,101)</p>
+<p>In [20]: plus3(1)<br>Out[20]: 102</p>
+<p>In [21]: plus3 = partial(add2,101)</p>
+<p>In [22]: plus3 = partial(add2,101) (1)<br>Out[22]: 104</p>
+<p>In [23]: plus3(1)<br>Out[23]: 104</p>
+<p>In [24]: plus3(1,2)<br>Out[24]: 104</p>
+<p>In [25]: plus3(1,3)<br>Out[25]: 105</p>
+<p>In [26]: plus3(1,30)<br>Out[26]: 132</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/05/find_list_k/" rel="next" title="找到list中差值为k的数值对">
+                <i class="fa fa-chevron-left"></i> 找到list中差值为k的数值对
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -295,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://o7ubfyghw.bkt.clouddn.com/avatar.jpg"
@@ -410,6 +577,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -505,6 +683,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -521,9 +703,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'wwwlearnbetterclub';
-      var disqus_identifier = 'commonweal/index.html';
-      var disqus_title = "commonweal";
-      var disqus_url = 'http://learnbetter.club/commonweal/index.html';
+      var disqus_identifier = '2016/09/17/python_partial/';
+      var disqus_title = "python partial的使用";
+      var disqus_url = 'http://learnbetter.club/2016/09/17/python_partial/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
