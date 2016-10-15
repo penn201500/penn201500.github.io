@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://learnbetter.club/"/>
-  <updated>2016-09-17T15:18:31.718Z</updated>
+  <updated>2016-10-15T14:33:26.669Z</updated>
   <id>http://learnbetter.club/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://learnbetter.club/2016/09/17/python_partial/"/>
     <id>http://learnbetter.club/2016/09/17/python_partial/</id>
     <published>2016-09-17T15:04:40.000Z</published>
-    <updated>2016-09-17T15:18:31.718Z</updated>
+    <updated>2016-10-15T14:33:26.669Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>函数的partial应用</p>
+    <content type="html"><![CDATA[<h2 id="—"><a href="#—" class="headerlink" title="—"></a>—</h2><p>函数的partial应用</p>
 <p>问题四：以下的代码的输出将是什么? 说出你的答案并解释？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def multipliers():</div><div class="line">    return [lambda x : i * x for i in range(4)]</div><div class="line"></div><div class="line">print [m(2) for m in multipliers()]</div></pre></td></tr></table></figure></p>
 <p>你将如何修改 multipliers 的定义来产生期望的结果</p>
 <p>答案</p>
