@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://learnbetter.club/"/>
-  <updated>2016-10-15T14:33:26.669Z</updated>
+  <updated>2016-10-23T15:57:49.325Z</updated>
   <id>http://learnbetter.club/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装robotframework</title>
+    <link href="http://learnbetter.club/2016/10/23/how_to_install_robotframework/"/>
+    <id>http://learnbetter.club/2016/10/23/how_to_install_robotframework/</id>
+    <published>2016-10-23T15:04:40.000Z</published>
+    <updated>2016-10-23T15:57:49.325Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      description
+    
+    </summary>
+    
+      <category term="python" scheme="http://learnbetter.club/categories/python/"/>
+    
+    
+      <category term="python robotframework" scheme="http://learnbetter.club/tags/python-robotframework/"/>
+    
+  </entry>
   
   <entry>
     <title>python partial的使用</title>
@@ -1088,39 +1111,6 @@ islice()    seq, [start,] stop [, step] elements from seq[start:stop:step]  isli
 <p><a href="http://lulee007.coding.me/2016/01/23/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE%E4%B9%8B-%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">Hexo博客优化配置之–为自己博客添加站内搜索</a></p>
 <p><a href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/" target="_blank" rel="external">Hexo博客第四站：搜索引擎+小插件+配置结构分析</a></p>
 <p><a href="https://kb.iu.edu/d/bckj" target="_blank" rel="external">How do I use Google Custom Search on my website?</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      如何使用hugo搭建个人博客
-    
-    </summary>
-    
-      <category term="Hugo" scheme="http://learnbetter.club/categories/Hugo/"/>
-    
-    
-      <category term="Hugo" scheme="http://learnbetter.club/tags/Hugo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用hugo搭建个人博客（四）:添加评论系统disqus</title>
-    <link href="http://learnbetter.club/2016/06/16/hugo%204%20add%20disqus/"/>
-    <id>http://learnbetter.club/2016/06/16/hugo 4 add disqus/</id>
-    <published>2016-06-16T07:04:40.000Z</published>
-    <updated>2016-08-07T04:31:41.965Z</updated>
-    
-    <content type="html"><![CDATA[<p>按照官方说法，只需要在config.toml文件中加上disqus的shortname即可让博客拥有disqus评论系统的功能。但折腾许久未能成功，现提供另一种添加disqus的方式。</p>
-<p><strong>1.注册disqus</strong><br>官网注册帐号 <a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a><br>使用方式可以参考 <a href="http://alfred-sun.github.io/blog/2014/12/05/github-pages/" target="_blank" rel="external">http://alfred-sun.github.io/blog/2014/12/05/github-pages/</a></p>
-<p></p><p><br><strong>2.使用disqus</strong><br>这里使用universal code的方式，将生成的code放到新文件comments.html中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div id:&quot;disqus_thread&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">/**</div><div class="line">* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.</div><div class="line">* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables</div><div class="line">*/</div><div class="line">/*</div><div class="line">var disqus_config : function () &#123;</div><div class="line">this.page.url : PAGE_URL; // Replace PAGE_URL with your page&apos;s canonical URL variable</div><div class="line">this.page.identifier : PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&apos;s unique identifier variable</div><div class="line">&#125;;</div><div class="line">*/</div><div class="line">(function() &#123; // DON&apos;T EDIT BELOW THIS LINE</div><div class="line">var d : document, s : d.createElement(&apos;script&apos;);</div><div class="line"></div><div class="line">s.src : &apos;//wwwlearnbetterclub.disqus.com/embed.js&apos;;</div><div class="line"></div><div class="line">s.setAttribute(&apos;data-timestamp&apos;, +new Date());</div><div class="line">(d.head || d.body).appendChild(s);</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;noscript&gt;Please enable JavaScript to view the &lt;a href:&quot;https://disqus.com/?ref_noscript&quot; rel:&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong>s.src请修改为自己的帐号信息<br>comments.html与header.html在同一个目录。</p>
-<p>显示效果：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20add%20disqus.jpg" alt="hugo add disqus"></p>
-<p></p><p><br><strong>3.博文中的comments可以关闭disqus功能</strong><br>可以对某篇博文单独关闭disqus功能。如test.md</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">+++</div><div class="line">Categories : [&quot;test&quot;]</div><div class="line">Description : &quot;test&quot;</div><div class="line">Tags : [&quot;test&quot;]</div><div class="line">menu : &quot;main&quot;</div><div class="line">title : &quot;test hugo&quot;</div><div class="line">comments : false      #这里的comments取值为false，disqus则不可见</div><div class="line">date : 2014-08-09T05:04:40Z</div><div class="line">+++</div><div class="line"></div><div class="line"></div><div class="line">hello hugo! I am test.md</div></pre></td></tr></table></figure>
-<p>comments取值为false的显示效果为：<br><img src="http://o7ubfyghw.bkt.clouddn.com/hugo%20post-s%20comments%20is%20false%20and%20no%20disqus.jpg" alt="hugo blog comments is false and disqus no display"></p>
-<hr>
-<p><strong>注：</strong>如果使用多说评论，请参考 <a href="http://tonybai.com/2015/09/23/intro-of-gohugo/" target="_blank" rel="external">http://tonybai.com/2015/09/23/intro-of-gohugo/</a></p>
 ]]></content>
     
     <summary type="html">
